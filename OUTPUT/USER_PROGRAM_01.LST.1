@@ -1,0 +1,2705 @@
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次1
+
+
+   1  0000              #pragma debug scope 1 1
+
+ 102  0000              #line 102 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 102  0000              _C_NUM_7SEG .SECTION INPAGE PRIVATE 'CODE'
+ 102  0000              PUBLIC l_C_NUM_7SEG
+ 102  0000              l_C_NUM_7SEG:
+ 102  0000  0386        ADDM A,[06h]
+ 102  0001              _C_NUM_7SEG:
+ 102  0001  09CF        RET A,207
+ 102  0002  0903        RET A,3
+ 102  0003  095E        RET A,94
+ 102  0004  095B        RET A,91
+ 102  0005  0993        RET A,147
+ 102  0006  09D9        RET A,217
+ 102  0007  09DD        RET A,221
+ 102  0008  0943        RET A,67
+ 102  0009  09DF        RET A,223
+ 102  000A  09DB        RET A,219
+ 102  000B  09D7        RET A,215
+ 102  000C  099D        RET A,157
+ 102  000D  091C        RET A,28
+ 102  000E  091F        RET A,31
+ 102  000F  09DC        RET A,220
+ 102  0010  09D4        RET A,212
+ 102  0011  0900        RET A,0
+ 120  0012              #line 120 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 120  0012              __ptm0rph EQU [06eH]
+ 120  0012              __ptm0rpl EQU [06dH]
+ 120  0012              __ptm0ah EQU [06cH]
+ 120  0012              __ptm0al EQU [06bH]
+ 120  0012              __ptm0dh EQU [06aH]
+ 120  0012              __ptm0dl EQU [069H]
+ 120  0012              __ptm0c1 EQU [068H]
+ 120  0012              __ptm0c0 EQU [067H]
+ 120  0012              __ctm0ah EQU [066H]
+ 120  0012              __ctm0al EQU [065H]
+ 120  0012              __ctm0dh EQU [064H]
+ 120  0012              __ctm0dl EQU [063H]
+ 120  0012              __ctm0c1 EQU [062H]
+ 120  0012              __ctm0c0 EQU [061H]
+ 120  0012              __tkm3c1 EQU [060H]
+ 120  0012              __tkm3c0 EQU [05fH]
+ 120  0012              __tkm3roh EQU [05eH]
+ 120  0012              __tkm3rol EQU [05dH]
+ 120  0012              __tkm316dh EQU [05cH]
+ 120  0012              __tkm316dl EQU [05bH]
+ 120  0012              __tkm2c1 EQU [05aH]
+ 120  0012              __tkm2c0 EQU [059H]
+ 120  0012              __tkm2roh EQU [058H]
+ 120  0012              __tkm2rol EQU [057H]
+ 120  0012              __tkm216dh EQU [056H]
+ 120  0012              __tkm216dl EQU [055H]
+ 120  0012              __tkm1c1 EQU [054H]
+ 120  0012              __tkm1c0 EQU [053H]
+ 120  0012              __tkm1roh EQU [052H]
+ 120  0012              __tkm1rol EQU [051H]
+ 120  0012              __tkm116dh EQU [050H]
+ 120  0012              __tkm116dl EQU [04fH]
+ 120  0012              __tkm0c1 EQU [04eH]
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次2
+
+ 120  0012              __tkm0c0 EQU [04dH]
+ 120  0012              __tkm0roh EQU [04cH]
+ 120  0012              __tkm0rol EQU [04bH]
+ 120  0012              __tkm016dh EQU [04aH]
+ 120  0012              __tkm016dl EQU [049H]
+ 120  0012              __tkc1 EQU [048H]
+ 120  0012              __tk16dh EQU [047H]
+ 120  0012              __tk16dl EQU [046H]
+ 120  0012              __tkc0 EQU [045H]
+ 120  0012              __tktmr EQU [044H]
+ 120  0012              __pdpu EQU [043H]
+ 120  0012              __pdc EQU [042H]
+ 120  0012              __pd EQU [041H]
+ 120  0012              __ctrl EQU [03dH]
+ 120  0012              __pcpu EQU [03bH]
+ 120  0012              __pcc EQU [03aH]
+ 120  0012              __pc EQU [039H]
+ 120  0012              __slcdc3 EQU [036H]
+ 120  0012              __slcdc2 EQU [035H]
+ 120  0012              __slcdc1 EQU [034H]
+ 120  0012              __slcdc0 EQU [033H]
+ 120  0012              __tmpc EQU [030H]
+ 120  0012              __txr_rxr EQU [02cH]
+ 120  0012              __brg EQU [02bH]
+ 120  0012              __ucr2 EQU [02aH]
+ 120  0012              __ucr1 EQU [029H]
+ 120  0012              __usr EQU [028H]
+ 120  0012              __iica EQU [027H]
+ 120  0012              __iicd EQU [026H]
+ 120  0012              __iicc1 EQU [025H]
+ 120  0012              __iicc0 EQU [024H]
+ 120  0012              __i2ctoc EQU [023H]
+ 120  0012              __pbpu EQU [022H]
+ 120  0012              __pbc EQU [021H]
+ 120  0012              __pb EQU [020H]
+ 120  0012              __eed EQU [01fH]
+ 120  0012              __eea EQU [01eH]
+ 120  0012              __pscr EQU [01cH]
+ 120  0012              __tbc EQU [01bH]
+ 120  0012              __wdtc EQU [01aH]
+ 120  0012              __sledc1 EQU [019H]
+ 120  0012              __sledc0 EQU [018H]
+ 120  0012              __pawu EQU [017H]
+ 120  0012              __papu EQU [016H]
+ 120  0012              __pac EQU [015H]
+ 120  0012              __pa EQU [014H]
+ 120  0012              __lvrc EQU [013H]
+ 120  0012              __lvdc EQU [012H]
+ 120  0012              __intc3 EQU [011H]
+ 120  0012              __intc2 EQU [010H]
+ 120  0012              __intc1 EQU [0fH]
+ 120  0012              __intc0 EQU [0eH]
+ 120  0012              __integ EQU [0dH]
+ 120  0012              __smod EQU [0bH]
+ 120  0012              __status EQU [0aH]
+ 120  0012              __tbhp EQU [09H]
+ 120  0012              __tblh EQU [08H]
+ 120  0012              __tblp EQU [07H]
+ 120  0012              __pcl EQU [06H]
+ 120  0012              __acc EQU [05H]
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次3
+
+ 120  0012              __bp EQU [04H]
+ 120  0012              __mp1 EQU [03H]
+ 120  0012              __iar1 EQU [02H]
+ 120  0012              __mp0 EQU [01H]
+ 120  0012              __iar0 EQU [00H]
+ 120  0000              @@Interrupt_Extemal .SECTION AT 04H 'CODE'
+ 120  0000  2800     R  JMP _Interrupt_Extemal
+ 120  0000              @Interrupt_Extemal .SECTION 'CODE'
+ 120  0000              _Interrupt_Extemal PROC
+ 120  0000  0080     E  MOV V1A,A
+ 120  0001  070A        MOV A,[0AH]
+ 120  0002  0080     E  MOV V1S,A
+ 120  0003              #pragma debug scope 2 1 ; 121 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 121  0003              #line 121 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 121  0003  0000        NOP
+ 121  0004              L1:
+ 121  0004  0700     E  MOV A,V1S
+ 121  0005  008A        MOV [0AH],A
+ 121  0006  0700     E  MOV A,V1A
+ 121  0007  0004        RETI
+ 121  0008              _Interrupt_Extemal ENDP
+ 121  0008              RAMBANK 0 @Interrupt_Extemal
+ 121  0000              @Interrupt_Extemal .SECTION 'DATA'
+ 130  0000              #line 130 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 130  0000              @@Interrupt_CTM0_CCRP .SECTION AT 010H 'CODE'
+ 130  0000  2800     R  JMP _Interrupt_CTM0_CCRP
+ 130  0000              @Interrupt_CTM0_CCRP .SECTION 'CODE'
+ 130  0000              _Interrupt_CTM0_CCRP PROC
+ 130  0000  0080     E  MOV V4A,A
+ 130  0001  070A        MOV A,[0AH]
+ 130  0002  0080     E  MOV V4S,A
+ 130  0003              #pragma debug scope 3 1 ; 131 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 131  0003              #line 131 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 131  0003  0000        NOP
+ 131  0004              L2:
+ 131  0004  0700     E  MOV A,V4S
+ 131  0005  008A        MOV [0AH],A
+ 131  0006  0700     E  MOV A,V4A
+ 131  0007  0004        RETI
+ 131  0008              _Interrupt_CTM0_CCRP ENDP
+ 131  0008              RAMBANK 0 @Interrupt_CTM0_CCRP
+ 131  0000              @Interrupt_CTM0_CCRP .SECTION 'DATA'
+ 142  0000              #line 142 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 142  0000              @@Interrupt_CTM0_CCRA .SECTION AT 014H 'CODE'
+ 142  0000  2800     R  JMP _Interrupt_CTM0_CCRA
+ 142  0000              @Interrupt_CTM0_CCRA .SECTION 'CODE'
+ 142  0000              _Interrupt_CTM0_CCRA PROC
+ 142  0000  0080     E  MOV V5A,A
+ 142  0001  070A        MOV A,[0AH]
+ 142  0002  0080     E  MOV V5S,A
+ 142  0003  0703        MOV A,[03H]
+ 142  0004  0080     E  MOV V5MP1,A
+ 142  0005  0704        MOV A,[04H]
+ 142  0006  0080     E  MOV V5BP,A
+ 142  0007              #pragma debug scope 4 1 ; 143 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 143  0007              #line 143 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 143  0007  0000        NOP
+ 144  0008              #line 144 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 144  0008  0001        CLR WDT
+ 147  0009              #line 147 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次4
+
+ 147  0009  0F00     R  MOV A,BANK _r_2ms
+ 147  000A  0084        MOV [04H],A
+ 147  000B  0F00     R  MOV A,OFFSET _r_2ms
+ 147  000C  0083        MOV [03H],A
+ 147  000D  1482        INC [02H]
+ 148  000E              #line 148 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 148  000E  0F00     R  MOV A,BANK _r_2ms
+ 148  000F  0084        MOV [04H],A
+ 148  0010  0F00     R  MOV A,OFFSET _r_2ms
+ 148  0011  0083        MOV [03H],A
+ 148  0012  0702        MOV A,[02H]
+ 148  0013  0A08        SUB A,08h
+ 148  0014  380A        SNZ [0AH].0
+ 148  0015  2800     R  JMP L4
+ 148  0016              #pragma debug scope 5 4 ; 150 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 150  0016              #line 150 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 150  0016  0F00     R  MOV A,BANK _r_2ms
+ 150  0017  0084        MOV [04H],A
+ 150  0018  0F00     R  MOV A,OFFSET _r_2ms
+ 150  0019  0083        MOV [03H],A
+ 150  001A  1F02        CLR [02H]
+ 151  001B              #line 151 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 151  001B  3000     R  SET _b_2ms
+ 153  001C              #line 153 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 153  001C  1080     R  SZ _r_KEY_DELAY_TIME
+ 153  001D  2800     R  JMP L39
+ 153  001E  2800     R  JMP L6
+ 153  001F              L39:
+ 153  001F              #pragma debug scope 6 5 ; 155 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 155  001F              #line 155 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 155  001F  1580     R  DEC _r_KEY_DELAY_TIME
+ 156  0020              #line 156 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 156  0020              #pragma debug scope 5 4 ; 156 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 156  0020  2800     R  JMP L7
+ 156  0021              L6:
+ 156  0021              #pragma debug scope 7 5 ; 159 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 159  0021              #line 159 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 159  0021  3C00     R  SZ _b_KEY_SEND
+ 159  0022  2800     R  JMP L8
+ 159  0023              #pragma debug scope 8 7 ; 161 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 161  0023              #line 161 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 161  0023  3000     R  SET _b_KEY_SEND
+ 162  0024              #line 162 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 162  0024  3000     R  SET _b_PIN_ST
+ 163  0025              #line 163 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 163  0025  0F00     R  MOV A,BANK _r_SEND_KEY_COUNT
+ 163  0026  0084        MOV [04H],A
+ 163  0027  0F00     R  MOV A,OFFSET _r_SEND_KEY_COUNT
+ 163  0028  0083        MOV [03H],A
+ 163  0029  1F02        CLR [02H]
+ 163  002A  1483        INC [03H]
+ 163  002B  1F02        CLR [02H]
+ 164  002C              #line 164 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 164  002C  1F00     R  CLR _r_SEND_BIT_TIME
+ 164  002D              L8:
+ 164  002D              L7:
+ 164  002D              L4:
+ 179  002D              #line 179 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 179  002D              #pragma debug scope 4 1 ; 179 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 179  002D  0F00     R  MOV A,BANK _r_scan_num
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次5
+
+ 179  002E  0084        MOV [04H],A
+ 179  002F  0F00     R  MOV A,OFFSET _r_scan_num
+ 179  0030  0083        MOV [03H],A
+ 179  0031  1482        INC [02H]
+ 180  0032              #line 180 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 180  0032  0F00     R  MOV A,BANK _r_temp
+ 180  0033  0084        MOV [04H],A
+ 180  0034  0F00     R  MOV A,OFFSET _r_temp
+ 180  0035  0083        MOV [03H],A
+ 180  0036  1F02        CLR [02H]
+ 181  0037              #line 181 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 181  0037  0F00     R  MOV A,BANK _r_scan_num
+ 181  0038  0084        MOV [04H],A
+ 181  0039  0F00     R  MOV A,OFFSET _r_scan_num
+ 181  003A  0083        MOV [03H],A
+ 181  003B  0F0D        MOV A,0dh
+ 181  003C  0202        SUB A,[02H]
+ 181  003D  3C0A        SZ [0AH].0
+ 181  003E  2800     R  JMP L10
+ 181  003F              #line 181 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 181  003F  0F00     R  MOV A,BANK _r_scan_num
+ 181  0040  0084        MOV [04H],A
+ 181  0041  0F00     R  MOV A,OFFSET _r_scan_num
+ 181  0042  0083        MOV [03H],A
+ 181  0043  1F02        CLR [02H]
+ 181  0044              L10:
+ 182  0044              #line 182 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 182  0044  0F17        MOV A,017h
+ 182  0045  0595        ORM A,__pac
+ 183  0046              #line 183 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 183  0046  0F0F        MOV A,0fh
+ 183  0047  05C2        ORM A,__pdc
+ 184  0048              #line 184 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 184  0048  0FF0        MOV A,0f0h
+ 184  0049  05BA        ORM A,__pcc
+ 185  004A              #line 185 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 185  004A  0FF0        MOV A,0f0h
+ 185  004B  0080     R  MOV b0_3,A
+ 185  004C  0700     R  MOV A,b0_3
+ 185  004D  06C1        ANDM A,__pd
+ 186  004E              #line 186 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 186  004E  0739        MOV A,__pc
+ 186  004F  0080     R  MOV b0_3,A
+ 186  0050  1F00     R  CLR b0_3[1]
+ 186  0051  0F0F        MOV A,0fh
+ 186  0052  0680     R  ANDM A,b0_3
+ 186  0053  0FFF        MOV A,0ffh
+ 186  0054  0680     R  ANDM A,b0_3[1]
+ 186  0055  0700     R  MOV A,b0_3
+ 186  0056  00B9        MOV __pc,A
+ 187  0057              #line 187 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 187  0057  0FE8        MOV A,0e8h
+ 187  0058  0080     R  MOV b0_3,A
+ 187  0059  0700     R  MOV A,b0_3
+ 187  005A  0694        ANDM A,__pa
+ 189  005B              #line 189 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 189  005B  0F00     R  MOV A,BANK _r_scan_num
+ 189  005C  0084        MOV [04H],A
+ 189  005D  0F00     R  MOV A,OFFSET _r_scan_num
+ 189  005E  0083        MOV [03H],A
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次6
+
+ 189  005F  0702        MOV A,[02H]
+ 189  0060  0080     R  MOV b0_3,A
+ 189  0061  1080     R  SZ b0_3
+ 189  0062  2800     R  JMP L40
+ 189  0063  2800     R  JMP L14
+ 189  0064              L40:
+ 189  0064  0700     R  MOV A,b0_3
+ 189  0065  0C01        XOR A,01h
+ 189  0066  3D0A        SZ [0ah].2
+ 189  0067  2800     R  JMP L15
+ 189  0068  0700     R  MOV A,b0_3
+ 189  0069  0C02        XOR A,02h
+ 189  006A  3D0A        SZ [0ah].2
+ 189  006B  2800     R  JMP L16
+ 189  006C  0700     R  MOV A,b0_3
+ 189  006D  0C03        XOR A,03h
+ 189  006E  3D0A        SZ [0ah].2
+ 189  006F  2800     R  JMP L18
+ 189  0070  0700     R  MOV A,b0_3
+ 189  0071  0C04        XOR A,04h
+ 189  0072  3D0A        SZ [0ah].2
+ 189  0073  2800     R  JMP L20
+ 189  0074  0700     R  MOV A,b0_3
+ 189  0075  0C05        XOR A,05h
+ 189  0076  3D0A        SZ [0ah].2
+ 189  0077  2800     R  JMP L22
+ 189  0078  0700     R  MOV A,b0_3
+ 189  0079  0C06        XOR A,06h
+ 189  007A  3D0A        SZ [0ah].2
+ 189  007B  2800     R  JMP L24
+ 189  007C  0700     R  MOV A,b0_3
+ 189  007D  0C07        XOR A,07h
+ 189  007E  3D0A        SZ [0ah].2
+ 189  007F  2800     R  JMP L26
+ 189  0080  0700     R  MOV A,b0_3
+ 189  0081  0C08        XOR A,08h
+ 189  0082  3D0A        SZ [0ah].2
+ 189  0083  2800     R  JMP L28
+ 189  0084  0700     R  MOV A,b0_3
+ 189  0085  0C09        XOR A,09h
+ 189  0086  3D0A        SZ [0ah].2
+ 189  0087  2800     R  JMP L29
+ 189  0088  0700     R  MOV A,b0_3
+ 189  0089  0C0A        XOR A,0ah
+ 189  008A  3D0A        SZ [0ah].2
+ 189  008B  2800     R  JMP L31
+ 189  008C  0700     R  MOV A,b0_3
+ 189  008D  0C0B        XOR A,0bh
+ 189  008E  3D0A        SZ [0ah].2
+ 189  008F  2800     R  JMP L33
+ 189  0090  0700     R  MOV A,b0_3
+ 189  0091  0C0C        XOR A,0ch
+ 189  0092  3D0A        SZ [0ah].2
+ 189  0093  2800     R  JMP L35
+ 189  0094  0700     R  MOV A,b0_3
+ 189  0095  0C0D        XOR A,0dh
+ 189  0096  3D0A        SZ [0ah].2
+ 189  0097  2800     R  JMP L37
+ 189  0098              #line 189 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 189  0098  2800     R  JMP L12
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次7
+
+ 189  0099              L14:
+ 189  0099              #pragma debug scope 9 4 ; 192 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 192  0099              #line 192 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 192  0099  0F00     R  MOV A,BANK _r_temp
+ 192  009A  0084        MOV [04H],A
+ 192  009B  0F00     R  MOV A,OFFSET _r_temp
+ 192  009C  0083        MOV [03H],A
+ 192  009D  0700     R  MOV A,_r_show_buf
+ 192  009E  0582        ORM A,[02H]
+ 194  009F              #line 194 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 194  009F  0F00     R  MOV A,BANK _r_temp
+ 194  00A0  0084        MOV [04H],A
+ 194  00A1  0F00     R  MOV A,OFFSET _r_temp
+ 194  00A2  0083        MOV [03H],A
+ 194  00A3  0702        MOV A,[02H]
+ 194  00A4  0080     R  MOV b0_3,A
+ 194  00A5  0700     R  MOV A,b0_3
+ 194  00A6  05C1        ORM A,__pd
+ 195  00A7              #line 195 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 195  00A7  0F00     R  MOV A,BANK _r_temp
+ 195  00A8  0084        MOV [04H],A
+ 195  00A9  0F00     R  MOV A,OFFSET _r_temp
+ 195  00AA  0083        MOV [03H],A
+ 195  00AB  0102        CPLA [02H]
+ 195  00AC  0080     R  MOV b0_3,A
+ 195  00AD  0700     R  MOV A,b0_3
+ 195  00AE  06C2        ANDM A,__pdc
+ 196  00AF              #line 196 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 196  00AF  3514        CLR [014H].2
+ 197  00B0              #line 197 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 197  00B0  3515        CLR [015H].2
+ 198  00B1              #line 198 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 198  00B1  2800     R  JMP L13
+ 198  00B2              L15:
+ 201  00B2              #line 201 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 201  00B2  0F00     R  MOV A,BANK _r_temp
+ 201  00B3  0084        MOV [04H],A
+ 201  00B4  0F00     R  MOV A,OFFSET _r_temp
+ 201  00B5  0083        MOV [03H],A
+ 201  00B6  0700     R  MOV A,_r_show_buf
+ 201  00B7  0582        ORM A,[02H]
+ 203  00B8              #line 203 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 203  00B8  0F00     R  MOV A,BANK _r_temp
+ 203  00B9  0084        MOV [04H],A
+ 203  00BA  0F00     R  MOV A,OFFSET _r_temp
+ 203  00BB  0083        MOV [03H],A
+ 203  00BC  0702        MOV A,[02H]
+ 203  00BD  0080     R  MOV b0_3,A
+ 203  00BE  0700     R  MOV A,b0_3
+ 203  00BF  05B9        ORM A,__pc
+ 204  00C0              #line 204 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 204  00C0  0F00     R  MOV A,BANK _r_temp
+ 204  00C1  0084        MOV [04H],A
+ 204  00C2  0F00     R  MOV A,OFFSET _r_temp
+ 204  00C3  0083        MOV [03H],A
+ 204  00C4  0102        CPLA [02H]
+ 204  00C5  0080     R  MOV b0_3,A
+ 204  00C6  0700     R  MOV A,b0_3
+ 204  00C7  06BA        ANDM A,__pcc
+ 205  00C8              #line 205 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次8
+
+ 205  00C8  3514        CLR [014H].2
+ 206  00C9              #line 206 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 206  00C9  3515        CLR [015H].2
+ 207  00CA              #line 207 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 207  00CA  2800     R  JMP L13
+ 207  00CB              L16:
+ 210  00CB              #line 210 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 210  00CB  0F00     R  MOV A,BANK _r_temp
+ 210  00CC  0084        MOV [04H],A
+ 210  00CD  0F00     R  MOV A,OFFSET _r_temp
+ 210  00CE  0083        MOV [03H],A
+ 210  00CF  0700     R  MOV A,_r_show_buf[1]
+ 210  00D0  0582        ORM A,[02H]
+ 212  00D1              #line 212 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 212  00D1  0F00     R  MOV A,BANK _r_temp
+ 212  00D2  0084        MOV [04H],A
+ 212  00D3  0F00     R  MOV A,OFFSET _r_temp
+ 212  00D4  0083        MOV [03H],A
+ 212  00D5  0702        MOV A,[02H]
+ 212  00D6  0080     R  MOV b0_3,A
+ 212  00D7  0700     R  MOV A,b0_3
+ 212  00D8  05B9        ORM A,__pc
+ 213  00D9              #line 213 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 213  00D9  0F00     R  MOV A,BANK _r_temp
+ 213  00DA  0084        MOV [04H],A
+ 213  00DB  0F00     R  MOV A,OFFSET _r_temp
+ 213  00DC  0083        MOV [03H],A
+ 213  00DD  0102        CPLA [02H]
+ 213  00DE  0080     R  MOV b0_3,A
+ 213  00DF  0700     R  MOV A,b0_3
+ 213  00E0  06BA        ANDM A,__pcc
+ 214  00E1              #line 214 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 214  00E1  3414        CLR [014H].0
+ 215  00E2              #line 215 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 215  00E2  3415        CLR [015H].0
+ 216  00E3              #line 216 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 216  00E3  2800     R  JMP L13
+ 216  00E4              L18:
+ 219  00E4              #line 219 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 219  00E4  0F00     R  MOV A,BANK _r_temp
+ 219  00E5  0084        MOV [04H],A
+ 219  00E6  0F00     R  MOV A,OFFSET _r_temp
+ 219  00E7  0083        MOV [03H],A
+ 219  00E8  0700     R  MOV A,_r_show_buf[1]
+ 219  00E9  0582        ORM A,[02H]
+ 221  00EA              #line 221 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 221  00EA  0F00     R  MOV A,BANK _r_temp
+ 221  00EB  0084        MOV [04H],A
+ 221  00EC  0F00     R  MOV A,OFFSET _r_temp
+ 221  00ED  0083        MOV [03H],A
+ 221  00EE  0702        MOV A,[02H]
+ 221  00EF  0080     R  MOV b0_3,A
+ 221  00F0  0700     R  MOV A,b0_3
+ 221  00F1  05C1        ORM A,__pd
+ 222  00F2              #line 222 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 222  00F2  0F00     R  MOV A,BANK _r_temp
+ 222  00F3  0084        MOV [04H],A
+ 222  00F4  0F00     R  MOV A,OFFSET _r_temp
+ 222  00F5  0083        MOV [03H],A
+ 222  00F6  0102        CPLA [02H]
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次9
+
+ 222  00F7  0080     R  MOV b0_3,A
+ 222  00F8  0700     R  MOV A,b0_3
+ 222  00F9  06C2        ANDM A,__pdc
+ 223  00FA              #line 223 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 223  00FA  3414        CLR [014H].0
+ 224  00FB              #line 224 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 224  00FB  3415        CLR [015H].0
+ 225  00FC              #line 225 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 225  00FC  2800     R  JMP L13
+ 225  00FD              L20:
+ 228  00FD              #line 228 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 228  00FD  0F00     R  MOV A,BANK _r_temp
+ 228  00FE  0084        MOV [04H],A
+ 228  00FF  0F00     R  MOV A,OFFSET _r_temp
+ 228  0100  0083        MOV [03H],A
+ 228  0101  0700     R  MOV A,_r_show_buf[2]
+ 228  0102  0582        ORM A,[02H]
+ 230  0103              #line 230 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 230  0103  0F00     R  MOV A,BANK _r_temp
+ 230  0104  0084        MOV [04H],A
+ 230  0105  0F00     R  MOV A,OFFSET _r_temp
+ 230  0106  0083        MOV [03H],A
+ 230  0107  0702        MOV A,[02H]
+ 230  0108  0080     R  MOV b0_3,A
+ 230  0109  0700     R  MOV A,b0_3
+ 230  010A  05B9        ORM A,__pc
+ 231  010B              #line 231 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 231  010B  0F00     R  MOV A,BANK _r_temp
+ 231  010C  0084        MOV [04H],A
+ 231  010D  0F00     R  MOV A,OFFSET _r_temp
+ 231  010E  0083        MOV [03H],A
+ 231  010F  0102        CPLA [02H]
+ 231  0110  0080     R  MOV b0_3,A
+ 231  0111  0700     R  MOV A,b0_3
+ 231  0112  06BA        ANDM A,__pcc
+ 232  0113              #line 232 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 232  0113  3494        CLR [014H].1
+ 233  0114              #line 233 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 233  0114  3495        CLR [015H].1
+ 234  0115              #line 234 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 234  0115  2800     R  JMP L13
+ 234  0116              L22:
+ 237  0116              #line 237 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 237  0116  0F00     R  MOV A,BANK _r_temp
+ 237  0117  0084        MOV [04H],A
+ 237  0118  0F00     R  MOV A,OFFSET _r_temp
+ 237  0119  0083        MOV [03H],A
+ 237  011A  0700     R  MOV A,_r_show_buf[2]
+ 237  011B  0582        ORM A,[02H]
+ 239  011C              #line 239 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 239  011C  0F00     R  MOV A,BANK _r_temp
+ 239  011D  0084        MOV [04H],A
+ 239  011E  0F00     R  MOV A,OFFSET _r_temp
+ 239  011F  0083        MOV [03H],A
+ 239  0120  0702        MOV A,[02H]
+ 239  0121  0080     R  MOV b0_3,A
+ 239  0122  0700     R  MOV A,b0_3
+ 239  0123  05C1        ORM A,__pd
+ 240  0124              #line 240 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 240  0124  0F00     R  MOV A,BANK _r_temp
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次10
+
+ 240  0125  0084        MOV [04H],A
+ 240  0126  0F00     R  MOV A,OFFSET _r_temp
+ 240  0127  0083        MOV [03H],A
+ 240  0128  0102        CPLA [02H]
+ 240  0129  0080     R  MOV b0_3,A
+ 240  012A  0700     R  MOV A,b0_3
+ 240  012B  06C2        ANDM A,__pdc
+ 241  012C              #line 241 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 241  012C  3494        CLR [014H].1
+ 242  012D              #line 242 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 242  012D  3495        CLR [015H].1
+ 243  012E              #line 243 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 243  012E  2800     R  JMP L13
+ 243  012F              L24:
+ 246  012F              #line 246 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 246  012F  0F00     R  MOV A,BANK _r_temp
+ 246  0130  0084        MOV [04H],A
+ 246  0131  0F00     R  MOV A,OFFSET _r_temp
+ 246  0132  0083        MOV [03H],A
+ 246  0133  0700     R  MOV A,_r_show_buf[3]
+ 246  0134  0582        ORM A,[02H]
+ 248  0135              #line 248 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 248  0135  0F00     R  MOV A,BANK _r_temp
+ 248  0136  0084        MOV [04H],A
+ 248  0137  0F00     R  MOV A,OFFSET _r_temp
+ 248  0138  0083        MOV [03H],A
+ 248  0139  0702        MOV A,[02H]
+ 248  013A  0080     R  MOV b0_3,A
+ 248  013B  0700     R  MOV A,b0_3
+ 248  013C  05C1        ORM A,__pd
+ 249  013D              #line 249 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 249  013D  0F00     R  MOV A,BANK _r_temp
+ 249  013E  0084        MOV [04H],A
+ 249  013F  0F00     R  MOV A,OFFSET _r_temp
+ 249  0140  0083        MOV [03H],A
+ 249  0141  0102        CPLA [02H]
+ 249  0142  0080     R  MOV b0_3,A
+ 249  0143  0700     R  MOV A,b0_3
+ 249  0144  06C2        ANDM A,__pdc
+ 250  0145              #line 250 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 250  0145  3614        CLR [014H].4
+ 251  0146              #line 251 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 251  0146  3615        CLR [015H].4
+ 252  0147              #line 252 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 252  0147  2800     R  JMP L13
+ 252  0148              L26:
+ 255  0148              #line 255 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 255  0148  0F00     R  MOV A,BANK _r_temp
+ 255  0149  0084        MOV [04H],A
+ 255  014A  0F00     R  MOV A,OFFSET _r_temp
+ 255  014B  0083        MOV [03H],A
+ 255  014C  0700     R  MOV A,_r_show_buf[3]
+ 255  014D  0582        ORM A,[02H]
+ 257  014E              #line 257 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 257  014E  0F00     R  MOV A,BANK _r_temp
+ 257  014F  0084        MOV [04H],A
+ 257  0150  0F00     R  MOV A,OFFSET _r_temp
+ 257  0151  0083        MOV [03H],A
+ 257  0152  0702        MOV A,[02H]
+ 257  0153  0080     R  MOV b0_3,A
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次11
+
+ 257  0154  0700     R  MOV A,b0_3
+ 257  0155  05B9        ORM A,__pc
+ 258  0156              #line 258 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 258  0156  0F00     R  MOV A,BANK _r_temp
+ 258  0157  0084        MOV [04H],A
+ 258  0158  0F00     R  MOV A,OFFSET _r_temp
+ 258  0159  0083        MOV [03H],A
+ 258  015A  0102        CPLA [02H]
+ 258  015B  0080     R  MOV b0_3,A
+ 258  015C  0700     R  MOV A,b0_3
+ 258  015D  06BA        ANDM A,__pcc
+ 259  015E              #line 259 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 259  015E  3614        CLR [014H].4
+ 260  015F              #line 260 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 260  015F  3615        CLR [015H].4
+ 261  0160              #line 261 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 261  0160  2800     R  JMP L13
+ 261  0161              L28:
+ 264  0161              #line 264 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 264  0161  0F00     R  MOV A,BANK _r_temp
+ 264  0162  0084        MOV [04H],A
+ 264  0163  0F00     R  MOV A,OFFSET _r_temp
+ 264  0164  0083        MOV [03H],A
+ 264  0165  0700     R  MOV A,_r_show_led_buf
+ 264  0166  0582        ORM A,[02H]
+ 265  0167              #line 265 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 265  0167  0F00     R  MOV A,BANK _r_temp
+ 265  0168  0084        MOV [04H],A
+ 265  0169  0F00     R  MOV A,OFFSET _r_temp
+ 265  016A  0083        MOV [03H],A
+ 265  016B  0702        MOV A,[02H]
+ 265  016C  0080     R  MOV b0_3,A
+ 265  016D  0700     R  MOV A,b0_3
+ 265  016E  0594        ORM A,__pa
+ 266  016F              #line 266 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 266  016F  0F00     R  MOV A,BANK _r_temp
+ 266  0170  0084        MOV [04H],A
+ 266  0171  0F00     R  MOV A,OFFSET _r_temp
+ 266  0172  0083        MOV [03H],A
+ 266  0173  0102        CPLA [02H]
+ 266  0174  0080     R  MOV b0_3,A
+ 266  0175  0700     R  MOV A,b0_3
+ 266  0176  0695        ANDM A,__pac
+ 267  0177              #line 267 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 267  0177  3541        CLR [041H].2
+ 268  0178              #line 268 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 268  0178  3542        CLR [042H].2
+ 269  0179              #line 269 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 269  0179  2800     R  JMP L13
+ 269  017A              L29:
+ 273  017A              #line 273 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 273  017A  0F00     R  MOV A,BANK _r_temp
+ 273  017B  0084        MOV [04H],A
+ 273  017C  0F00     R  MOV A,OFFSET _r_temp
+ 273  017D  0083        MOV [03H],A
+ 273  017E  0700     R  MOV A,_r_show_led_buf[1]
+ 273  017F  0582        ORM A,[02H]
+ 274  0180              #line 274 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 274  0180  0F00     R  MOV A,BANK _r_temp
+ 274  0181  0084        MOV [04H],A
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次12
+
+ 274  0182  0F00     R  MOV A,OFFSET _r_temp
+ 274  0183  0083        MOV [03H],A
+ 274  0184  0702        MOV A,[02H]
+ 274  0185  0080     R  MOV b0_3,A
+ 274  0186  0700     R  MOV A,b0_3
+ 274  0187  0594        ORM A,__pa
+ 275  0188              #line 275 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 275  0188  0F00     R  MOV A,BANK _r_temp
+ 275  0189  0084        MOV [04H],A
+ 275  018A  0F00     R  MOV A,OFFSET _r_temp
+ 275  018B  0083        MOV [03H],A
+ 275  018C  0102        CPLA [02H]
+ 275  018D  0080     R  MOV b0_3,A
+ 275  018E  0700     R  MOV A,b0_3
+ 275  018F  0695        ANDM A,__pac
+ 277  0190              #line 277 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 277  0190  35C1        CLR [041H].3
+ 278  0191              #line 278 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 278  0191  35C2        CLR [042H].3
+ 279  0192              #line 279 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 279  0192  2800     R  JMP L13
+ 279  0193              L31:
+ 282  0193              #line 282 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 282  0193  0F00     R  MOV A,BANK _r_temp
+ 282  0194  0084        MOV [04H],A
+ 282  0195  0F00     R  MOV A,OFFSET _r_temp
+ 282  0196  0083        MOV [03H],A
+ 282  0197  0700     R  MOV A,_r_show_led_buf[2]
+ 282  0198  0582        ORM A,[02H]
+ 283  0199              #line 283 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 283  0199  0F00     R  MOV A,BANK _r_temp
+ 283  019A  0084        MOV [04H],A
+ 283  019B  0F00     R  MOV A,OFFSET _r_temp
+ 283  019C  0083        MOV [03H],A
+ 283  019D  0702        MOV A,[02H]
+ 283  019E  0080     R  MOV b0_3,A
+ 283  019F  0700     R  MOV A,b0_3
+ 283  01A0  0594        ORM A,__pa
+ 284  01A1              #line 284 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 284  01A1  0F00     R  MOV A,BANK _r_temp
+ 284  01A2  0084        MOV [04H],A
+ 284  01A3  0F00     R  MOV A,OFFSET _r_temp
+ 284  01A4  0083        MOV [03H],A
+ 284  01A5  0102        CPLA [02H]
+ 284  01A6  0080     R  MOV b0_3,A
+ 284  01A7  0700     R  MOV A,b0_3
+ 284  01A8  0695        ANDM A,__pac
+ 285  01A9              #line 285 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 285  01A9  3639        CLR [039H].4
+ 286  01AA              #line 286 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 286  01AA  363A        CLR [03AH].4
+ 287  01AB              #line 287 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 287  01AB  2800     R  JMP L13
+ 287  01AC              L33:
+ 290  01AC              #line 290 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 290  01AC  0F00     R  MOV A,BANK _r_temp
+ 290  01AD  0084        MOV [04H],A
+ 290  01AE  0F00     R  MOV A,OFFSET _r_temp
+ 290  01AF  0083        MOV [03H],A
+ 290  01B0  0700     R  MOV A,_r_show_led_buf[3]
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次13
+
+ 290  01B1  0582        ORM A,[02H]
+ 291  01B2              #line 291 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 291  01B2  0F00     R  MOV A,BANK _r_temp
+ 291  01B3  0084        MOV [04H],A
+ 291  01B4  0F00     R  MOV A,OFFSET _r_temp
+ 291  01B5  0083        MOV [03H],A
+ 291  01B6  0702        MOV A,[02H]
+ 291  01B7  0080     R  MOV b0_3,A
+ 291  01B8  0700     R  MOV A,b0_3
+ 291  01B9  0594        ORM A,__pa
+ 292  01BA              #line 292 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 292  01BA  0F00     R  MOV A,BANK _r_temp
+ 292  01BB  0084        MOV [04H],A
+ 292  01BC  0F00     R  MOV A,OFFSET _r_temp
+ 292  01BD  0083        MOV [03H],A
+ 292  01BE  0102        CPLA [02H]
+ 292  01BF  0080     R  MOV b0_3,A
+ 292  01C0  0700     R  MOV A,b0_3
+ 292  01C1  0695        ANDM A,__pac
+ 293  01C2              #line 293 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 293  01C2  36B9        CLR [039H].5
+ 294  01C3              #line 294 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 294  01C3  36BA        CLR [03AH].5
+ 295  01C4              #line 295 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 295  01C4  2800     R  JMP L13
+ 295  01C5              L35:
+ 298  01C5              #line 298 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 298  01C5  0F00     R  MOV A,BANK _r_temp
+ 298  01C6  0084        MOV [04H],A
+ 298  01C7  0F00     R  MOV A,OFFSET _r_temp
+ 298  01C8  0083        MOV [03H],A
+ 298  01C9  0700     R  MOV A,_r_show_led_buf[4]
+ 298  01CA  0582        ORM A,[02H]
+ 299  01CB              #line 299 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 299  01CB  0F00     R  MOV A,BANK _r_temp
+ 299  01CC  0084        MOV [04H],A
+ 299  01CD  0F00     R  MOV A,OFFSET _r_temp
+ 299  01CE  0083        MOV [03H],A
+ 299  01CF  0702        MOV A,[02H]
+ 299  01D0  0080     R  MOV b0_3,A
+ 299  01D1  0700     R  MOV A,b0_3
+ 299  01D2  0594        ORM A,__pa
+ 300  01D3              #line 300 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 300  01D3  0F00     R  MOV A,BANK _r_temp
+ 300  01D4  0084        MOV [04H],A
+ 300  01D5  0F00     R  MOV A,OFFSET _r_temp
+ 300  01D6  0083        MOV [03H],A
+ 300  01D7  0102        CPLA [02H]
+ 300  01D8  0080     R  MOV b0_3,A
+ 300  01D9  0700     R  MOV A,b0_3
+ 300  01DA  0695        ANDM A,__pac
+ 301  01DB              #line 301 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 301  01DB  3739        CLR [039H].6
+ 302  01DC              #line 302 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 302  01DC  373A        CLR [03AH].6
+ 303  01DD              #line 303 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 303  01DD  2800     R  JMP L13
+ 303  01DE              L37:
+ 306  01DE              #line 306 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 306  01DE  0F00     R  MOV A,BANK _r_temp
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次14
+
+ 306  01DF  0084        MOV [04H],A
+ 306  01E0  0F00     R  MOV A,OFFSET _r_temp
+ 306  01E1  0083        MOV [03H],A
+ 306  01E2  0700     R  MOV A,_r_show_led_buf[5]
+ 306  01E3  0582        ORM A,[02H]
+ 307  01E4              #line 307 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 307  01E4  0F00     R  MOV A,BANK _r_temp
+ 307  01E5  0084        MOV [04H],A
+ 307  01E6  0F00     R  MOV A,OFFSET _r_temp
+ 307  01E7  0083        MOV [03H],A
+ 307  01E8  0702        MOV A,[02H]
+ 307  01E9  0080     R  MOV b0_3,A
+ 307  01EA  0700     R  MOV A,b0_3
+ 307  01EB  0594        ORM A,__pa
+ 308  01EC              #line 308 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 308  01EC  0F00     R  MOV A,BANK _r_temp
+ 308  01ED  0084        MOV [04H],A
+ 308  01EE  0F00     R  MOV A,OFFSET _r_temp
+ 308  01EF  0083        MOV [03H],A
+ 308  01F0  0102        CPLA [02H]
+ 308  01F1  0080     R  MOV b0_3,A
+ 308  01F2  0700     R  MOV A,b0_3
+ 308  01F3  0695        ANDM A,__pac
+ 309  01F4              #line 309 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 309  01F4  37B9        CLR [039H].7
+ 310  01F5              #line 310 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 310  01F5  37BA        CLR [03AH].7
+ 311  01F6              #line 311 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 311  01F6  2800     R  JMP L13
+ 311  01F7              L12:
+ 314  01F7              #line 314 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 314  01F7  0F00     R  MOV A,BANK _r_scan_num
+ 314  01F8  0084        MOV [04H],A
+ 314  01F9  0F00     R  MOV A,OFFSET _r_scan_num
+ 314  01FA  0083        MOV [03H],A
+ 314  01FB  1F02        CLR [02H]
+ 314  01FC              L13:
+ 314  01FC              L3:
+ 314  01FC  0700     E  MOV A,V5MP1
+ 314  01FD  0083        MOV [03H],A
+ 314  01FE  0700     E  MOV A,V5BP
+ 314  01FF  0084        MOV [04H],A
+ 314  0200  0700     E  MOV A,V5S
+ 314  0201  008A        MOV [0AH],A
+ 314  0202  0700     E  MOV A,V5A
+ 314  0203  0004        RETI
+ 314  0204              _Interrupt_CTM0_CCRA ENDP
+ 314  0204              RAMBANK 0 @Interrupt_CTM0_CCRA
+ 314  0000              @Interrupt_CTM0_CCRA .SECTION 'DATA'
+ 314  0000  0002[       b0_3 DB 2 DUP(?)
+            00
+            ]
+ 328  0002              #line 328 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 328  0000              @@Interrupt_PTM1_CCRP .SECTION AT 018H 'CODE'
+ 328  0000  2800     R  JMP _Interrupt_PTM1_CCRP
+ 328  0000              @Interrupt_PTM1_CCRP .SECTION 'CODE'
+ 328  0000              _Interrupt_PTM1_CCRP PROC
+ 328  0000  0080     E  MOV V6A,A
+ 328  0001  070A        MOV A,[0AH]
+ 328  0002  0080     E  MOV V6S,A
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次15
+
+ 328  0003              #pragma debug scope 10 1 ; 329 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 329  0003              #line 329 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 329  0003  0000        NOP
+ 329  0004              L41:
+ 329  0004  0700     E  MOV A,V6S
+ 329  0005  008A        MOV [0AH],A
+ 329  0006  0700     E  MOV A,V6A
+ 329  0007  0004        RETI
+ 329  0008              _Interrupt_PTM1_CCRP ENDP
+ 329  0008              RAMBANK 0 @Interrupt_PTM1_CCRP
+ 329  0000              @Interrupt_PTM1_CCRP .SECTION 'DATA'
+ 339  0000              #line 339 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 339  0000              @@Interrupt_PTM1_CCRA .SECTION AT 01cH 'CODE'
+ 339  0000  2800     R  JMP _Interrupt_PTM1_CCRA
+ 339  0000              @Interrupt_PTM1_CCRA .SECTION 'CODE'
+ 339  0000              _Interrupt_PTM1_CCRA PROC
+ 339  0000  0080     E  MOV V7A,A
+ 339  0001  070A        MOV A,[0AH]
+ 339  0002  0080     E  MOV V7S,A
+ 339  0003  0703        MOV A,[03H]
+ 339  0004  0080     E  MOV V7MP1,A
+ 339  0005  0704        MOV A,[04H]
+ 339  0006  0080     E  MOV V7BP,A
+ 339  0007  0700     E  MOV A,RH
+ 339  0008  0080     E  MOV V7T1,A
+ 339  0009              #pragma debug scope 11 1 ; 393 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 393  0009              #line 393 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 393  0009  3800     R  SNZ _b_KEY_SEND
+ 393  000A  2800     R  JMP L43
+ 393  000B              #pragma debug scope 12 11 ; 395 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 395  000B              #line 395 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 395  000B  1080     R  SZ _r_SEND_BIT_TIME
+ 395  000C  2800     R  JMP L129
+ 395  000D  2800     R  JMP L45
+ 395  000E              L129:
+ 395  000E              #pragma debug scope 13 12 ; 397 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 397  000E              #line 397 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 397  000E  1580     R  DEC _r_SEND_BIT_TIME
+ 398  000F              #line 398 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 398  000F  3794        CLR [014H].7
+ 399  0010              #line 399 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 399  0010  3800     R  SNZ _b_PIN_ST
+ 399  0011  2800     R  JMP L47
+ 400  0012              #line 400 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 400  0012  3395        SET [015H].7
+ 400  0013              #line 400 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 400  0013  2800     R  JMP L46
+ 400  0014              L47:
+ 402  0014              #line 402 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 402  0014  3795        CLR [015H].7
+ 403  0015              #line 403 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 403  0015              #pragma debug scope 12 11 ; 403 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 403  0015  2800     R  JMP L46
+ 403  0016              L45:
+ 403  0016              #pragma debug scope 14 12 ; 406 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 406  0016              #line 406 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 406  0016  3800     R  SNZ _b_PIN_ST
+ 406  0017  2800     R  JMP L49
+ 406  0018              #pragma debug scope 15 14 ; 408 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 408  0018              #line 408 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次16
+
+ 408  0018  0F00     R  MOV A,BANK _r_SEND_KEY_COUNT
+ 408  0019  0084        MOV [04H],A
+ 408  001A  0F00     R  MOV A,OFFSET _r_SEND_KEY_COUNT
+ 408  001B  0083        MOV [03H],A
+ 408  001C  0702        MOV A,[02H]
+ 408  001D  0080     R  MOV b0_5,A
+ 408  001E  1483        INC [03H]
+ 408  001F  0702        MOV A,[02H]
+ 408  0020  0080     R  MOV b0_5[1],A
+ 408  0021  0F80        MOV A,80h
+ 408  0022  0400     R  XOR A,b0_5[1]
+ 408  0023  0080     E  MOV RH,A
+ 408  0024  0F80        MOV A,080h
+ 408  0025  0200     E  SUB A,RH
+ 408  0026  380A        SNZ [0AH].0
+ 408  0027  2800     R  JMP L51
+ 408  0028  390A        SNZ [0AH].2
+ 408  0029  2800     R  JMP L130
+ 408  002A  0700     R  MOV A,b0_5
+ 408  002B  0A11        SUB A,011h
+ 408  002C  3C0A        SZ [0AH].0
+ 408  002D  2800     R  JMP L51
+ 408  002E              L130:
+ 408  002E              #pragma debug scope 16 15 ; 410 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 410  002E              #line 410 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 410  002E  0F00     R  MOV A,BANK _r_SEND_KEY_COUNT
+ 410  002F  0084        MOV [04H],A
+ 410  0030  0F00     R  MOV A,OFFSET _r_SEND_KEY_COUNT
+ 410  0031  0083        MOV [03H],A
+ 410  0032  0702        MOV A,[02H]
+ 410  0033  0080     R  MOV b0_5,A
+ 410  0034  1483        INC [03H]
+ 410  0035  0702        MOV A,[02H]
+ 410  0036  0080     R  MOV b0_5[1],A
+ 410  0037  1080     R  SZ b0_5
+ 410  0038  2800     R  JMP L53
+ 410  0039  1080     R  SZ b0_5[1]
+ 410  003A  2800     R  JMP L53
+ 410  003B              #pragma debug scope 17 16 ; 412 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 412  003B              #line 412 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 412  003B  0100     R  CPLA _r_send_buf
+ 412  003C  0080     R  MOV _r_send_buf1,A
+ 413  003D              #line 413 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 413  003D              #pragma debug scope 16 15 ; 413 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 413  003D  2800     R  JMP L54
+ 413  003E              L53:
+ 413  003E              #pragma debug scope 18 16 ; 416 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 416  003E              #line 416 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 416  003E  0F00     R  MOV A,BANK _r_SEND_KEY_COUNT
+ 416  003F  0084        MOV [04H],A
+ 416  0040  0F00     R  MOV A,OFFSET _r_SEND_KEY_COUNT
+ 416  0041  0083        MOV [03H],A
+ 416  0042  0702        MOV A,[02H]
+ 416  0043  0080     R  MOV b0_5,A
+ 416  0044  1483        INC [03H]
+ 416  0045  0702        MOV A,[02H]
+ 416  0046  0080     R  MOV b0_5[1],A
+ 416  0047  0700     R  MOV A,b0_5
+ 416  0048  0C08        XOR A,08h
+ 416  0049  390A        SNZ [0AH].2
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次17
+
+ 416  004A  2800     R  JMP L55
+ 416  004B  0700     R  MOV A,b0_5[1]
+ 416  004C  0C00        XOR A,00h
+ 416  004D  390A        SNZ [0AH].2
+ 416  004E  2800     R  JMP L55
+ 416  004F              #pragma debug scope 19 18 ; 418 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 418  004F              #line 418 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 418  004F  0700     R  MOV A,_r_send_buf1
+ 418  0050  0080     R  MOV _r_send_buf,A
+ 418  0051              L55:
+ 418  0051              L54:
+ 421  0051              #line 421 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 421  0051              #pragma debug scope 16 15 ; 421 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 421  0051  0F00     R  MOV A,BANK _r_SEND_KEY_COUNT
+ 421  0052  0084        MOV [04H],A
+ 421  0053  0F00     R  MOV A,OFFSET _r_SEND_KEY_COUNT
+ 421  0054  0083        MOV [03H],A
+ 421  0055  0F01        MOV A,01h
+ 421  0056  0382        ADDM A,[02H]
+ 421  0057  0F00        MOV A,00h
+ 421  0058  1483        INC [03H]
+ 421  0059  1382        ADCM A,[02H]
+ 422  005A              #line 422 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 422  005A              #pragma debug scope 15 14 ; 422 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 422  005A  2800     R  JMP L52
+ 422  005B              L51:
+ 422  005B              #pragma debug scope 20 15 ; 425 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 425  005B              #line 425 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 425  005B  3400     R  CLR _b_KEY_SEND
+ 426  005C              #line 426 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 426  005C  0F07        MOV A,07h
+ 426  005D  0080     R  MOV _r_KEY_DELAY_TIME,A
+ 426  005E              L52:
+ 429  005E              #line 429 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 429  005E              #pragma debug scope 15 14 ; 429 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 429  005E  3400     R  CLR _b_PIN_ST
+ 430  005F              #line 430 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 430  005F  3800     R  SNZ _r_send_buf.7
+ 430  0060  2800     R  JMP L57
+ 430  0061              #line 430 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 430  0061  0F0F        MOV A,0fh
+ 430  0062  0080     R  MOV _r_SEND_BIT_TIME,A
+ 430  0063              #line 430 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 430  0063  2800     R  JMP L50
+ 430  0064              L57:
+ 431  0064              #line 431 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 431  0064  0F07        MOV A,07h
+ 431  0065  0080     R  MOV _r_SEND_BIT_TIME,A
+ 432  0066              #line 432 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 432  0066              #pragma debug scope 14 12 ; 432 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 432  0066  2800     R  JMP L50
+ 432  0067              L49:
+ 432  0067              #pragma debug scope 21 14 ; 435 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 435  0067              #line 435 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 435  0067  3000     R  SET _b_PIN_ST
+ 436  0068              #line 436 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 436  0068  3800     R  SNZ _r_send_buf.7
+ 436  0069  2800     R  JMP L59
+ 436  006A              #line 436 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 436  006A  0F07        MOV A,07h
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次18
+
+ 436  006B  0080     R  MOV _r_SEND_BIT_TIME,A
+ 436  006C              #line 436 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 436  006C  2800     R  JMP L60
+ 436  006D              L59:
+ 437  006D              #line 437 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 437  006D  0F0F        MOV A,0fh
+ 437  006E  0080     R  MOV _r_SEND_BIT_TIME,A
+ 437  006F              L60:
+ 438  006F              #line 438 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 438  006F  340A        CLR [0AH].0
+ 438  0070  1A80     R  RLC _r_send_buf
+ 438  0071              L50:
+ 438  0071              L46:
+ 438  0071              L43:
+ 445  0071              #line 445 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 445  0071              #pragma debug scope 11 1 ; 445 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 445  0071  3195        SET [015H].3
+ 446  0072              #line 446 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 446  0072  3994        SNZ [014H].3
+ 446  0073  2800     R  JMP L61
+ 446  0074              #pragma debug scope 22 11 ; 448 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 448  0074              #line 448 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 448  0074  3800     R  SNZ _b_pin_RECEIVE_D
+ 448  0075  2800     R  JMP L63
+ 448  0076              #pragma debug scope 23 22 ; 450 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 450  0076              #line 450 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 450  0076  0F00     R  MOV A,BANK _r_PIN_RECEIVE_HIGH_TIME
+ 450  0077  0084        MOV [04H],A
+ 450  0078  0F00     R  MOV A,OFFSET _r_PIN_RECEIVE_HIGH_TIME
+ 450  0079  0083        MOV [03H],A
+ 450  007A  1482        INC [02H]
+ 451  007B              #line 451 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 451  007B  0F00     R  MOV A,BANK _r_PIN_RECEIVE_HIGH_TIME
+ 451  007C  0084        MOV [04H],A
+ 451  007D  0F00     R  MOV A,OFFSET _r_PIN_RECEIVE_HIGH_TIME
+ 451  007E  0083        MOV [03H],A
+ 451  007F  0F0F        MOV A,0fh
+ 451  0080  0202        SUB A,[02H]
+ 451  0081  3C0A        SZ [0AH].0
+ 451  0082  2800     R  JMP L62
+ 451  0083              #pragma debug scope 24 23 ; 453 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 453  0083              #line 453 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 453  0083  0F00     R  MOV A,BANK _r_RECEIVE_NUM_COUNT
+ 453  0084  0084        MOV [04H],A
+ 453  0085  0F00     R  MOV A,OFFSET _r_RECEIVE_NUM_COUNT
+ 453  0086  0083        MOV [03H],A
+ 453  0087  1F02        CLR [02H]
+ 454  0088              #line 454 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 454  0088  0F00     R  MOV A,BANK _r_PIN_RECEIVE_HIGH_TIME
+ 454  0089  0084        MOV [04H],A
+ 454  008A  0F00     R  MOV A,OFFSET _r_PIN_RECEIVE_HIGH_TIME
+ 454  008B  0083        MOV [03H],A
+ 454  008C  1F02        CLR [02H]
+ 466  008D              #line 466 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 466  008D              #pragma debug scope 22 11 ; 466 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 466  008D  2800     R  JMP L62
+ 466  008E              L63:
+ 466  008E              #pragma debug scope 25 22 ; 469 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 469  008E              #line 469 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 469  008E  3000     R  SET _b_pin_RECEIVE_D
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次19
+
+ 470  008F              #line 470 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 470  008F  0F00     R  MOV A,BANK _r_PIN_RECEIVE_HIGH_TIME
+ 470  0090  0084        MOV [04H],A
+ 470  0091  0F00     R  MOV A,OFFSET _r_PIN_RECEIVE_HIGH_TIME
+ 470  0092  0083        MOV [03H],A
+ 470  0093  1F02        CLR [02H]
+ 471  0094              #line 471 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 471  0094  0F00     R  MOV A,BANK _r_RECEIVE_NUM_COUNT
+ 471  0095  0084        MOV [04H],A
+ 471  0096  0F00     R  MOV A,OFFSET _r_RECEIVE_NUM_COUNT
+ 471  0097  0083        MOV [03H],A
+ 471  0098  0702        MOV A,[02H]
+ 471  0099  0A40        SUB A,040h
+ 471  009A  3C0A        SZ [0AH].0
+ 471  009B  2800     R  JMP L67
+ 471  009C              #pragma debug scope 26 25 ; 473 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 473  009C              #line 473 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 473  009C  3C00     R  SZ _b_receive_ok
+ 473  009D  2800     R  JMP L69
+ 473  009E              #pragma debug scope 27 26 ; 475 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 475  009E              #line 475 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 475  009E  340A        CLR __status.0
+ 477  009F              #line 477 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 477  009F  1A80     R  rlc		_r_receive_buf[0]
+ 478  00A0              #line 478 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 478  00A0  1A80     R  rlc		_r_receive_buf[4]
+ 479  00A1              #line 479 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 479  00A1  1A80     R  rlc		_r_receive_buf[3]
+ 480  00A2              #line 480 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 480  00A2  1A80     R  rlc		_r_receive_buf[2]
+ 481  00A3              #line 481 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 481  00A3  1A80     R  rlc		_r_receive_buf[1]
+ 482  00A4              #line 482 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 482  00A4  1A80     R  rlc		_r_receive_buf[7]
+ 483  00A5              #line 483 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 483  00A5  1A80     R  rlc		_r_receive_buf[6]
+ 484  00A6              #line 484 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 484  00A6  1A80     R  rlc		_r_receive_buf[5]
+ 497  00A7              #line 497 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 497  00A7  0F00     R  MOV A,BANK _r_PIN_RECEIVE_LOW_TIME
+ 497  00A8  0084        MOV [04H],A
+ 497  00A9  0F00     R  MOV A,OFFSET _r_PIN_RECEIVE_LOW_TIME
+ 497  00AA  0083        MOV [03H],A
+ 497  00AB  0F05        MOV A,05h
+ 497  00AC  0202        SUB A,[02H]
+ 497  00AD  380A        SNZ [0AH].0
+ 497  00AE  2800     R  JMP L71
+ 497  00AF  0F00     R  MOV A,BANK _r_PIN_RECEIVE_LOW_TIME
+ 497  00B0  0084        MOV [04H],A
+ 497  00B1  0F00     R  MOV A,OFFSET _r_PIN_RECEIVE_LOW_TIME
+ 497  00B2  0083        MOV [03H],A
+ 497  00B3  0702        MOV A,[02H]
+ 497  00B4  0A02        SUB A,02h
+ 497  00B5  380A        SNZ [0AH].0
+ 497  00B6  2800     R  JMP L71
+ 497  00B7              #pragma debug scope 28 27 ; 499 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 499  00B7              #line 499 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 499  00B7  0700     R  MOV A,_r_receive_buf
+ 499  00B8  0080     R  MOV _r_receive_buf,A
+ 500  00B9              #line 500 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次20
+
+ 500  00B9              #pragma debug scope 27 26 ; 500 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 500  00B9  2800     R  JMP L72
+ 500  00BA              L71:
+ 500  00BA              #pragma debug scope 29 27 ; 503 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 503  00BA              #line 503 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 503  00BA  0F00     R  MOV A,BANK _r_PIN_RECEIVE_LOW_TIME
+ 503  00BB  0084        MOV [04H],A
+ 503  00BC  0F00     R  MOV A,OFFSET _r_PIN_RECEIVE_LOW_TIME
+ 503  00BD  0083        MOV [03H],A
+ 503  00BE  0702        MOV A,[02H]
+ 503  00BF  0A06        SUB A,06h
+ 503  00C0  380A        SNZ [0AH].0
+ 503  00C1  2800     R  JMP L73
+ 503  00C2  0F00     R  MOV A,BANK _r_PIN_RECEIVE_LOW_TIME
+ 503  00C3  0084        MOV [04H],A
+ 503  00C4  0F00     R  MOV A,OFFSET _r_PIN_RECEIVE_LOW_TIME
+ 503  00C5  0083        MOV [03H],A
+ 503  00C6  0F0A        MOV A,0ah
+ 503  00C7  0202        SUB A,[02H]
+ 503  00C8  380A        SNZ [0AH].0
+ 503  00C9  2800     R  JMP L73
+ 503  00CA              #pragma debug scope 30 29 ; 505 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 505  00CA              #line 505 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 505  00CA  3000     R  SET _r_receive_buf.0
+ 506  00CB              #line 506 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 506  00CB              #pragma debug scope 29 27 ; 506 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 506  00CB  2800     R  JMP L74
+ 506  00CC              L73:
+ 506  00CC              #pragma debug scope 31 29 ; 509 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 509  00CC              #line 509 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 509  00CC  0F00     R  MOV A,BANK _r_RECEIVE_NUM_COUNT
+ 509  00CD  0084        MOV [04H],A
+ 509  00CE  0F00     R  MOV A,OFFSET _r_RECEIVE_NUM_COUNT
+ 509  00CF  0083        MOV [03H],A
+ 509  00D0  1F02        CLR [02H]
+ 509  00D1              L74:
+ 509  00D1              L72:
+ 523  00D1              #line 523 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 523  00D1              #pragma debug scope 27 26 ; 523 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 523  00D1  0F00     R  MOV A,BANK _r_RECEIVE_NUM_COUNT
+ 523  00D2  0084        MOV [04H],A
+ 523  00D3  0F00     R  MOV A,OFFSET _r_RECEIVE_NUM_COUNT
+ 523  00D4  0083        MOV [03H],A
+ 523  00D5  1482        INC [02H]
+ 524  00D6              #line 524 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 524  00D6              #pragma debug scope 26 25 ; 524 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 524  00D6  2800     R  JMP L62
+ 524  00D7              L69:
+ 524  00D7              #pragma debug scope 32 26 ; 527 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 527  00D7              #line 527 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 527  00D7  0F00     R  MOV A,BANK _r_RECEIVE_NUM_COUNT
+ 527  00D8  0084        MOV [04H],A
+ 527  00D9  0F00     R  MOV A,OFFSET _r_RECEIVE_NUM_COUNT
+ 527  00DA  0083        MOV [03H],A
+ 527  00DB  1F02        CLR [02H]
+ 528  00DC              #line 528 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 528  00DC  0F00     R  MOV A,BANK _r_PIN_RECEIVE_LOW_TIME
+ 528  00DD  0084        MOV [04H],A
+ 528  00DE  0F00     R  MOV A,OFFSET _r_PIN_RECEIVE_LOW_TIME
+ 528  00DF  0083        MOV [03H],A
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次21
+
+ 528  00E0  1F02        CLR [02H]
+ 532  00E1              #line 532 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 532  00E1              #pragma debug scope 25 22 ; 532 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 532  00E1  2800     R  JMP L62
+ 532  00E2              L67:
+ 532  00E2              #pragma debug scope 33 25 ; 535 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 535  00E2              #line 535 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 535  00E2  0700     R  MOV A,_r_receive_buf[7]
+ 535  00E3  0300     R  ADD A,_r_receive_buf[6]
+ 535  00E4  0080     R  MOV b0_5,A
+ 535  00E5  0700     R  MOV A,_r_receive_buf[5]
+ 535  00E6  0380     R  ADDM A,b0_5
+ 535  00E7  0700     R  MOV A,_r_receive_buf[4]
+ 535  00E8  0380     R  ADDM A,b0_5
+ 535  00E9  0700     R  MOV A,_r_receive_buf[3]
+ 535  00EA  0380     R  ADDM A,b0_5
+ 535  00EB  0700     R  MOV A,_r_receive_buf[2]
+ 535  00EC  0380     R  ADDM A,b0_5
+ 535  00ED  0700     R  MOV A,_r_receive_buf[1]
+ 535  00EE  0380     R  ADDM A,b0_5
+ 535  00EF  0700     R  MOV A,_r_receive_buf
+ 535  00F0  0400     R  XOR A,b0_5
+ 535  00F1  390A        SNZ [0ah].2
+ 535  00F2  2800     R  JMP L62
+ 535  00F3              #pragma debug scope 34 33 ; 537 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 537  00F3              #line 537 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 537  00F3  3000     R  SET _b_receive_ok
+ 538  00F4              #line 538 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 538  00F4  0F06        MOV A,06h
+ 538  00F5  0080     R  MOV _r_Adjustment_num,A
+ 539  00F6              #line 539 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 539  00F6  0F00     R  MOV A,BANK _r_RECEIVE_NUM_COUNT
+ 539  00F7  0084        MOV [04H],A
+ 539  00F8  0F00     R  MOV A,OFFSET _r_RECEIVE_NUM_COUNT
+ 539  00F9  0083        MOV [03H],A
+ 539  00FA  1F02        CLR [02H]
+ 543  00FB              #line 543 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 543  00FB              #pragma debug scope 11 1 ; 543 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 543  00FB  2800     R  JMP L62
+ 543  00FC              L61:
+ 543  00FC              #pragma debug scope 35 11 ; 546 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 546  00FC              #line 546 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 546  00FC  3800     R  SNZ _b_pin_RECEIVE_D
+ 546  00FD  2800     R  JMP L84
+ 546  00FE              #pragma debug scope 36 35 ; 548 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 548  00FE              #line 548 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 548  00FE  3400     R  CLR _b_pin_RECEIVE_D
+ 549  00FF              #line 549 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 549  00FF  0F00     R  MOV A,BANK _r_PIN_RECEIVE_LOW_TIME
+ 549  0100  0084        MOV [04H],A
+ 549  0101  0F00     R  MOV A,OFFSET _r_PIN_RECEIVE_LOW_TIME
+ 549  0102  0083        MOV [03H],A
+ 549  0103  1F02        CLR [02H]
+ 550  0104              #line 550 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 550  0104              #pragma debug scope 35 11 ; 550 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 550  0104  2800     R  JMP L85
+ 550  0105              L84:
+ 550  0105              #pragma debug scope 37 35 ; 553 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 553  0105              #line 553 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 553  0105  0F00     R  MOV A,BANK _r_PIN_RECEIVE_LOW_TIME
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次22
+
+ 553  0106  0084        MOV [04H],A
+ 553  0107  0F00     R  MOV A,OFFSET _r_PIN_RECEIVE_LOW_TIME
+ 553  0108  0083        MOV [03H],A
+ 553  0109  0702        MOV A,[02H]
+ 553  010A  0A0F        SUB A,0fh
+ 553  010B  3C0A        SZ [0AH].0
+ 553  010C  2800     R  JMP L86
+ 553  010D              #line 553 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 553  010D  0F00     R  MOV A,BANK _r_PIN_RECEIVE_LOW_TIME
+ 553  010E  0084        MOV [04H],A
+ 553  010F  0F00     R  MOV A,OFFSET _r_PIN_RECEIVE_LOW_TIME
+ 553  0110  0083        MOV [03H],A
+ 553  0111  1482        INC [02H]
+ 553  0112              L86:
+ 553  0112              L85:
+ 553  0112              L62:
+ 558  0112              #line 558 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 558  0112              #pragma debug scope 11 1 ; 558 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 558  0112  3800     R  SNZ _b_receive_ok
+ 558  0113  2800     R  JMP L88
+ 558  0114              #pragma debug scope 38 11 ; 560 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 560  0114              #line 560 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 560  0114  1080     R  SZ _r_Adjustment_num
+ 560  0115  2800     R  JMP L131
+ 560  0116  2800     R  JMP L90
+ 560  0117              L131:
+ 560  0117              #pragma debug scope 39 38 ; 562 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 562  0117              #line 562 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 562  0117  1580     R  DEC _r_Adjustment_num
+ 563  0118              #line 563 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 563  0118  0700     R  MOV A,_r_Adjustment_num
+ 563  0119  0A04        SUB A,04h
+ 563  011A  3C0A        SZ [0ah].0
+ 563  011B  2800     R  JMP L92
+ 563  011C              #pragma debug scope 40 39 ; 568 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 568  011C              #line 568 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 568  011C  0700     R  MOV A,_r_Adjustment_num
+ 568  011D  0B00     R  ADD A,OFFSET _r_show_buf
+ 568  011E  0080     R  MOV b0_5,A
+ 568  011F  1F00     R  CLR b0_5[1]
+ 568  0120  0700     R  MOV A,b0_5[1]
+ 568  0121  0084        MOV [04H],A
+ 568  0122  0700     R  MOV A,b0_5
+ 568  0123  0083        MOV [03H],A
+ 568  0124  0F00        MOV A,00h
+ 568  0125  0082        MOV [02H],A
+ 569  0126              #line 569 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 569  0126  0700     R  MOV A,_r_Adjustment_num
+ 569  0127  0B00     R  ADD A,OFFSET _r_receive_buf[1]
+ 569  0128  0080     R  MOV b0_5,A
+ 569  0129  1F00     R  CLR b0_5[1]
+ 569  012A  0700     R  MOV A,b0_5[1]
+ 569  012B  0084        MOV [04H],A
+ 569  012C  0700     R  MOV A,b0_5
+ 569  012D  0083        MOV [03H],A
+ 569  012E  3882        SNZ [02H].1
+ 569  012F  2800     R  JMP L94
+ 569  0130              #line 569 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 569  0130  0700     R  MOV A,_r_Adjustment_num
+ 569  0131  0B00     R  ADD A,OFFSET _r_show_buf
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次23
+
+ 569  0132  0080     R  MOV b0_5,A
+ 569  0133  1F00     R  CLR b0_5[1]
+ 569  0134  0700     R  MOV A,b0_5[1]
+ 569  0135  0084        MOV [04H],A
+ 569  0136  0700     R  MOV A,b0_5
+ 569  0137  0083        MOV [03H],A
+ 569  0138  0702        MOV A,[02H]
+ 569  0139  0080     R  MOV b1_5,A
+ 569  013A  0F40        MOV A,040h
+ 569  013B  0580     R  ORM A,b1_5
+ 569  013C  0700     R  MOV A,b0_5[1]
+ 569  013D  0084        MOV [04H],A
+ 569  013E  0700     R  MOV A,b0_5
+ 569  013F  0083        MOV [03H],A
+ 569  0140  0700     R  MOV A,b1_5
+ 569  0141  0082        MOV [02H],A
+ 569  0142              L94:
+ 570  0142              #line 570 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 570  0142  0700     R  MOV A,_r_Adjustment_num
+ 570  0143  0B00     R  ADD A,OFFSET _r_receive_buf[1]
+ 570  0144  0080     R  MOV b0_5,A
+ 570  0145  1F00     R  CLR b0_5[1]
+ 570  0146  0700     R  MOV A,b0_5[1]
+ 570  0147  0084        MOV [04H],A
+ 570  0148  0700     R  MOV A,b0_5
+ 570  0149  0083        MOV [03H],A
+ 570  014A  3B82        SNZ [02H].7
+ 570  014B  2800     R  JMP L97
+ 570  014C              #line 570 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 570  014C  0700     R  MOV A,_r_Adjustment_num
+ 570  014D  0B00     R  ADD A,OFFSET _r_show_buf
+ 570  014E  0080     R  MOV b0_5,A
+ 570  014F  1F00     R  CLR b0_5[1]
+ 570  0150  0700     R  MOV A,b0_5[1]
+ 570  0151  0084        MOV [04H],A
+ 570  0152  0700     R  MOV A,b0_5
+ 570  0153  0083        MOV [03H],A
+ 570  0154  0702        MOV A,[02H]
+ 570  0155  0080     R  MOV b1_5,A
+ 570  0156  0F02        MOV A,02h
+ 570  0157  0580     R  ORM A,b1_5
+ 570  0158  0700     R  MOV A,b0_5[1]
+ 570  0159  0084        MOV [04H],A
+ 570  015A  0700     R  MOV A,b0_5
+ 570  015B  0083        MOV [03H],A
+ 570  015C  0700     R  MOV A,b1_5
+ 570  015D  0082        MOV [02H],A
+ 570  015E              L97:
+ 571  015E              #line 571 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 571  015E  0700     R  MOV A,_r_Adjustment_num
+ 571  015F  0B00     R  ADD A,OFFSET _r_receive_buf[1]
+ 571  0160  0080     R  MOV b0_5,A
+ 571  0161  1F00     R  CLR b0_5[1]
+ 571  0162  0700     R  MOV A,b0_5[1]
+ 571  0163  0084        MOV [04H],A
+ 571  0164  0700     R  MOV A,b0_5
+ 571  0165  0083        MOV [03H],A
+ 571  0166  3A82        SNZ [02H].5
+ 571  0167  2800     R  JMP L100
+ 571  0168              #line 571 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次24
+
+ 571  0168  0700     R  MOV A,_r_Adjustment_num
+ 571  0169  0B00     R  ADD A,OFFSET _r_show_buf
+ 571  016A  0080     R  MOV b0_5,A
+ 571  016B  1F00     R  CLR b0_5[1]
+ 571  016C  0700     R  MOV A,b0_5[1]
+ 571  016D  0084        MOV [04H],A
+ 571  016E  0700     R  MOV A,b0_5
+ 571  016F  0083        MOV [03H],A
+ 571  0170  0702        MOV A,[02H]
+ 571  0171  0080     R  MOV b1_5,A
+ 571  0172  0F01        MOV A,01h
+ 571  0173  0580     R  ORM A,b1_5
+ 571  0174  0700     R  MOV A,b0_5[1]
+ 571  0175  0084        MOV [04H],A
+ 571  0176  0700     R  MOV A,b0_5
+ 571  0177  0083        MOV [03H],A
+ 571  0178  0700     R  MOV A,b1_5
+ 571  0179  0082        MOV [02H],A
+ 571  017A              L100:
+ 572  017A              #line 572 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 572  017A  0700     R  MOV A,_r_Adjustment_num
+ 572  017B  0B00     R  ADD A,OFFSET _r_receive_buf[1]
+ 572  017C  0080     R  MOV b0_5,A
+ 572  017D  1F00     R  CLR b0_5[1]
+ 572  017E  0700     R  MOV A,b0_5[1]
+ 572  017F  0084        MOV [04H],A
+ 572  0180  0700     R  MOV A,b0_5
+ 572  0181  0083        MOV [03H],A
+ 572  0182  3982        SNZ [02H].3
+ 572  0183  2800     R  JMP L103
+ 572  0184              #line 572 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 572  0184  0700     R  MOV A,_r_Adjustment_num
+ 572  0185  0B00     R  ADD A,OFFSET _r_show_buf
+ 572  0186  0080     R  MOV b0_5,A
+ 572  0187  1F00     R  CLR b0_5[1]
+ 572  0188  0700     R  MOV A,b0_5[1]
+ 572  0189  0084        MOV [04H],A
+ 572  018A  0700     R  MOV A,b0_5
+ 572  018B  0083        MOV [03H],A
+ 572  018C  0702        MOV A,[02H]
+ 572  018D  0080     R  MOV b1_5,A
+ 572  018E  0F08        MOV A,08h
+ 572  018F  0580     R  ORM A,b1_5
+ 572  0190  0700     R  MOV A,b0_5[1]
+ 572  0191  0084        MOV [04H],A
+ 572  0192  0700     R  MOV A,b0_5
+ 572  0193  0083        MOV [03H],A
+ 572  0194  0700     R  MOV A,b1_5
+ 572  0195  0082        MOV [02H],A
+ 572  0196              L103:
+ 573  0196              #line 573 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 573  0196  0700     R  MOV A,_r_Adjustment_num
+ 573  0197  0B00     R  ADD A,OFFSET _r_receive_buf[1]
+ 573  0198  0080     R  MOV b0_5,A
+ 573  0199  1F00     R  CLR b0_5[1]
+ 573  019A  0700     R  MOV A,b0_5[1]
+ 573  019B  0084        MOV [04H],A
+ 573  019C  0700     R  MOV A,b0_5
+ 573  019D  0083        MOV [03H],A
+ 573  019E  3902        SNZ [02H].2
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次25
+
+ 573  019F  2800     R  JMP L106
+ 573  01A0              #line 573 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 573  01A0  0700     R  MOV A,_r_Adjustment_num
+ 573  01A1  0B00     R  ADD A,OFFSET _r_show_buf
+ 573  01A2  0080     R  MOV b0_5,A
+ 573  01A3  1F00     R  CLR b0_5[1]
+ 573  01A4  0700     R  MOV A,b0_5[1]
+ 573  01A5  0084        MOV [04H],A
+ 573  01A6  0700     R  MOV A,b0_5
+ 573  01A7  0083        MOV [03H],A
+ 573  01A8  0702        MOV A,[02H]
+ 573  01A9  0080     R  MOV b1_5,A
+ 573  01AA  0F04        MOV A,04h
+ 573  01AB  0580     R  ORM A,b1_5
+ 573  01AC  0700     R  MOV A,b0_5[1]
+ 573  01AD  0084        MOV [04H],A
+ 573  01AE  0700     R  MOV A,b0_5
+ 573  01AF  0083        MOV [03H],A
+ 573  01B0  0700     R  MOV A,b1_5
+ 573  01B1  0082        MOV [02H],A
+ 573  01B2              L106:
+ 574  01B2              #line 574 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 574  01B2  0700     R  MOV A,_r_Adjustment_num
+ 574  01B3  0B00     R  ADD A,OFFSET _r_receive_buf[1]
+ 574  01B4  0080     R  MOV b0_5,A
+ 574  01B5  1F00     R  CLR b0_5[1]
+ 574  01B6  0700     R  MOV A,b0_5[1]
+ 574  01B7  0084        MOV [04H],A
+ 574  01B8  0700     R  MOV A,b0_5
+ 574  01B9  0083        MOV [03H],A
+ 574  01BA  3802        SNZ [02H].0
+ 574  01BB  2800     R  JMP L109
+ 574  01BC              #line 574 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 574  01BC  0700     R  MOV A,_r_Adjustment_num
+ 574  01BD  0B00     R  ADD A,OFFSET _r_show_buf
+ 574  01BE  0080     R  MOV b0_5,A
+ 574  01BF  1F00     R  CLR b0_5[1]
+ 574  01C0  0700     R  MOV A,b0_5[1]
+ 574  01C1  0084        MOV [04H],A
+ 574  01C2  0700     R  MOV A,b0_5
+ 574  01C3  0083        MOV [03H],A
+ 574  01C4  0F80        MOV A,080h
+ 574  01C5  0582        ORM A,[02H]
+ 574  01C6              L109:
+ 575  01C6              #line 575 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 575  01C6  0700     R  MOV A,_r_Adjustment_num
+ 575  01C7  0B00     R  ADD A,OFFSET _r_receive_buf[1]
+ 575  01C8  0080     R  MOV b0_5,A
+ 575  01C9  1F00     R  CLR b0_5[1]
+ 575  01CA  0700     R  MOV A,b0_5[1]
+ 575  01CB  0084        MOV [04H],A
+ 575  01CC  0700     R  MOV A,b0_5
+ 575  01CD  0083        MOV [03H],A
+ 575  01CE  3B02        SNZ [02H].6
+ 575  01CF  2800     R  JMP L112
+ 575  01D0              #line 575 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 575  01D0  0700     R  MOV A,_r_Adjustment_num
+ 575  01D1  0B00     R  ADD A,OFFSET _r_show_buf
+ 575  01D2  0080     R  MOV b0_5,A
+ 575  01D3  1F00     R  CLR b0_5[1]
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次26
+
+ 575  01D4  0700     R  MOV A,b0_5[1]
+ 575  01D5  0084        MOV [04H],A
+ 575  01D6  0700     R  MOV A,b0_5
+ 575  01D7  0083        MOV [03H],A
+ 575  01D8  0702        MOV A,[02H]
+ 575  01D9  0080     R  MOV b1_5,A
+ 575  01DA  0F10        MOV A,010h
+ 575  01DB  0580     R  ORM A,b1_5
+ 575  01DC  0700     R  MOV A,b0_5[1]
+ 575  01DD  0084        MOV [04H],A
+ 575  01DE  0700     R  MOV A,b0_5
+ 575  01DF  0083        MOV [03H],A
+ 575  01E0  0700     R  MOV A,b1_5
+ 575  01E1  0082        MOV [02H],A
+ 575  01E2              L112:
+ 576  01E2              #line 576 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 576  01E2  0700     R  MOV A,_r_Adjustment_num
+ 576  01E3  0B00     R  ADD A,OFFSET _r_receive_buf[1]
+ 576  01E4  0080     R  MOV b0_5,A
+ 576  01E5  1F00     R  CLR b0_5[1]
+ 576  01E6  0700     R  MOV A,b0_5[1]
+ 576  01E7  0084        MOV [04H],A
+ 576  01E8  0700     R  MOV A,b0_5
+ 576  01E9  0083        MOV [03H],A
+ 576  01EA  3A02        SNZ [02H].4
+ 576  01EB  2800     R  JMP L115
+ 576  01EC              #line 576 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 576  01EC  0700     R  MOV A,_r_Adjustment_num
+ 576  01ED  0B00     R  ADD A,OFFSET _r_show_buf
+ 576  01EE  0080     R  MOV b0_5,A
+ 576  01EF  1F00     R  CLR b0_5[1]
+ 576  01F0  0700     R  MOV A,b0_5[1]
+ 576  01F1  0084        MOV [04H],A
+ 576  01F2  0700     R  MOV A,b0_5
+ 576  01F3  0083        MOV [03H],A
+ 576  01F4  0702        MOV A,[02H]
+ 576  01F5  0080     R  MOV b1_5,A
+ 576  01F6  0F20        MOV A,020h
+ 576  01F7  0580     R  ORM A,b1_5
+ 576  01F8  0700     R  MOV A,b0_5[1]
+ 576  01F9  0084        MOV [04H],A
+ 576  01FA  0700     R  MOV A,b0_5
+ 576  01FB  0083        MOV [03H],A
+ 576  01FC  0700     R  MOV A,b1_5
+ 576  01FD  0082        MOV [02H],A
+ 576  01FE              L115:
+ 576  01FE              L92:
+ 613  01FE              #line 613 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 613  01FE              #pragma debug scope 39 38 ; 613 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 613  01FE  340A        CLR [0AH].0
+ 613  01FF  1B00     R  RRCA _r_Adjustment_num
+ 613  0200  0080     R  MOV b0_5,A
+ 613  0201  0700     R  MOV A,b0_5
+ 613  0202  0B00     R  ADD A,OFFSET _r_receive_buf[5]
+ 613  0203  0080     R  MOV b0_5,A
+ 613  0204  1F00     R  CLR b0_5[1]
+ 613  0205  0700     R  MOV A,b0_5[1]
+ 613  0206  0084        MOV [04H],A
+ 613  0207  0700     R  MOV A,b0_5
+ 613  0208  0083        MOV [03H],A
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次27
+
+ 613  0209  0702        MOV A,[02H]
+ 613  020A  0080     R  MOV b0_5,A
+ 613  020B  0F00     R  MOV A,BANK _r_temp
+ 613  020C  0084        MOV [04H],A
+ 613  020D  0F00     R  MOV A,OFFSET _r_temp
+ 613  020E  0083        MOV [03H],A
+ 613  020F  0700     R  MOV A,b0_5
+ 613  0210  0082        MOV [02H],A
+ 614  0211              #line 614 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 614  0211  3800     R  SNZ _r_Adjustment_num.0
+ 614  0212  2800     R  JMP L119
+ 614  0213              #line 614 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 614  0213  0F00     R  MOV A,BANK _r_temp
+ 614  0214  0084        MOV [04H],A
+ 614  0215  0F00     R  MOV A,OFFSET _r_temp
+ 614  0216  0083        MOV [03H],A
+ 614  0217  1102        SWAPA [02H]
+ 614  0218  0E0F        AND A,0FH
+ 614  0219  0082        MOV [02H],A
+ 614  021A              L119:
+ 615  021A              #line 615 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 615  021A  0F00     R  MOV A,BANK _r_temp1
+ 615  021B  0084        MOV [04H],A
+ 615  021C  0F00     R  MOV A,OFFSET _r_temp1
+ 615  021D  0083        MOV [03H],A
+ 615  021E  1F02        CLR [02H]
+ 616  021F              #line 616 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 616  021F  0F00     R  MOV A,BANK _r_temp
+ 616  0220  0084        MOV [04H],A
+ 616  0221  0F00     R  MOV A,OFFSET _r_temp
+ 616  0222  0083        MOV [03H],A
+ 616  0223  0702        MOV A,[02H]
+ 616  0224  0E01        AND A,01h
+ 616  0225  1085        SZ [05H]
+ 616  0226  2800     R  JMP L132
+ 616  0227  2800     R  JMP L121
+ 616  0228              L132:
+ 616  0228              #line 616 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 616  0228  0F00     R  MOV A,BANK _r_temp1
+ 616  0229  0084        MOV [04H],A
+ 616  022A  0F00     R  MOV A,OFFSET _r_temp1
+ 616  022B  0083        MOV [03H],A
+ 616  022C  3082        SET [02H].1
+ 616  022D              L121:
+ 617  022D              #line 617 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 617  022D  0F00     R  MOV A,BANK _r_temp
+ 617  022E  0084        MOV [04H],A
+ 617  022F  0F00     R  MOV A,OFFSET _r_temp
+ 617  0230  0083        MOV [03H],A
+ 617  0231  0702        MOV A,[02H]
+ 617  0232  0E02        AND A,02h
+ 617  0233  1085        SZ [05H]
+ 617  0234  2800     R  JMP L133
+ 617  0235  2800     R  JMP L123
+ 617  0236              L133:
+ 617  0236              #line 617 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 617  0236  0F00     R  MOV A,BANK _r_temp1
+ 617  0237  0084        MOV [04H],A
+ 617  0238  0F00     R  MOV A,OFFSET _r_temp1
+ 617  0239  0083        MOV [03H],A
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次28
+
+ 617  023A  3202        SET [02H].4
+ 617  023B              L123:
+ 618  023B              #line 618 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 618  023B  0F00     R  MOV A,BANK _r_temp
+ 618  023C  0084        MOV [04H],A
+ 618  023D  0F00     R  MOV A,OFFSET _r_temp
+ 618  023E  0083        MOV [03H],A
+ 618  023F  0702        MOV A,[02H]
+ 618  0240  0E04        AND A,04h
+ 618  0241  1085        SZ [05H]
+ 618  0242  2800     R  JMP L134
+ 618  0243  2800     R  JMP L125
+ 618  0244              L134:
+ 618  0244              #line 618 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 618  0244  0F00     R  MOV A,BANK _r_temp1
+ 618  0245  0084        MOV [04H],A
+ 618  0246  0F00     R  MOV A,OFFSET _r_temp1
+ 618  0247  0083        MOV [03H],A
+ 618  0248  3002        SET [02H].0
+ 618  0249              L125:
+ 619  0249              #line 619 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 619  0249  0F00     R  MOV A,BANK _r_temp
+ 619  024A  0084        MOV [04H],A
+ 619  024B  0F00     R  MOV A,OFFSET _r_temp
+ 619  024C  0083        MOV [03H],A
+ 619  024D  0702        MOV A,[02H]
+ 619  024E  0E08        AND A,08h
+ 619  024F  1085        SZ [05H]
+ 619  0250  2800     R  JMP L135
+ 619  0251  2800     R  JMP L127
+ 619  0252              L135:
+ 619  0252              #line 619 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 619  0252  0F00     R  MOV A,BANK _r_temp1
+ 619  0253  0084        MOV [04H],A
+ 619  0254  0F00     R  MOV A,OFFSET _r_temp1
+ 619  0255  0083        MOV [03H],A
+ 619  0256  3102        SET [02H].2
+ 619  0257              L127:
+ 621  0257              #line 621 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 621  0257  0700     R  MOV A,_r_Adjustment_num
+ 621  0258  0B00     R  ADD A,OFFSET _r_show_led_buf
+ 621  0259  0080     R  MOV b0_5,A
+ 621  025A  1F00     R  CLR b0_5[1]
+ 621  025B  0F00     R  MOV A,BANK _r_temp1
+ 621  025C  0084        MOV [04H],A
+ 621  025D  0F00     R  MOV A,OFFSET _r_temp1
+ 621  025E  0083        MOV [03H],A
+ 621  025F  0702        MOV A,[02H]
+ 621  0260  0080     R  MOV b1_5,A
+ 621  0261  0700     R  MOV A,b0_5[1]
+ 621  0262  0084        MOV [04H],A
+ 621  0263  0700     R  MOV A,b0_5
+ 621  0264  0083        MOV [03H],A
+ 621  0265  0700     R  MOV A,b1_5
+ 621  0266  0082        MOV [02H],A
+ 622  0267              #line 622 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 622  0267              #pragma debug scope 38 11 ; 622 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 622  0267  2800     R  JMP L91
+ 622  0268              L90:
+ 622  0268              #pragma debug scope 41 38 ; 625 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次29
+
+ 625  0268              #line 625 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 625  0268  3400     R  CLR _b_receive_ok
+ 626  0269              #line 626 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 626  0269  0F06        MOV A,06h
+ 626  026A  0080     R  MOV _r_Adjustment_num,A
+ 626  026B              L91:
+ 626  026B              L88:
+ 626  026B              L42:
+ 626  026B  0700     E  MOV A,V7T1
+ 626  026C  0080     E  MOV RH,A
+ 626  026D  0700     E  MOV A,V7MP1
+ 626  026E  0083        MOV [03H],A
+ 626  026F  0700     E  MOV A,V7BP
+ 626  0270  0084        MOV [04H],A
+ 626  0271  0700     E  MOV A,V7S
+ 626  0272  008A        MOV [0AH],A
+ 626  0273  0700     E  MOV A,V7A
+ 626  0274  0004        RETI
+ 626  0275              _Interrupt_PTM1_CCRA ENDP
+ 626  0275              RAMBANK 0 @Interrupt_PTM1_CCRA
+ 626  0000              @Interrupt_PTM1_CCRA .SECTION 'DATA'
+ 626  0000  0002[       b0_5 DB 2 DUP(?)
+            00
+            ]
+ 626  0002  00          b1_5 DB ?
+ 635  0003              #line 635 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 635  0000              @USER_PROGRAM_INITIAL .SECTION 'CODE'
+ 635  0000              PUBLIC _USER_PROGRAM_INITIAL
+ 635  0000              _USER_PROGRAM_INITIAL PROC
+ 635  0000              #pragma debug scope 42 1 ; 636 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 636  0000              #line 636 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 636  0000  0F88        MOV A,088h
+ 636  0001  0096        MOV __papu,A
+ 637  0002              #line 637 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 637  0002  1F3B        CLR __pcpu
+ 638  0003              #line 638 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 638  0003  1F43        CLR __pdpu
+ 640  0004              #line 640 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 640  0004  1F95        SET __pac
+ 641  0005              #line 641 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 641  0005  1FBA        SET __pcc
+ 642  0006              #line 642 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 642  0006  1FC2        SET __pdc
+ 643  0007              #line 643 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 643  0007  1FB9        SET __pc
+ 644  0008              #line 644 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 644  0008  1FC1        SET __pd
+ 645  0009              #line 645 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 645  0009  1F94        SET __pa
+ 647  000A              #line 647 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 647  000A  0F07        MOV A,07h
+ 647  000B  0092        MOV __lvdc,A
+ 649  000C              #line 649 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 649  000C  1F33        CLR __slcdc0
+ 650  000D              #line 650 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 650  000D  1F34        CLR __slcdc1
+ 651  000E              #line 651 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 651  000E  1F35        CLR __slcdc2
+ 652  000F              #line 652 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 652  000F  1F36        CLR __slcdc3
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次30
+
+ 653  0010              #line 653 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 653  0010  1F30        CLR __tmpc
+ 655  0011              #line 655 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 655  0011  1F28        CLR __usr
+ 656  0012              #line 656 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 656  0012  1F29        CLR __ucr1
+ 657  0013              #line 657 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 657  0013  1F2A        CLR __ucr2
+ 658  0014              #line 658 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 658  0014  1F2C        CLR __txr_rxr
+ 659  0015              #line 659 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 659  0015  1F2B        CLR __brg
+ 661  0016              #line 661 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 661  0016  1F98        SET __sledc0
+ 662  0017              #line 662 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 662  0017  1F99        SET __sledc1
+ 664  0018              #line 664 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 664  0018  1F1C        CLR __pscr
+ 665  0019              #line 665 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 665  0019  0F10        MOV A,010h
+ 665  001A  00BD        MOV __ctrl,A
+ 667  001B              #line 667 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 667  001B  1F24        CLR __iicc0
+ 668  001C              #line 668 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 668  001C  1F25        CLR __iicc1
+ 669  001D              #line 669 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 669  001D  1F26        CLR __iicd
+ 670  001E              #line 670 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 670  001E  1F27        CLR __iica
+ 694  001F              #line 694 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 694  001F  0FE8        MOV A,0e8h
+ 694  0020  00E5        MOV __ctm0al,A
+ 695  0021              #line 695 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 695  0021  0F03        MOV A,03h
+ 695  0022  00E6        MOV __ctm0ah,A
+ 697  0023              #line 697 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 697  0023  1F61        CLR __ctm0c0
+ 698  0024              #line 698 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 698  0024  0FC1        MOV A,0c1h
+ 698  0025  00E2        MOV __ctm0c1,A
+ 700  0026              #line 700 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 700  0026  31E1        SET [061H].3
+ 704  0027              #line 704 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 704  0027  0FF4        MOV A,0f4h
+ 704  0028  00EB        MOV __ptm0al,A
+ 705  0029              #line 705 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 705  0029  0F01        MOV A,1
+ 705  002A  00EC        MOV __ptm0ah,A
+ 707  002B              #line 707 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 707  002B  1F67        CLR __ptm0c0
+ 708  002C              #line 708 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 708  002C  0FC1        MOV A,0c1h
+ 708  002D  00E8        MOV __ptm0c1,A
+ 710  002E              #line 710 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 710  002E  31E7        SET [067H].3
+ 712  002F              #line 712 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 712  002F  308D        SET [0DH].1
+ 713  0030              #line 713 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 713  0030  300D        SET [0DH].0
+ 716  0031              #line 716 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次31
+
+ 716  0031  348E        CLR [0EH].1
+ 717  0032              #line 717 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 717  0032  300E        SET [0EH].0
+ 721  0033              #line 721 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 721  0033  308F        SET [0FH].1
+ 722  0034              #line 722 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 722  0034  318F        SET [0FH].3
+ 724  0035              #line 724 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 724  0035  1F00     R  CLR _r_receive_buf[1]
+ 725  0036              #line 725 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 725  0036  1F00     R  CLR _r_receive_buf[2]
+ 726  0037              #line 726 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 726  0037  1F00     R  CLR _r_receive_buf[3]
+ 727  0038              #line 727 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 727  0038  1F00     R  CLR _r_receive_buf[4]
+ 728  0039              #line 728 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 728  0039  1F00     R  CLR _r_receive_buf[5]
+ 729  003A              #line 729 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 729  003A  1F00     R  CLR _r_receive_buf[6]
+ 730  003B              #line 730 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 730  003B  1F00     R  CLR _r_receive_buf[7]
+ 731  003C              #line 731 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 731  003C  0700     R  MOV A,_r_receive_buf[7]
+ 731  003D  0300     R  ADD A,_r_receive_buf[6]
+ 731  003E  0080     R  MOV b0_6,A
+ 731  003F  0700     R  MOV A,_r_receive_buf[5]
+ 731  0040  0380     R  ADDM A,b0_6
+ 731  0041  0700     R  MOV A,_r_receive_buf[4]
+ 731  0042  0380     R  ADDM A,b0_6
+ 731  0043  0700     R  MOV A,_r_receive_buf[3]
+ 731  0044  0380     R  ADDM A,b0_6
+ 731  0045  0700     R  MOV A,_r_receive_buf[2]
+ 731  0046  0380     R  ADDM A,b0_6
+ 731  0047  0700     R  MOV A,b0_6
+ 731  0048  0300     R  ADD A,_r_receive_buf[1]
+ 731  0049  0080     R  MOV _r_receive_buf,A
+ 732  004A              #line 732 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 732  004A  3000     R  SET _b_receive_ok
+ 733  004B              #line 733 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 733  004B  0F06        MOV A,06h
+ 733  004C  0080     R  MOV _r_Adjustment_num,A
+ 733  004D              L136:
+ 733  004D  0003        RET
+ 733  0000  00          LOCAL b0_6 DB ?
+ 733  004E              _USER_PROGRAM_INITIAL ENDP
+ 740  004E              #line 740 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 740  0000              @USER_PROGRAM .SECTION 'CODE'
+ 740  0000              PUBLIC _USER_PROGRAM
+ 740  0000              _USER_PROGRAM PROC
+ 740  0000              #pragma debug scope 43 1 ; 741 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 741  0000              #line 741 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 741  0000  3800     R  SNZ _b_2ms
+ 741  0001  2800     R  JMP L152
+ 741  0002              #pragma debug scope 44 43 ; 743 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 743  0002              #line 743 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 743  0002  0F00     R  MOV A,BANK _r_2ms
+ 743  0003  0084        MOV [04H],A
+ 743  0004  0F00     R  MOV A,OFFSET _r_2ms
+ 743  0005  0083        MOV [03H],A
+ 743  0006  1F02        CLR [02H]
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次32
+
+ 744  0007              #line 744 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 744  0007  2000     E  CALL _BS82C16A_LIBV413
+ 744  0008              L152:
+ 747  0008              #line 747 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 747  0008              #pragma debug scope 43 1 ; 747 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 747  0008  3800     E  SNZ _SCAN_CYCLEF
+ 747  0009  2800     R  JMP L154
+ 747  000A              #pragma debug scope 45 43 ; 749 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 749  000A              #line 749 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 749  000A  2000     E  CALL _GET_KEY_BITMAP
+ 751  000B              #line 751 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 751  000B  0F00     R  MOV A,BANK _r_KEY_STATUS1
+ 751  000C  0084        MOV [04H],A
+ 751  000D  0F00     R  MOV A,OFFSET _r_KEY_STATUS1
+ 751  000E  0083        MOV [03H],A
+ 751  000F  0702        MOV A,[02H]
+ 751  0010  0400     E  XOR A,_DATA_BUF
+ 751  0011  390A        SNZ [0AH].2
+ 751  0012  2800     R  JMP L159
+ 751  0013  0F00     R  MOV A,BANK _r_KEY_STATUS2
+ 751  0014  0084        MOV [04H],A
+ 751  0015  0F00     R  MOV A,OFFSET _r_KEY_STATUS2
+ 751  0016  0083        MOV [03H],A
+ 751  0017  0702        MOV A,[02H]
+ 751  0018  0400     E  XOR A,_DATA_BUF[1]
+ 751  0019  3D0A        SZ [0AH].2
+ 751  001A  2800     R  JMP L156
+ 751  001B              L159:
+ 751  001B              #pragma debug scope 46 45 ; 753 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 753  001B              #line 753 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 753  001B  0F00     R  MOV A,BANK _r_KEY_STATUS1
+ 753  001C  0084        MOV [04H],A
+ 753  001D  0F00     R  MOV A,OFFSET _r_KEY_STATUS1
+ 753  001E  0083        MOV [03H],A
+ 753  001F  0700     E  MOV A,_DATA_BUF
+ 753  0020  0082        MOV [02H],A
+ 754  0021              #line 754 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 754  0021  0F00     R  MOV A,BANK _r_KEY_STATUS2
+ 754  0022  0084        MOV [04H],A
+ 754  0023  0F00     R  MOV A,OFFSET _r_KEY_STATUS2
+ 754  0024  0083        MOV [03H],A
+ 754  0025  0700     E  MOV A,_DATA_BUF[1]
+ 754  0026  0082        MOV [02H],A
+ 755  0027              #line 755 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 755  0027  0F00     R  MOV A,BANK _r_KEY_DEBOUNCE_TIME
+ 755  0028  0084        MOV [04H],A
+ 755  0029  0F00     R  MOV A,OFFSET _r_KEY_DEBOUNCE_TIME
+ 755  002A  0083        MOV [03H],A
+ 755  002B  1F02        CLR [02H]
+ 756  002C              #line 756 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 756  002C              #pragma debug scope 45 43 ; 756 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 756  002C  2800     R  JMP L157
+ 756  002D              L156:
+ 756  002D              #pragma debug scope 47 45 ; 759 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 759  002D              #line 759 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 759  002D  2800     R  JMP L161
+ 759  002E              #pragma debug scope 48 47 ; 761 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 761  002E              #line 761 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 761  002E  0F00     R  MOV A,BANK _r_KEY_DEBOUNCE_TIME
+ 761  002F  0084        MOV [04H],A
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次33
+
+ 761  0030  0F00     R  MOV A,OFFSET _r_KEY_DEBOUNCE_TIME
+ 761  0031  0083        MOV [03H],A
+ 761  0032  1482        INC [02H]
+ 762  0033              #line 762 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 762  0033              #pragma debug scope 47 45 ; 762 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 762  0033  2800     R  JMP L162
+ 762  0034              L161:
+ 762  0034              #pragma debug scope 49 47 ; 765 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 765  0034              #line 765 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 765  0034  0F00     R  MOV A,BANK _r_KEY_STATUS1
+ 765  0035  0084        MOV [04H],A
+ 765  0036  0F00     R  MOV A,OFFSET _r_KEY_STATUS1
+ 765  0037  0083        MOV [03H],A
+ 765  0038  0702        MOV A,[02H]
+ 765  0039  0080     R  MOV b0_7,A
+ 765  003A  0F00     R  MOV A,BANK _r_KEY_BUF
+ 765  003B  0084        MOV [04H],A
+ 765  003C  0F00     R  MOV A,OFFSET _r_KEY_BUF
+ 765  003D  0083        MOV [03H],A
+ 765  003E  0702        MOV A,[02H]
+ 765  003F  0400     R  XOR A,b0_7
+ 765  0040  390A        SNZ [0AH].2
+ 765  0041  2800     R  JMP L166
+ 765  0042  0F00     R  MOV A,BANK _r_KEY_STATUS2
+ 765  0043  0084        MOV [04H],A
+ 765  0044  0F00     R  MOV A,OFFSET _r_KEY_STATUS2
+ 765  0045  0083        MOV [03H],A
+ 765  0046  0702        MOV A,[02H]
+ 765  0047  0080     R  MOV b0_7,A
+ 765  0048  0F00     R  MOV A,BANK _r_KEY_BUF[1]
+ 765  0049  0084        MOV [04H],A
+ 765  004A  0F00     R  MOV A,OFFSET _r_KEY_BUF[1]
+ 765  004B  0083        MOV [03H],A
+ 765  004C  0702        MOV A,[02H]
+ 765  004D  0400     R  XOR A,b0_7
+ 765  004E  3D0A        SZ [0AH].2
+ 765  004F  2800     R  JMP L163
+ 765  0050              L166:
+ 765  0050              #pragma debug scope 50 49 ; 768 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 768  0050              #line 768 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 768  0050  0F00     R  MOV A,BANK _r_KEY_STATUS1
+ 768  0051  0084        MOV [04H],A
+ 768  0052  0F00     R  MOV A,OFFSET _r_KEY_STATUS1
+ 768  0053  0083        MOV [03H],A
+ 768  0054  0702        MOV A,[02H]
+ 768  0055  0080     R  MOV b0_7,A
+ 768  0056  0F00     R  MOV A,BANK _r_KEY_BUF
+ 768  0057  0084        MOV [04H],A
+ 768  0058  0F00     R  MOV A,OFFSET _r_KEY_BUF
+ 768  0059  0083        MOV [03H],A
+ 768  005A  0700     R  MOV A,b0_7
+ 768  005B  0082        MOV [02H],A
+ 769  005C              #line 769 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 769  005C  0F00     R  MOV A,BANK _r_KEY_STATUS2
+ 769  005D  0084        MOV [04H],A
+ 769  005E  0F00     R  MOV A,OFFSET _r_KEY_STATUS2
+ 769  005F  0083        MOV [03H],A
+ 769  0060  0702        MOV A,[02H]
+ 769  0061  0080     R  MOV b0_7,A
+ 769  0062  0F00     R  MOV A,BANK _r_KEY_BUF[1]
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次34
+
+ 769  0063  0084        MOV [04H],A
+ 769  0064  0F00     R  MOV A,OFFSET _r_KEY_BUF[1]
+ 769  0065  0083        MOV [03H],A
+ 769  0066  0700     R  MOV A,b0_7
+ 769  0067  0082        MOV [02H],A
+ 770  0068              #line 770 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 770  0068  3000     R  SET _b_KEY_ACTION
+ 770  0069              L163:
+ 770  0069              L162:
+ 770  0069              L157:
+ 770  0069              L154:
+ 779  0069              #line 779 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 779  0069              #pragma debug scope 43 1 ; 779 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 779  0069  3800     R  SNZ _b_KEY_ACTION
+ 779  006A  2800     R  JMP L168
+ 779  006B              #pragma debug scope 51 43 ; 781 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 781  006B              #line 781 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 781  006B  3400     R  CLR _b_KEY_ACTION
+ 782  006C              #line 782 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 782  006C  3400     R  CLR _b_KEY_SEND
+ 784  006D              #line 784 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 784  006D  0F07        MOV A,07h
+ 784  006E  0080     R  MOV _r_KEY_DELAY_TIME,A
+ 785  006F              #line 785 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 785  006F  3395        SET [015H].7
+ 787  0070              #line 787 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 787  0070  0F00     R  MOV A,BANK _r_KEY_BUF
+ 787  0071  0084        MOV [04H],A
+ 787  0072  0F00     R  MOV A,OFFSET _r_KEY_BUF
+ 787  0073  0083        MOV [03H],A
+ 787  0074  0702        MOV A,[02H]
+ 787  0075  0C01        XOR A,01h
+ 787  0076  390A        SNZ [0AH].2
+ 787  0077  2800     R  JMP L170
+ 787  0078  0F00     R  MOV A,BANK _r_KEY_BUF[1]
+ 787  0079  0084        MOV [04H],A
+ 787  007A  0F00     R  MOV A,OFFSET _r_KEY_BUF[1]
+ 787  007B  0083        MOV [03H],A
+ 787  007C  1082        SZ [02H]
+ 787  007D  2800     R  JMP L170
+ 787  007E              #pragma debug scope 52 51 ; 787 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 787  007E              #line 787 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 787  007E  0F00     R  MOV A,BANK _r_temp2
+ 787  007F  0084        MOV [04H],A
+ 787  0080  0F00     R  MOV A,OFFSET _r_temp2
+ 787  0081  0083        MOV [03H],A
+ 787  0082  0FA1        MOV A,0a1h
+ 787  0083  0082        MOV [02H],A
+ 787  0084              L170:
+ 788  0084              #line 788 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 788  0084              #pragma debug scope 51 43 ; 788 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 788  0084  0F00     R  MOV A,BANK _r_KEY_BUF
+ 788  0085  0084        MOV [04H],A
+ 788  0086  0F00     R  MOV A,OFFSET _r_KEY_BUF
+ 788  0087  0083        MOV [03H],A
+ 788  0088  0702        MOV A,[02H]
+ 788  0089  0C02        XOR A,02h
+ 788  008A  390A        SNZ [0AH].2
+ 788  008B  2800     R  JMP L173
+ 788  008C  0F00     R  MOV A,BANK _r_KEY_BUF[1]
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次35
+
+ 788  008D  0084        MOV [04H],A
+ 788  008E  0F00     R  MOV A,OFFSET _r_KEY_BUF[1]
+ 788  008F  0083        MOV [03H],A
+ 788  0090  1082        SZ [02H]
+ 788  0091  2800     R  JMP L173
+ 788  0092              #pragma debug scope 53 51 ; 788 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 788  0092              #line 788 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 788  0092  0F00     R  MOV A,BANK _r_temp2
+ 788  0093  0084        MOV [04H],A
+ 788  0094  0F00     R  MOV A,OFFSET _r_temp2
+ 788  0095  0083        MOV [03H],A
+ 788  0096  0FA2        MOV A,0a2h
+ 788  0097  0082        MOV [02H],A
+ 788  0098              L173:
+ 789  0098              #line 789 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 789  0098              #pragma debug scope 51 43 ; 789 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 789  0098  0F00     R  MOV A,BANK _r_KEY_BUF
+ 789  0099  0084        MOV [04H],A
+ 789  009A  0F00     R  MOV A,OFFSET _r_KEY_BUF
+ 789  009B  0083        MOV [03H],A
+ 789  009C  0702        MOV A,[02H]
+ 789  009D  0C04        XOR A,04h
+ 789  009E  390A        SNZ [0AH].2
+ 789  009F  2800     R  JMP L176
+ 789  00A0  0F00     R  MOV A,BANK _r_KEY_BUF[1]
+ 789  00A1  0084        MOV [04H],A
+ 789  00A2  0F00     R  MOV A,OFFSET _r_KEY_BUF[1]
+ 789  00A3  0083        MOV [03H],A
+ 789  00A4  1082        SZ [02H]
+ 789  00A5  2800     R  JMP L176
+ 789  00A6              #pragma debug scope 54 51 ; 789 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 789  00A6              #line 789 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 789  00A6  0F00     R  MOV A,BANK _r_temp2
+ 789  00A7  0084        MOV [04H],A
+ 789  00A8  0F00     R  MOV A,OFFSET _r_temp2
+ 789  00A9  0083        MOV [03H],A
+ 789  00AA  0FA3        MOV A,0a3h
+ 789  00AB  0082        MOV [02H],A
+ 789  00AC              L176:
+ 790  00AC              #line 790 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 790  00AC              #pragma debug scope 51 43 ; 790 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 790  00AC  0F00     R  MOV A,BANK _r_KEY_BUF
+ 790  00AD  0084        MOV [04H],A
+ 790  00AE  0F00     R  MOV A,OFFSET _r_KEY_BUF
+ 790  00AF  0083        MOV [03H],A
+ 790  00B0  0702        MOV A,[02H]
+ 790  00B1  0C08        XOR A,08h
+ 790  00B2  390A        SNZ [0AH].2
+ 790  00B3  2800     R  JMP L179
+ 790  00B4  0F00     R  MOV A,BANK _r_KEY_BUF[1]
+ 790  00B5  0084        MOV [04H],A
+ 790  00B6  0F00     R  MOV A,OFFSET _r_KEY_BUF[1]
+ 790  00B7  0083        MOV [03H],A
+ 790  00B8  1082        SZ [02H]
+ 790  00B9  2800     R  JMP L179
+ 790  00BA              #line 790 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 790  00BA  0F00     R  MOV A,BANK _r_temp2
+ 790  00BB  0084        MOV [04H],A
+ 790  00BC  0F00     R  MOV A,OFFSET _r_temp2
+ 790  00BD  0083        MOV [03H],A
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次36
+
+ 790  00BE  0FA4        MOV A,0a4h
+ 790  00BF  0082        MOV [02H],A
+ 790  00C0              L179:
+ 791  00C0              #line 791 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 791  00C0  0F00     R  MOV A,BANK _r_KEY_BUF
+ 791  00C1  0084        MOV [04H],A
+ 791  00C2  0F00     R  MOV A,OFFSET _r_KEY_BUF
+ 791  00C3  0083        MOV [03H],A
+ 791  00C4  0702        MOV A,[02H]
+ 791  00C5  0C10        XOR A,010h
+ 791  00C6  390A        SNZ [0AH].2
+ 791  00C7  2800     R  JMP L182
+ 791  00C8  0F00     R  MOV A,BANK _r_KEY_BUF[1]
+ 791  00C9  0084        MOV [04H],A
+ 791  00CA  0F00     R  MOV A,OFFSET _r_KEY_BUF[1]
+ 791  00CB  0083        MOV [03H],A
+ 791  00CC  1082        SZ [02H]
+ 791  00CD  2800     R  JMP L182
+ 791  00CE              #line 791 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 791  00CE  0F00     R  MOV A,BANK _r_temp2
+ 791  00CF  0084        MOV [04H],A
+ 791  00D0  0F00     R  MOV A,OFFSET _r_temp2
+ 791  00D1  0083        MOV [03H],A
+ 791  00D2  0FA5        MOV A,0a5h
+ 791  00D3  0082        MOV [02H],A
+ 791  00D4              L182:
+ 792  00D4              #line 792 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 792  00D4  0F00     R  MOV A,BANK _r_KEY_BUF
+ 792  00D5  0084        MOV [04H],A
+ 792  00D6  0F00     R  MOV A,OFFSET _r_KEY_BUF
+ 792  00D7  0083        MOV [03H],A
+ 792  00D8  0702        MOV A,[02H]
+ 792  00D9  0C20        XOR A,020h
+ 792  00DA  390A        SNZ [0AH].2
+ 792  00DB  2800     R  JMP L185
+ 792  00DC  0F00     R  MOV A,BANK _r_KEY_BUF[1]
+ 792  00DD  0084        MOV [04H],A
+ 792  00DE  0F00     R  MOV A,OFFSET _r_KEY_BUF[1]
+ 792  00DF  0083        MOV [03H],A
+ 792  00E0  1082        SZ [02H]
+ 792  00E1  2800     R  JMP L185
+ 792  00E2              #line 792 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 792  00E2  0F00     R  MOV A,BANK _r_temp2
+ 792  00E3  0084        MOV [04H],A
+ 792  00E4  0F00     R  MOV A,OFFSET _r_temp2
+ 792  00E5  0083        MOV [03H],A
+ 792  00E6  0FA6        MOV A,0a6h
+ 792  00E7  0082        MOV [02H],A
+ 792  00E8              L185:
+ 793  00E8              #line 793 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 793  00E8  0F00     R  MOV A,BANK _r_KEY_BUF
+ 793  00E9  0084        MOV [04H],A
+ 793  00EA  0F00     R  MOV A,OFFSET _r_KEY_BUF
+ 793  00EB  0083        MOV [03H],A
+ 793  00EC  0702        MOV A,[02H]
+ 793  00ED  0C40        XOR A,040h
+ 793  00EE  390A        SNZ [0AH].2
+ 793  00EF  2800     R  JMP L188
+ 793  00F0  0F00     R  MOV A,BANK _r_KEY_BUF[1]
+ 793  00F1  0084        MOV [04H],A
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次37
+
+ 793  00F2  0F00     R  MOV A,OFFSET _r_KEY_BUF[1]
+ 793  00F3  0083        MOV [03H],A
+ 793  00F4  1082        SZ [02H]
+ 793  00F5  2800     R  JMP L188
+ 793  00F6              #line 793 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 793  00F6  0F00     R  MOV A,BANK _r_temp2
+ 793  00F7  0084        MOV [04H],A
+ 793  00F8  0F00     R  MOV A,OFFSET _r_temp2
+ 793  00F9  0083        MOV [03H],A
+ 793  00FA  0FA7        MOV A,0a7h
+ 793  00FB  0082        MOV [02H],A
+ 793  00FC              L188:
+ 794  00FC              #line 794 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 794  00FC  0F00     R  MOV A,BANK _r_KEY_BUF
+ 794  00FD  0084        MOV [04H],A
+ 794  00FE  0F00     R  MOV A,OFFSET _r_KEY_BUF
+ 794  00FF  0083        MOV [03H],A
+ 794  0100  0702        MOV A,[02H]
+ 794  0101  0C80        XOR A,080h
+ 794  0102  390A        SNZ [0AH].2
+ 794  0103  2800     R  JMP L191
+ 794  0104  0F00     R  MOV A,BANK _r_KEY_BUF[1]
+ 794  0105  0084        MOV [04H],A
+ 794  0106  0F00     R  MOV A,OFFSET _r_KEY_BUF[1]
+ 794  0107  0083        MOV [03H],A
+ 794  0108  1082        SZ [02H]
+ 794  0109  2800     R  JMP L191
+ 794  010A              #line 794 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 794  010A  0F00     R  MOV A,BANK _r_temp2
+ 794  010B  0084        MOV [04H],A
+ 794  010C  0F00     R  MOV A,OFFSET _r_temp2
+ 794  010D  0083        MOV [03H],A
+ 794  010E  0FA8        MOV A,0a8h
+ 794  010F  0082        MOV [02H],A
+ 794  0110              L191:
+ 795  0110              #line 795 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 795  0110  0F00     R  MOV A,BANK _r_KEY_BUF[1]
+ 795  0111  0084        MOV [04H],A
+ 795  0112  0F00     R  MOV A,OFFSET _r_KEY_BUF[1]
+ 795  0113  0083        MOV [03H],A
+ 795  0114  0702        MOV A,[02H]
+ 795  0115  0C01        XOR A,01h
+ 795  0116  390A        SNZ [0AH].2
+ 795  0117  2800     R  JMP L194
+ 795  0118  0F00     R  MOV A,BANK _r_KEY_BUF
+ 795  0119  0084        MOV [04H],A
+ 795  011A  0F00     R  MOV A,OFFSET _r_KEY_BUF
+ 795  011B  0083        MOV [03H],A
+ 795  011C  1082        SZ [02H]
+ 795  011D  2800     R  JMP L194
+ 795  011E              #line 795 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 795  011E  0F00     R  MOV A,BANK _r_temp2
+ 795  011F  0084        MOV [04H],A
+ 795  0120  0F00     R  MOV A,OFFSET _r_temp2
+ 795  0121  0083        MOV [03H],A
+ 795  0122  0FA9        MOV A,0a9h
+ 795  0123  0082        MOV [02H],A
+ 795  0124              L194:
+ 796  0124              #line 796 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 796  0124  0F00     R  MOV A,BANK _r_KEY_BUF[1]
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次38
+
+ 796  0125  0084        MOV [04H],A
+ 796  0126  0F00     R  MOV A,OFFSET _r_KEY_BUF[1]
+ 796  0127  0083        MOV [03H],A
+ 796  0128  0702        MOV A,[02H]
+ 796  0129  0C02        XOR A,02h
+ 796  012A  390A        SNZ [0AH].2
+ 796  012B  2800     R  JMP L197
+ 796  012C  0F00     R  MOV A,BANK _r_KEY_BUF
+ 796  012D  0084        MOV [04H],A
+ 796  012E  0F00     R  MOV A,OFFSET _r_KEY_BUF
+ 796  012F  0083        MOV [03H],A
+ 796  0130  1082        SZ [02H]
+ 796  0131  2800     R  JMP L197
+ 796  0132              #line 796 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 796  0132  0F00     R  MOV A,BANK _r_temp2
+ 796  0133  0084        MOV [04H],A
+ 796  0134  0F00     R  MOV A,OFFSET _r_temp2
+ 796  0135  0083        MOV [03H],A
+ 796  0136  0FAA        MOV A,0aah
+ 796  0137  0082        MOV [02H],A
+ 796  0138              L197:
+ 797  0138              #line 797 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 797  0138  0F00     R  MOV A,BANK _r_KEY_BUF[1]
+ 797  0139  0084        MOV [04H],A
+ 797  013A  0F00     R  MOV A,OFFSET _r_KEY_BUF[1]
+ 797  013B  0083        MOV [03H],A
+ 797  013C  0702        MOV A,[02H]
+ 797  013D  0C04        XOR A,04h
+ 797  013E  390A        SNZ [0AH].2
+ 797  013F  2800     R  JMP L200
+ 797  0140  0F00     R  MOV A,BANK _r_KEY_BUF
+ 797  0141  0084        MOV [04H],A
+ 797  0142  0F00     R  MOV A,OFFSET _r_KEY_BUF
+ 797  0143  0083        MOV [03H],A
+ 797  0144  1082        SZ [02H]
+ 797  0145  2800     R  JMP L200
+ 797  0146              #line 797 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 797  0146  0F00     R  MOV A,BANK _r_temp2
+ 797  0147  0084        MOV [04H],A
+ 797  0148  0F00     R  MOV A,OFFSET _r_temp2
+ 797  0149  0083        MOV [03H],A
+ 797  014A  0FAB        MOV A,0abh
+ 797  014B  0082        MOV [02H],A
+ 797  014C              L200:
+ 798  014C              #line 798 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 798  014C  0F00     R  MOV A,BANK _r_KEY_BUF[1]
+ 798  014D  0084        MOV [04H],A
+ 798  014E  0F00     R  MOV A,OFFSET _r_KEY_BUF[1]
+ 798  014F  0083        MOV [03H],A
+ 798  0150  0702        MOV A,[02H]
+ 798  0151  0C08        XOR A,08h
+ 798  0152  390A        SNZ [0AH].2
+ 798  0153  2800     R  JMP L203
+ 798  0154  0F00     R  MOV A,BANK _r_KEY_BUF
+ 798  0155  0084        MOV [04H],A
+ 798  0156  0F00     R  MOV A,OFFSET _r_KEY_BUF
+ 798  0157  0083        MOV [03H],A
+ 798  0158  1082        SZ [02H]
+ 798  0159  2800     R  JMP L203
+ 798  015A              #line 798 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次39
+
+ 798  015A  0F00     R  MOV A,BANK _r_temp2
+ 798  015B  0084        MOV [04H],A
+ 798  015C  0F00     R  MOV A,OFFSET _r_temp2
+ 798  015D  0083        MOV [03H],A
+ 798  015E  0FAC        MOV A,0ach
+ 798  015F  0082        MOV [02H],A
+ 798  0160              L203:
+ 799  0160              #line 799 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 799  0160  0F00     R  MOV A,BANK _r_KEY_BUF[1]
+ 799  0161  0084        MOV [04H],A
+ 799  0162  0F00     R  MOV A,OFFSET _r_KEY_BUF[1]
+ 799  0163  0083        MOV [03H],A
+ 799  0164  0702        MOV A,[02H]
+ 799  0165  0C10        XOR A,010h
+ 799  0166  390A        SNZ [0AH].2
+ 799  0167  2800     R  JMP L206
+ 799  0168  0F00     R  MOV A,BANK _r_KEY_BUF
+ 799  0169  0084        MOV [04H],A
+ 799  016A  0F00     R  MOV A,OFFSET _r_KEY_BUF
+ 799  016B  0083        MOV [03H],A
+ 799  016C  1082        SZ [02H]
+ 799  016D  2800     R  JMP L206
+ 799  016E              #line 799 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 799  016E  0F00     R  MOV A,BANK _r_temp2
+ 799  016F  0084        MOV [04H],A
+ 799  0170  0F00     R  MOV A,OFFSET _r_temp2
+ 799  0171  0083        MOV [03H],A
+ 799  0172  0FAD        MOV A,0adh
+ 799  0173  0082        MOV [02H],A
+ 799  0174              L206:
+ 800  0174              #line 800 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 800  0174  0F00     R  MOV A,BANK _r_KEY_BUF[1]
+ 800  0175  0084        MOV [04H],A
+ 800  0176  0F00     R  MOV A,OFFSET _r_KEY_BUF[1]
+ 800  0177  0083        MOV [03H],A
+ 800  0178  0702        MOV A,[02H]
+ 800  0179  0C20        XOR A,020h
+ 800  017A  390A        SNZ [0AH].2
+ 800  017B  2800     R  JMP L209
+ 800  017C  0F00     R  MOV A,BANK _r_KEY_BUF
+ 800  017D  0084        MOV [04H],A
+ 800  017E  0F00     R  MOV A,OFFSET _r_KEY_BUF
+ 800  017F  0083        MOV [03H],A
+ 800  0180  1082        SZ [02H]
+ 800  0181  2800     R  JMP L209
+ 800  0182              #line 800 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 800  0182  0F00     R  MOV A,BANK _r_temp2
+ 800  0183  0084        MOV [04H],A
+ 800  0184  0F00     R  MOV A,OFFSET _r_temp2
+ 800  0185  0083        MOV [03H],A
+ 800  0186  0FAE        MOV A,0aeh
+ 800  0187  0082        MOV [02H],A
+ 800  0188              L209:
+ 801  0188              #line 801 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 801  0188  0F00     R  MOV A,BANK _r_KEY_BUF[1]
+ 801  0189  0084        MOV [04H],A
+ 801  018A  0F00     R  MOV A,OFFSET _r_KEY_BUF[1]
+ 801  018B  0083        MOV [03H],A
+ 801  018C  0702        MOV A,[02H]
+ 801  018D  0C40        XOR A,040h
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次40
+
+ 801  018E  390A        SNZ [0AH].2
+ 801  018F  2800     R  JMP L212
+ 801  0190  0F00     R  MOV A,BANK _r_KEY_BUF
+ 801  0191  0084        MOV [04H],A
+ 801  0192  0F00     R  MOV A,OFFSET _r_KEY_BUF
+ 801  0193  0083        MOV [03H],A
+ 801  0194  1082        SZ [02H]
+ 801  0195  2800     R  JMP L212
+ 801  0196              #line 801 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 801  0196  0F00     R  MOV A,BANK _r_temp2
+ 801  0197  0084        MOV [04H],A
+ 801  0198  0F00     R  MOV A,OFFSET _r_temp2
+ 801  0199  0083        MOV [03H],A
+ 801  019A  0FAF        MOV A,0afh
+ 801  019B  0082        MOV [02H],A
+ 801  019C              L212:
+ 802  019C              #line 802 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 802  019C  0F00     R  MOV A,BANK _r_KEY_BUF[1]
+ 802  019D  0084        MOV [04H],A
+ 802  019E  0F00     R  MOV A,OFFSET _r_KEY_BUF[1]
+ 802  019F  0083        MOV [03H],A
+ 802  01A0  0702        MOV A,[02H]
+ 802  01A1  0C80        XOR A,080h
+ 802  01A2  390A        SNZ [0AH].2
+ 802  01A3  2800     R  JMP L215
+ 802  01A4  0F00     R  MOV A,BANK _r_KEY_BUF
+ 802  01A5  0084        MOV [04H],A
+ 802  01A6  0F00     R  MOV A,OFFSET _r_KEY_BUF
+ 802  01A7  0083        MOV [03H],A
+ 802  01A8  1082        SZ [02H]
+ 802  01A9  2800     R  JMP L215
+ 802  01AA              #line 802 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 802  01AA  0F00     R  MOV A,BANK _r_temp2
+ 802  01AB  0084        MOV [04H],A
+ 802  01AC  0F00     R  MOV A,OFFSET _r_temp2
+ 802  01AD  0083        MOV [03H],A
+ 802  01AE  0FA0        MOV A,0a0h
+ 802  01AF  0082        MOV [02H],A
+ 802  01B0              L215:
+ 803  01B0              #line 803 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 803  01B0  0F00     R  MOV A,BANK _r_KEY_BUF[1]
+ 803  01B1  0084        MOV [04H],A
+ 803  01B2  0F00     R  MOV A,OFFSET _r_KEY_BUF[1]
+ 803  01B3  0083        MOV [03H],A
+ 803  01B4  1082        SZ [02H]
+ 803  01B5  2800     R  JMP L218
+ 803  01B6  0F00     R  MOV A,BANK _r_KEY_BUF
+ 803  01B7  0084        MOV [04H],A
+ 803  01B8  0F00     R  MOV A,OFFSET _r_KEY_BUF
+ 803  01B9  0083        MOV [03H],A
+ 803  01BA  1082        SZ [02H]
+ 803  01BB  2800     R  JMP L218
+ 803  01BC              #pragma debug scope 55 51 ; 803 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 803  01BC              #line 803 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 803  01BC  0F00     R  MOV A,BANK _r_temp2
+ 803  01BD  0084        MOV [04H],A
+ 803  01BE  0F00     R  MOV A,OFFSET _r_temp2
+ 803  01BF  0083        MOV [03H],A
+ 803  01C0  1F02        CLR [02H]
+ 803  01C1              L218:
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次41
+
+ 805  01C1              #line 805 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 805  01C1              #pragma debug scope 51 43 ; 805 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 805  01C1  0F00     R  MOV A,BANK _r_temp2
+ 805  01C2  0084        MOV [04H],A
+ 805  01C3  0F00     R  MOV A,OFFSET _r_temp2
+ 805  01C4  0083        MOV [03H],A
+ 805  01C5  0702        MOV A,[02H]
+ 805  01C6  0080     R  MOV _r_send_buf,A
+ 806  01C7              #line 806 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 806  01C7              #pragma debug scope 43 1 ; 806 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 806  01C7  2800     R  JMP L169
+ 806  01C8              L168:
+ 806  01C8              #pragma debug scope 56 43 ; 809 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 809  01C8              #line 809 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 809  01C8  3C00     R  SZ _b_KEY_SEND
+ 809  01C9  2800     R  JMP L221
+ 809  01CA              #line 809 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+ 809  01CA  0F00     R  MOV A,BANK _r_temp2
+ 809  01CB  0084        MOV [04H],A
+ 809  01CC  0F00     R  MOV A,OFFSET _r_temp2
+ 809  01CD  0083        MOV [03H],A
+ 809  01CE  0702        MOV A,[02H]
+ 809  01CF  0080     R  MOV _r_send_buf,A
+ 809  01D0              L221:
+ 809  01D0              L169:
+ 809  01D0              L151:
+ 809  01D0  0003        RET
+ 809  0000  00          LOCAL b0_7 DB ?
+ 809  01D1              _USER_PROGRAM ENDP
+  85  01D1              #line 85 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+  85  01D1              PUBLIC _r_SEND_KEY_COUNT
+  85  0000              @r_SEND_KEY_COUNT .SECTION 'DATA'
+  85  0000  0002[       _r_SEND_KEY_COUNT DB 2 DUP (?) ;r_SEND_KEY_COUNT
+            00
+            ]
+  85  0002              #pragma debug variable 11 1 _r_SEND_KEY_COUNT r_SEND_KEY_COUNT
+  85  0002              #line 85 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+  85  0002              PUBLIC _r_KEY_DEBOUNCE_TIME
+  85  0000              @r_KEY_DEBOUNCE_TIME .SECTION 'DATA'
+  85  0000  00          _r_KEY_DEBOUNCE_TIME DB ? ; r_KEY_DEBOUNCE_TIME
+  85  0001              #pragma debug variable 8 1 _r_KEY_DEBOUNCE_TIME r_KEY_DEBOUNCE_TIME
+  85  0001              #line 85 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+  85  0001              PUBLIC _r_KEY_BUF
+  85  0000              @r_KEY_BUF .SECTION 'DATA'
+  85  0000  0002[       _r_KEY_BUF DB 2 DUP (?) ;r_KEY_BUF
+            00
+            ]
+  85  0002              #pragma debug array 42 8 2 1 _r_KEY_BUF r_KEY_BUF
+  85  0002              #pragma debug array 42 8 2 1 _r_KEY_BUF r_KEY_BUF
+  85  0002              #line 85 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+  85  0002              PUBLIC _r_KEY_STATUS2
+  85  0000              @r_KEY_STATUS2 .SECTION 'DATA'
+  85  0000  00          _r_KEY_STATUS2 DB ? ; r_KEY_STATUS2
+  85  0001              #pragma debug variable 8 1 _r_KEY_STATUS2 r_KEY_STATUS2
+  85  0001              #line 85 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+  85  0001              PUBLIC _r_KEY_STATUS1
+  85  0000              @r_KEY_STATUS1 .SECTION 'DATA'
+  85  0000  00          _r_KEY_STATUS1 DB ? ; r_KEY_STATUS1
+  85  0001              #pragma debug variable 8 1 _r_KEY_STATUS1 r_KEY_STATUS1
+  84  0001              #line 84 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次42
+
+  84  0001              PUBLIC _r_RECEIVE_NUM_COUNT
+  84  0000              @r_RECEIVE_NUM_COUNT .SECTION 'DATA'
+  84  0000  00          _r_RECEIVE_NUM_COUNT DB ? ; r_RECEIVE_NUM_COUNT
+  84  0001              #pragma debug variable 8 1 _r_RECEIVE_NUM_COUNT r_RECEIVE_NUM_COUNT
+  84  0001              #line 84 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+  84  0001              PUBLIC _r_PIN_RECEIVE_HIGH_TIME
+  84  0000              @r_PIN_RECEIVE_HIGH_TIME .SECTION 'DATA'
+  84  0000  00          _r_PIN_RECEIVE_HIGH_TIME DB ? ; r_PIN_RECEIVE_HIGH_TIME
+  84  0001              #pragma debug variable 8 1 _r_PIN_RECEIVE_HIGH_TIME r_PIN_RECEIVE_HIGH_TIME
+  84  0001              #line 84 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+  84  0001              PUBLIC _r_PIN_RECEIVE_LOW_TIME
+  84  0000              @r_PIN_RECEIVE_LOW_TIME .SECTION 'DATA'
+  84  0000  00          _r_PIN_RECEIVE_LOW_TIME DB ? ; r_PIN_RECEIVE_LOW_TIME
+  84  0001              #pragma debug variable 8 1 _r_PIN_RECEIVE_LOW_TIME r_PIN_RECEIVE_LOW_TIME
+  83  0001              #line 83 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+  83  0001              PUBLIC _r_temp2
+  83  0000              @r_temp2 .SECTION 'DATA'
+  83  0000  00          _r_temp2 DB ? ; r_temp2
+  83  0001              #pragma debug variable 8 1 _r_temp2 r_temp2
+  83  0001              #line 83 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+  83  0001              PUBLIC _r_temp1
+  83  0000              @r_temp1 .SECTION 'DATA'
+  83  0000  00          _r_temp1 DB ? ; r_temp1
+  83  0001              #pragma debug variable 8 1 _r_temp1 r_temp1
+  83  0001              #line 83 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+  83  0001              PUBLIC _r_temp
+  83  0000              @r_temp .SECTION 'DATA'
+  83  0000  00          _r_temp DB ? ; r_temp
+  83  0001              #pragma debug variable 8 1 _r_temp r_temp
+  83  0001              #line 83 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+  83  0001              PUBLIC _r_scan_num
+  83  0000              @r_scan_num .SECTION 'DATA'
+  83  0000  00          _r_scan_num DB ? ; r_scan_num
+  83  0001              #pragma debug variable 8 1 _r_scan_num r_scan_num
+  83  0001              #line 83 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+  83  0001              PUBLIC _r_2ms
+  83  0000              @r_2ms .SECTION 'DATA'
+  83  0000  00          _r_2ms DB ? ; r_2ms
+  83  0001              #pragma debug variable 8 1 _r_2ms r_2ms
+  80  0001              #line 80 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+  80  0001              PUBLIC _r_KEY_DELAY_TIME
+  80  0001              RAMBANK 0 @r_KEY_DELAY_TIME
+  80  0000              @r_KEY_DELAY_TIME .SECTION 'DATA'
+  80  0000  00          _r_KEY_DELAY_TIME DB ? ; r_KEY_DELAY_TIME
+  80  0001              #pragma debug variable 8 1 _r_KEY_DELAY_TIME r_KEY_DELAY_TIME
+  80  0001              #line 80 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+  80  0001              PUBLIC _r_100ms
+  80  0001              RAMBANK 0 @r_100ms
+  80  0000              @r_100ms .SECTION 'DATA'
+  80  0000  00          _r_100ms DB ? ; r_100ms
+  80  0001              #pragma debug variable 8 1 _r_100ms r_100ms
+  80  0001              #line 80 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+  80  0001              PUBLIC _r_SEND_BIT_TIME
+  80  0001              RAMBANK 0 @r_SEND_BIT_TIME
+  80  0000              @r_SEND_BIT_TIME .SECTION 'DATA'
+  80  0000  00          _r_SEND_BIT_TIME DB ? ; r_SEND_BIT_TIME
+  80  0001              #pragma debug variable 8 1 _r_SEND_BIT_TIME r_SEND_BIT_TIME
+  80  0001              #line 80 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+  80  0001              PUBLIC _i
+  80  0001              RAMBANK 0 @i
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次43
+
+  80  0000              @i .SECTION 'DATA'
+  80  0000  00          _i DB ? ; i
+  80  0001              #pragma debug variable 8 1 _i i
+  79  0001              #line 79 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+  79  0001              PUBLIC _r_Adjustment_num
+  79  0001              RAMBANK 0 @r_Adjustment_num
+  79  0000              @r_Adjustment_num .SECTION 'DATA'
+  79  0000  00          _r_Adjustment_num DB ? ; r_Adjustment_num
+  79  0001              #pragma debug variable 8 1 _r_Adjustment_num r_Adjustment_num
+  79  0001              #line 79 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+  79  0001              PUBLIC _r_send_buf1
+  79  0001              RAMBANK 0 @r_send_buf1
+  79  0000              @r_send_buf1 .SECTION 'DATA'
+  79  0000  00          _r_send_buf1 DB ? ; r_send_buf1
+  79  0001              #pragma debug variable 8 1 _r_send_buf1 r_send_buf1
+  79  0001              #line 79 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+  79  0001              PUBLIC _r_send_buf
+  79  0001              RAMBANK 0 @r_send_buf
+  79  0000              @r_send_buf .SECTION 'DATA'
+  79  0000  00          _r_send_buf DB ? ; r_send_buf
+  79  0001              #pragma debug variable 8 1 _r_send_buf r_send_buf
+  79  0001              #line 79 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+  79  0001              PUBLIC _r_receive_buf
+  79  0001              RAMBANK 0 @r_receive_buf
+  79  0000              @r_receive_buf .SECTION 'DATA'
+  79  0000  0008[       _r_receive_buf DB 8 DUP (?) ;r_receive_buf
+            00
+            ]
+  79  0008              #pragma debug array 43 8 8 1 _r_receive_buf r_receive_buf
+  79  0008              #pragma debug array 43 8 8 1 _r_receive_buf r_receive_buf
+  79  0008              #line 79 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+  79  0008              PUBLIC _r_show_led_buf
+  79  0008              RAMBANK 0 @r_show_led_buf
+  79  0000              @r_show_led_buf .SECTION 'DATA'
+  79  0000  0006[       _r_show_led_buf DB 6 DUP (?) ;r_show_led_buf
+            00
+            ]
+  79  0006              #pragma debug array 44 8 6 1 _r_show_led_buf r_show_led_buf
+  79  0006              #pragma debug array 44 8 6 1 _r_show_led_buf r_show_led_buf
+  79  0006              #line 79 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+  79  0006              PUBLIC _r_show_buf
+  79  0006              RAMBANK 0 @r_show_buf
+  79  0000              @r_show_buf .SECTION 'DATA'
+  79  0000  0004[       _r_show_buf DB 4 DUP (?) ;r_show_buf
+            00
+            ]
+  79  0004              #pragma debug array 45 8 4 1 _r_show_buf r_show_buf
+  79  0004              #pragma debug array 45 8 4 1 _r_show_buf r_show_buf
+  79  0004              EXTERN _DATA_BUF:BYTE
+  79  0004              EXTERN _GET_KEY_BITMAP:NEAR
+  79  0004              EXTERN _BS82C16A_LIBV413:NEAR
+  78  0004              #line 78 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+  78  0004              RAMBANK 0 BITDATASEC
+  78  0000              BITDATASEC .SECTION 'DATA'
+  78  0000              PUBLIC _b_PIN_ST
+  78  0000  00          _b_PIN_ST DBIT ; b_PIN_ST
+  78  0001              #pragma debug variable 2 1 _b_PIN_ST b_PIN_ST
+  78  0001              #line 78 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+  78  0001              PUBLIC _b_pin_RECEIVE_D
+  78  0000              _b_pin_RECEIVE_D DBIT ; b_pin_RECEIVE_D
+文件：USER_PROGRAM_01.C 盛群编译器版本 3.00 页次44
+
+  78  0001              #pragma debug variable 2 1 _b_pin_RECEIVE_D b_pin_RECEIVE_D
+  78  0001              #line 78 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+  78  0001              PUBLIC _b_KEY_SEND
+  78  0000              _b_KEY_SEND DBIT ; b_KEY_SEND
+  78  0001              #pragma debug variable 2 1 _b_KEY_SEND b_KEY_SEND
+  78  0001              #line 78 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+  78  0001              PUBLIC _b_KEY_ACTION
+  78  0000              _b_KEY_ACTION DBIT ; b_KEY_ACTION
+  78  0001              #pragma debug variable 2 1 _b_KEY_ACTION b_KEY_ACTION
+  78  0001              #line 78 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+  78  0001              PUBLIC _b_receive_ok
+  78  0000              _b_receive_ok DBIT ; b_receive_ok
+  78  0001              #pragma debug variable 2 1 _b_receive_ok b_receive_ok
+  78  0001              #line 78 "D:\工作-NHD\开发案-备份\哈尔斯\BS82C16A_20140328_LIBV413\20140328_LIBV413\USER_PROGRAM\USER_PROGRAM_01.C"
+  78  0001              PUBLIC _b_2ms
+  78  0000              _b_2ms DBIT ; b_2ms
+  78  0001              #pragma debug variable 2 1 _b_2ms b_2ms
+  78  0001              EXTERN _SCAN_CYCLEF:BIT
+  78  0001              EXTERN RH:BYTE
+  78  0001              EXTERN V1A:BYTE
+  78  0001              EXTERN V1S:BYTE
+  78  0001              EXTERN V4A:BYTE
+  78  0001              EXTERN V4S:BYTE
+  78  0001              EXTERN V5A:BYTE
+  78  0001              EXTERN V5S:BYTE
+  78  0001              EXTERN V5MP1:BYTE
+  78  0001              EXTERN V5BP:BYTE
+  78  0001              EXTERN V6A:BYTE
+  78  0001              EXTERN V6S:BYTE
+  78  0001              EXTERN V7A:BYTE
+  78  0001              EXTERN V7S:BYTE
+  78  0001              EXTERN V7MP1:BYTE
+  78  0001              EXTERN V7BP:BYTE
+  78  0001              EXTERN V7T1:BYTE
+
+
+        0 Errors
