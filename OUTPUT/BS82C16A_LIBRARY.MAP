@@ -26,47 +26,45 @@ Input Library File: C:\Program Files\Holtek MCU Development Tools\HT-IDE3000V8.x
      00h     0563h     0567h    0005h      CODE               _Interrupt_CTM0_CCRP (D:\MyCloud\TQWorking\TQ38\TouchKey\OUTPUT\USER_PROGRAM_01.OBJ)
      00h     0568h     056ch    0005h      CODE               _Interrupt_CTM0_CCRA (D:\MyCloud\TQWorking\TQ38\TouchKey\OUTPUT\USER_PROGRAM_01.OBJ)
      00h     056dh     0571h    0005h      CODE               _Interrupt_PTM1_CCRP (D:\MyCloud\TQWorking\TQ38\TouchKey\OUTPUT\USER_PROGRAM_01.OBJ)
-     00h     0572h     0584h    0013h      CODE               _Interrupt_TB1 (D:\MyCloud\TQWorking\TQ38\TouchKey\OUTPUT\USER_PROGRAM_01.OBJ)
-     00h     0585h     05a7h    0023h      CODE               _USER_PROGRAM_INITIAL (D:\MyCloud\TQWorking\TQ38\TouchKey\OUTPUT\USER_PROGRAM_01.OBJ)
-     00h     05a8h     05f1h    004ah      CODE               _USER_PROGRAM (D:\MyCloud\TQWorking\TQ38\TouchKey\OUTPUT\USER_PROGRAM_01.OBJ)
+     00h     0572h     0576h    0005h      CODE               _Interrupt_TB1 (D:\MyCloud\TQWorking\TQ38\TouchKey\OUTPUT\USER_PROGRAM_01.OBJ)
+     00h     0577h     0598h    0022h      CODE               _USER_PROGRAM_INITIAL (D:\MyCloud\TQWorking\TQ38\TouchKey\OUTPUT\USER_PROGRAM_01.OBJ)
+     00h     0599h     0618h    0080h      CODE               _USER_PROGRAM (D:\MyCloud\TQWorking\TQ38\TouchKey\OUTPUT\USER_PROGRAM_01.OBJ)
      00h     0080h     00adh    002eh      DATA     0.5       TKS_LIBRARY_DATA0 (C:\Users\Seblee\AppData\Local\Temp\BS82C16A_LIBV413.OBJ)
      00h     00aeh     00afh    0002h      DATA     3         MAIN_DATA (D:\MyCloud\TQWorking\TQ38\TouchKey\OUTPUT\MAIN_PROGRAM_V100.OBJ)
-     00h     00b0h     00b2h    0003h      DATA     3         @HCCINIT0 (D:\MyCloud\TQWorking\TQ38\TouchKey\OUTPUT\USER_PROGRAM_01.OBJ)
-     00h     00b3h     00b3h    0001h      DATA     21        @data_ra (C:\Program Files\Holtek MCU Development Tools\HT-IDE3000V8.x\LIB\LIBHOLTEKGCC.LIB)
-     00h     00b4h     00b4h    0001h      DATA     4         @data_rb (C:\Program Files\Holtek MCU Development Tools\HT-IDE3000V8.x\LIB\LIBHOLTEKGCC.LIB)
-     00h     00b5h     00b5h    0001h      DATA     2         @data_r104 (isr:ra~rh)
-     00h     00b6h     00b6h    0001h      DATA     2         @data_r204 (isr:ra~rh)
-     00h     00b7h     00b7h    0001h      DATA     2         @data_r110 (isr:ra~rh)
-     00h     00b8h     00b8h    0001h      DATA     2         @data_r210 (isr:ra~rh)
-     00h     00b9h     00b9h    0001h      DATA     2         @data_r114 (isr:ra~rh)
-     00h     00bah     00bah    0001h      DATA     2         @data_r214 (isr:ra~rh)
-     00h     00bbh     00bbh    0001h      DATA     2         @data_r118 (isr:ra~rh)
-     00h     00bch     00bch    0001h      DATA     2         @data_r218 (isr:ra~rh)
-     00h     00bdh     00bdh    0001h      DATA     2         @data_r120 (isr:ra~rh)
-     00h     00beh     00beh    0001h      DATA     2         @data_r220 (isr:ra~rh)
-     00h     00bfh     00bfh    0001h      DATA     6         @data_ra20 (isr:ra~rh)
+     00h     00b0h     00b2h    0003h      DATA     3.3333    @HCCINIT0 (D:\MyCloud\TQWorking\TQ38\TouchKey\OUTPUT\USER_PROGRAM_01.OBJ)
+     00h     00b3h     00b3h    0001h      DATA     45        @data_ra (C:\Program Files\Holtek MCU Development Tools\HT-IDE3000V8.x\LIB\LIBHOLTEKGCC.LIB)
+     00h     00b4h     00b4h    0001h      DATA     2         @data_r104 (isr:ra~rh)
+     00h     00b5h     00b5h    0001h      DATA     2         @data_r204 (isr:ra~rh)
+     00h     00b6h     00b6h    0001h      DATA     2         @data_r110 (isr:ra~rh)
+     00h     00b7h     00b7h    0001h      DATA     2         @data_r210 (isr:ra~rh)
+     00h     00b8h     00b8h    0001h      DATA     2         @data_r114 (isr:ra~rh)
+     00h     00b9h     00b9h    0001h      DATA     2         @data_r214 (isr:ra~rh)
+     00h     00bah     00bah    0001h      DATA     2         @data_r118 (isr:ra~rh)
+     00h     00bbh     00bbh    0001h      DATA     2         @data_r218 (isr:ra~rh)
+     00h     00bch     00bch    0001h      DATA     2         @data_r120 (isr:ra~rh)
+     00h     00bdh     00bdh    0001h      DATA     2         @data_r220 (isr:ra~rh)
      01h     0080h     00afh    0030h      DATA     0         TKS_LIBRARY_DATA1 (C:\Users\Seblee\AppData\Local\Temp\BS82C16A_LIBV413.OBJ)
      02h     0080h     00ffh    0080h      DATA     0         TKS_LIBRARY_DATA2 (C:\Users\Seblee\AppData\Local\Temp\BS82C16A_LIBV413.OBJ)
 
      Local Sections
 
      Bank    Start     End      Length     Class    AvgIns    Name
-     00h     00c0h     00c0h    0000h      LOCAL    0         @dummy4 (D:\MyCloud\TQWorking\TQ38\TouchKey\OUTPUT\USER_PROGRAM_01.OBJ)
-     00h     00c0h     00c0h    0000h      LOCAL    0         _Interrupt_Extemal (D:\MyCloud\TQWorking\TQ38\TouchKey\OUTPUT\USER_PROGRAM_01.OBJ)
-     00h     00c0h     00c0h    0000h      LOCAL    0         @dummy16 (D:\MyCloud\TQWorking\TQ38\TouchKey\OUTPUT\USER_PROGRAM_01.OBJ)
-     00h     00c0h     00c0h    0000h      LOCAL    0         _Interrupt_CTM0_CCRP (D:\MyCloud\TQWorking\TQ38\TouchKey\OUTPUT\USER_PROGRAM_01.OBJ)
-     00h     00c0h     00c0h    0000h      LOCAL    0         @dummy20 (D:\MyCloud\TQWorking\TQ38\TouchKey\OUTPUT\USER_PROGRAM_01.OBJ)
-     00h     00c0h     00c0h    0000h      LOCAL    0         _Interrupt_CTM0_CCRA (D:\MyCloud\TQWorking\TQ38\TouchKey\OUTPUT\USER_PROGRAM_01.OBJ)
-     00h     00c0h     00c0h    0000h      LOCAL    0         @dummy24 (D:\MyCloud\TQWorking\TQ38\TouchKey\OUTPUT\USER_PROGRAM_01.OBJ)
-     00h     00c0h     00c0h    0000h      LOCAL    0         _Interrupt_PTM1_CCRP (D:\MyCloud\TQWorking\TQ38\TouchKey\OUTPUT\USER_PROGRAM_01.OBJ)
-     00h     00c0h     00c0h    0000h      LOCAL    0         @dummy32 (D:\MyCloud\TQWorking\TQ38\TouchKey\OUTPUT\USER_PROGRAM_01.OBJ)
-     00h     00c0h     00c0h    0000h      LOCAL    0         _Interrupt_TB1 (D:\MyCloud\TQWorking\TQ38\TouchKey\OUTPUT\USER_PROGRAM_01.OBJ)
+     00h     00beh     00beh    0000h      LOCAL    0         @dummy4 (D:\MyCloud\TQWorking\TQ38\TouchKey\OUTPUT\USER_PROGRAM_01.OBJ)
+     00h     00beh     00beh    0000h      LOCAL    0         _Interrupt_Extemal (D:\MyCloud\TQWorking\TQ38\TouchKey\OUTPUT\USER_PROGRAM_01.OBJ)
+     00h     00beh     00beh    0000h      LOCAL    0         @dummy16 (D:\MyCloud\TQWorking\TQ38\TouchKey\OUTPUT\USER_PROGRAM_01.OBJ)
+     00h     00beh     00beh    0000h      LOCAL    0         _Interrupt_CTM0_CCRP (D:\MyCloud\TQWorking\TQ38\TouchKey\OUTPUT\USER_PROGRAM_01.OBJ)
+     00h     00beh     00beh    0000h      LOCAL    0         @dummy20 (D:\MyCloud\TQWorking\TQ38\TouchKey\OUTPUT\USER_PROGRAM_01.OBJ)
+     00h     00beh     00beh    0000h      LOCAL    0         _Interrupt_CTM0_CCRA (D:\MyCloud\TQWorking\TQ38\TouchKey\OUTPUT\USER_PROGRAM_01.OBJ)
+     00h     00beh     00beh    0000h      LOCAL    0         @dummy24 (D:\MyCloud\TQWorking\TQ38\TouchKey\OUTPUT\USER_PROGRAM_01.OBJ)
+     00h     00beh     00beh    0000h      LOCAL    0         _Interrupt_PTM1_CCRP (D:\MyCloud\TQWorking\TQ38\TouchKey\OUTPUT\USER_PROGRAM_01.OBJ)
+     00h     00beh     00beh    0000h      LOCAL    0         @dummy32 (D:\MyCloud\TQWorking\TQ38\TouchKey\OUTPUT\USER_PROGRAM_01.OBJ)
+     00h     00beh     00beh    0000h      LOCAL    0         _Interrupt_TB1 (D:\MyCloud\TQWorking\TQ38\TouchKey\OUTPUT\USER_PROGRAM_01.OBJ)
 
      Indepentent Local Sections
 
      Bank    Start     End      Length     Class    AvgIns    Name
-     00h     00c0h     00c0h    0000h      ILOCAL   0         _USER_PROGRAM_INITIAL (D:\MyCloud\TQWorking\TQ38\TouchKey\OUTPUT\USER_PROGRAM_01.OBJ)
-     00h     00c0h     00c0h    0000h      ILOCAL   0         _USER_PROGRAM (D:\MyCloud\TQWorking\TQ38\TouchKey\OUTPUT\USER_PROGRAM_01.OBJ)
+     00h     00beh     00beh    0000h      ILOCAL   0         _USER_PROGRAM_INITIAL (D:\MyCloud\TQWorking\TQ38\TouchKey\OUTPUT\USER_PROGRAM_01.OBJ)
+     00h     00beh     00beh    0000h      ILOCAL   0         _USER_PROGRAM (D:\MyCloud\TQWorking\TQ38\TouchKey\OUTPUT\USER_PROGRAM_01.OBJ)
 
      Public Symbols Information
      Address            Public by Name
@@ -105,24 +103,22 @@ Input Library File: C:\Program Files\Holtek MCU Development Tools\HT-IDE3000V8.x
      00adh[1]           _TKS_ACTIVEF
      00adh              _TKS_FLAGA
      009dh              _TKS_TIME_BASE
-     05a8h              _USER_PROGRAM
-     0585h              _USER_PROGRAM_INITIAL
+     0599h              _USER_PROGRAM
+     0577h              _USER_PROGRAM_INITIAL
      00b2h              _bitvar0
      00b0h              _r_temp
      00b1h              _r_temp_bak
-     00b5h              r104
-     00b7h              r110
-     00b9h              r114
-     00bbh              r118
-     00bdh              r120
-     00b6h              r204
-     00b8h              r210
-     00bah              r214
-     00bch              r218
-     00beh              r220
+     00b4h              r104
+     00b6h              r110
+     00b8h              r114
+     00bah              r118
+     00bch              r120
+     00b5h              r204
+     00b7h              r210
+     00b9h              r214
+     00bbh              r218
+     00bdh              r220
      00b3h              ra
-     00bfh              ra20
-     00b4h              rb
 
      Address            Public by Value
      001ch              _Interrupt_PTM1_CCRA
@@ -141,18 +137,16 @@ Input Library File: C:\Program Files\Holtek MCU Development Tools\HT-IDE3000V8.x
      00b1h              _r_temp_bak
      00b2h              _bitvar0
      00b3h              ra
-     00b4h              rb
-     00b5h              r104
-     00b6h              r204
-     00b7h              r110
-     00b8h              r210
-     00b9h              r114
-     00bah              r214
-     00bbh              r118
-     00bch              r218
-     00bdh              r120
-     00beh              r220
-     00bfh              ra20
+     00b4h              r104
+     00b5h              r204
+     00b6h              r110
+     00b7h              r210
+     00b8h              r114
+     00b9h              r214
+     00bah              r118
+     00bbh              r218
+     00bch              r120
+     00bdh              r220
      012ch              _BS82C16A_LIBV413_INITIAL
      012ch              _LIBRARY_RESET
      0180h              _KEY_STATUS
@@ -176,21 +170,21 @@ Input Library File: C:\Program Files\Holtek MCU Development Tools\HT-IDE3000V8.x
      00adh[5]           _TKS_250MSF
      00adh[6]           _TKS_500MSF
      0572h              _Interrupt_TB1
-     0585h              _USER_PROGRAM_INITIAL
-     05a8h              _USER_PROGRAM
+     0577h              _USER_PROGRAM_INITIAL
+     0599h              _USER_PROGRAM
 
 
 ROM Usage Statistics
      Size      Used     Percentage
-     1000h     05edh    37%
+     1000h     0614h    37%
 
 RAM Usage Statistics
     Bank      Size      Used     Percentage
-     00h       0080h     0040h    50%
+     00h       0080h     003eh    48%
      01h       0080h     0030h    37%
      02h       0080h     0080h    100%
      03h       0080h     0000h    0%
-     Total     0200h     00f0h    46%
+     Total     0200h     00eeh    46%
 
 Use Stack Count
 _Interrupt_Extemal: 0

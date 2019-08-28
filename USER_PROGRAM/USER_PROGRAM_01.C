@@ -10,20 +10,23 @@ volatile _TKS_FLAGA_type bitvar0;
 
 volatile uchar r_temp_bak, r_temp;
 
-#define f_KeyDown bitvar0.bits.b0
+#define KEY1 bitvar0.bits.b2
+#define KEY2 bitvar0.bits.b3
+#define KEY3 bitvar0.bits.b1
 
-#define MOTO1 _pb4
-#define MOTO2 _pb5
-#define MOTO3 _pb6
-#define BL1 _pb7
-#define BUZ1 _pc0
-#define LED1 _pc1
-#define LED2 _pc2
-#define LED3 _pc3
-#define LED4 _pc4
-#define LED5 _pc5
-#define DIN _pc6
-#define SCLK _pc7
+#define BEEP _pc0
+
+#define LED1 _pc4
+#define LED2 _pc5
+#define LED3 _pc6
+#define LED4 _pc7
+#define LED5 _pb3
+#define LED6 _pb4
+#define LED7_1 _pb5
+#define LED7_2 _pb6
+
+#define KEY4 _pb7
+
 #define IR _pa4
 
 //==============================================
@@ -92,22 +95,23 @@ void __attribute((interrupt(0x1c))) Interrupt_PTM1_CCRA(void)
 
 void __attribute((interrupt(0x20))) Interrupt_TB1(void)
 {
-    LED5 = !LED5;
+    // LED5 = !LED5;
+    GCC_NOP();  //_nop();
 }
 //==============================================
 //**********************************************
 //==============================================
 void USER_PROGRAM_INITIAL()
 {
-    _pac  = 0b11111111;
-    _papu = 0b11111111;
-    _pa   = 0b11111111;
+    // _pac  = 0b11111111;
+    // _papu = 0b11111111;
+    // _pa   = 0b11111111;
 
-    _pbc  = 0b00001111;
-    _pbpu = 0b00000000;
+    _pbc  = 0b10000000;
+    _pbpu = 0b10000000;
     _pb   = 0b00000000;
 
-    _pcc  = 0b00000000;
+    _pcc  = 0b00001110;
     _pcpu = 0b00000000;
     _pc   = 0b00000000;
 
@@ -151,7 +155,8 @@ void USER_PROGRAM()
     if (SCAN_CYCLEF)
     {
         GET_KEY_BITMAP();
-        r_temp = DATA_BUF[0];
+        r_temp       = DATA_BUF[1];
+        bitvar0.byte = r_temp;
         /*	 	    if(r_temp==r_temp_bak)
             {
                 if(f_KeyDown==1)
@@ -175,14 +180,24 @@ void USER_PROGRAM()
             }*/
         if (r_temp != r_temp_bak)
         {
-            if (r_temp & 0x01)
-                LED1 = !LED1;
-            if (r_temp & 0x02)
-                LED2 = !LED2;
-            if (r_temp & 0x04)
-                LED3 = !LED3;
-            if (r_temp & 0x08)
-                LED4 = !LED4;
+            LED1 = !LED1;
+            LED2 = !LED2;
+            LED3 = !LED3;
+            LED4 = !LED4;
+
+            if (KEY1)
+            {
+                LED5 = !LED5;
+            }
+            if (KEY2)
+            {
+                LED6 = !LED6;
+            }
+            if (KEY3)
+            {
+                LED7_1 = !LED7_1;
+                LED7_2 = !LED7_2;
+            }
             r_temp_bak = r_temp;
         }
     }
