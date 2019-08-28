@@ -185,6 +185,7 @@ void USER_PROGRAM()
             LED3 = !LED3;
             LED4 = !LED4;
 
+            BEEP = !BEEP;
             if (KEY1)
             {
                 LED5 = !LED5;
