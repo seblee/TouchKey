@@ -31,6 +31,7 @@ volatile uchar r_temp_bak, r_temp;
 
 unsigned char rxFlag     = 0;
 unsigned char rxBuff[10] = {0};
+unsigned char beepFlag   = 0;
 
 //==============================================
 //**********************************************
@@ -155,11 +156,6 @@ void USER_PROGRAM_INITIAL()
 
     _tmpc = 0x00;
 
-    _slcdc0 = 0x00;
-    _slcdc1 = 0x00;
-    _slcdc2 = 0x00;
-    _slcdc3 = 0x00;
-
     _ctrl = 0x00;
 
     _tbc |= 0xf0;
@@ -171,6 +167,17 @@ void USER_PROGRAM_INITIAL()
 //==============================================
 void USER_PROGRAM()
 {
+    if (TKS_63MSF)
+    {
+        if (beepFlag)
+        {
+            BEEP     = 1;
+            beepFlag = 0;
+        }
+        else
+            BEEP = 0;
+    }
+
     if (SCAN_CYCLEF)
     {
         GET_KEY_BITMAP();
@@ -179,24 +186,38 @@ void USER_PROGRAM()
 
         if (r_temp != r_temp_bak)
         {
-            LED1 = !LED1;
-            LED2 = !LED2;
-            LED3 = !LED3;
-            LED4 = !LED4;
+            if (r_temp)
+            {
+                LED1 = 1;
+                LED2 = 1;
+                LED3 = 1;
+                LED4 = 1;
+                // BEEP = 1;
+            }
+            else
+            {
+                LED1 = 0;
+                LED2 = 0;
+                LED3 = 0;
+                LED4 = 0;
+                //   BEEP = 0;
+            }
 
-            BEEP = !BEEP;
             if (KEY1)
             {
-                LED5 = !LED5;
+                beepFlag = 1;
+                LED5     = !LED5;
             }
             if (KEY2)
             {
-                LED6 = !LED6;
+                beepFlag = 1;
+                LED6     = !LED6;
             }
             if (KEY3)
             {
-                LED7_1 = !LED7_1;
-                LED7_2 = !LED7_2;
+                beepFlag = 1;
+                LED7_1   = !LED7_1;
+                LED7_2   = !LED7_2;
             }
             r_temp_bak = r_temp;
 
