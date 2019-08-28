@@ -1,4 +1,4 @@
-#define _CCV3_  // 定义C编译器版本.. --CCG 注释
+#define _CCV3_  // ����C�������汾.. --CCG ע��
 
 #include "..\TKS_GLOBE_VARIES.H"
 #include "..\MAIN_PROGRAM_V100\MAIN_PROGRAM_V100.H"
@@ -29,6 +29,9 @@ volatile uchar r_temp_bak, r_temp;
 
 #define IR _pa4
 
+unsigned char rxFlag     = 0;
+unsigned char rxBuff[10] = {0};
+
 //==============================================
 //**********************************************
 //==============================================
@@ -55,7 +58,7 @@ void __attribute((interrupt(0x10))) Interrupt_CTM0_CCRP(void)
 //==============================================
 //**********************************************
 // CTM0 CCRA INTERRUPT
-// 250uS---定时器
+// 250uS---��ʱ��
 //==============================================
 //#pragma vector  Interrupt_CTM0_CCRA       @ 0x14
 // void Interrupt_CTM0_CCRA()
@@ -100,6 +103,20 @@ void __attribute((interrupt(0x20))) Interrupt_TB1(void)
 }
 //==============================================
 //**********************************************
+// TB1 INTERRUPT
+//==============================================
+//#pragma vector  Interrupt_TB1      @ 0x20
+// void Interrupt_TB1()
+
+void __attribute((interrupt(0x2c))) Interrupt_UART(void)
+{
+    LED5 = !LED5;
+
+    rxBuff[9]        = _usr;
+    rxBuff[rxFlag++] = _txr_rxr;
+}
+//==============================================
+//**********************************************
 //==============================================
 void USER_PROGRAM_INITIAL()
 {
@@ -123,16 +140,18 @@ void USER_PROGRAM_INITIAL()
     _eea = 0x00;
     _eed = 0x00;
 
-    _i2ctoc  = 0x00;
-    _iicc0   = 0x00;
-    _iicc1   = 0x00;
-    _iicd    = 0x00;
-    _iica    = 0x00;
+    _i2ctoc = 0x00;
+    _iicc0  = 0x00;
+    _iicc1  = 0x00;
+    _iicd   = 0x00;
+    _iica   = 0x00;
+
     _usr     = 0x00;
-    _ucr1    = 0x00;
-    _ucr2    = 0x00;
-    _brg     = 0x00;
+    _ucr1    = 0x80;
+    _ucr2    = 0xe4;
+    _brg     = 0x67;
     _txr_rxr = 0x00;
+    _uarte   = 1;
 
     _tmpc = 0x00;
 
@@ -157,27 +176,7 @@ void USER_PROGRAM()
         GET_KEY_BITMAP();
         r_temp       = DATA_BUF[1];
         bitvar0.byte = r_temp;
-        /*	 	    if(r_temp==r_temp_bak)
-            {
-                if(f_KeyDown==1)
-                {
-                  f_KeyDown = 0;
-                  if(r_temp_bak&0x01)
-                  LED1 =! LED1;
-                  if(r_temp_bak&0x02)
-                  LED2 =! LED2 ;
-                  if(r_temp_bak&0x04)
-                  LED3 =! LED3 ;
-                  if(r_temp_bak&0x08)
-                  LED4 =! LED4;
 
-                }
-            }
-            else
-            {
-                r_temp_bak = r_temp;
-                f_KeyDown=1;
-            }*/
         if (r_temp != r_temp_bak)
         {
             LED1 = !LED1;
@@ -200,6 +199,14 @@ void USER_PROGRAM()
                 LED7_2 = !LED7_2;
             }
             r_temp_bak = r_temp;
+
+            while (rxFlag)
+            {
+                while (!_txif)
+                    ;
+                _txr_rxr = rxBuff[--rxFlag];
+                /* code */
+            }
         }
     }
 }
