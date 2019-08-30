@@ -48,14 +48,13 @@ _USR_FLAGA_type ledState2;
 
 #define KEY4 _pb7
 
-#define IR _pa4
-
 volatile _TKS_FLAGA_type bitFlag;
 
 #define beepFlag bitFlag.bits.b0
 #define rxFlag bitFlag.bits.b1
 #define txFlag bitFlag.bits.b2
 #define recOK bitFlag.bits.b3
+#define flashFlag bitFlag.bits.b4
 
 uchar rxBuff;
 uchar rxCount    = 0;
@@ -196,14 +195,6 @@ void USER_PROGRAM_INITIAL()
     // _papu = 0b11111111;
     // _pa   = 0b11111111;
 
-    _pbc  = 0b10000000;
-    _pbpu = 0b10000000;
-    _pb   = 0b00000000;
-
-    _pcc  = 0b00001110;
-    _pcpu = 0b00000000;
-    _pc   = 0b00000000;
-
     _lvdc = 0x00;
 
     _sledc0 = 0xff;
@@ -290,20 +281,21 @@ void USER_PROGRAM()
 void USER_UART_INITIAL()
 {
     /********uart**************/
-    _usr     = 0x00;
-    _ucr1    = 0x80;
-    _ucr2    = 0xe4;
-    _brg     = 0x67;
-    _txr_rxr = 0x00;
-    _uarte   = 1;
+    _usr   = 0x00;
+    _ucr1  = 0x80;
+    _ucr2  = 0xe4;
+    _brg   = 0x67;
+    _uarte = 1;
 }
 
 void USER_UART()
 {
     if (recOK)
     {
-        txCount = 4;
-        recOK   = 0;
+        txCount        = 4;
+        ledState1.byte = rxData[2];
+        ledState2.byte = rxData[3];
+        recOK          = 0;
     }
     /********数据发送*********/
     if (txCount && _txif)
@@ -325,5 +317,130 @@ void USER_UART()
             _txr_rxr = k_count[1];
         }
         txCount--;
+    }
+}
+void USER_LED_INITIAL()
+{
+    /********LED**************/
+    _pbc  = 0b10000000;
+    _pbpu = 0b10000000;
+    _pb   = 0b00000000;
+
+    _pcc  = 0b00001110;
+    _pcpu = 0b00000000;
+    _pc   = 0b00000000;
+}
+
+void USER_LED()
+{
+    if (TKS_500MSF)
+    {
+        if (flashFlag)
+        {
+            flashFlag = 0;
+        }
+        else
+        {
+            flashFlag = 1;
+        }
+
+        if (led1State == 0)
+        {
+            LED1 = 1;
+        }
+        if (led2State == 0)
+        {
+            LED2 = 1;
+        }
+        if (led3State == 0)
+        {
+            LED3 = 1;
+        }
+        if (led4State == 0)
+        {
+            LED4 = 1;
+        }
+        if (led5State == 0)
+        {
+            LED5 = 1;
+        }
+        if (led6State == 0)
+        {
+            LED6 = 1;
+        }
+        if (led7State == 0)
+        {
+            LED7 = 1;
+        }
+        if (led8State == 0)
+        {
+            LED8 = 1;
+        }
+
+        if (led1State == 1)
+        {
+            LED1 = 0;
+        }
+        if (led2State == 1)
+        {
+            LED2 = 0;
+        }
+        if (led3State == 1)
+        {
+            LED3 = 0;
+        }
+        if (led4State == 1)
+        {
+            LED4 = 0;
+        }
+        if (led5State == 1)
+        {
+            LED5 = 0;
+        }
+        if (led6State == 1)
+        {
+            LED6 = 0;
+        }
+        if (led7State == 1)
+        {
+            LED7 = 0;
+        }
+        if (led8State == 1)
+        {
+            LED8 = 0;
+        }
+
+        if (led1State == 2)
+        {
+            LED1 = flashFlag;
+        }
+        if (led2State == 2)
+        {
+            LED2 = flashFlag;
+        }
+        if (led3State == 2)
+        {
+            LED3 = flashFlag;
+        }
+        if (led4State == 2)
+        {
+            LED4 = flashFlag;
+        }
+        if (led5State == 2)
+        {
+            LED5 = flashFlag;
+        }
+        if (led6State == 2)
+        {
+            LED6 = flashFlag;
+        }
+        if (led7State == 2)
+        {
+            LED7 = flashFlag;
+        }
+        if (led8State == 2)
+        {
+            LED8 = flashFlag;
+        }
     }
 }
