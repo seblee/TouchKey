@@ -1,101 +1,87 @@
-#define _CCV3_    							// ¶¨ÒåC±àÒëÆ÷°æ±¾.. --CCG ×¢ÊÍ
+#define _CCV3_  // å®šä¹‰Cç¼–è¯‘å™¨ç‰ˆæœ¬.. --CCG æ³¨é‡Š
 
-                #include    "..\TKS_GLOBE_VARIES.H"
-                #include    "..\MAIN_PROGRAM_V100\MAIN_PROGRAM_V100.H" 
+#include "..\TKS_GLOBE_VARIES.H"
+#include "..\MAIN_PROGRAM_V100\MAIN_PROGRAM_V100.H"
 
+#define uchar unsigned char
+#define uint unsigned int
 
-             
-#define		uchar		unsigned char
-#define		uint		unsigned int
+#define _pin_RECEIVE_D _pa3
+#define _pin_RECEIVE_C _pac3
+#define _pin_SEND_D _pa7
+#define _pin_SEND_C _pac7
 
-#define		_pin_RECEIVE_D		_pa3
-#define		_pin_RECEIVE_C		_pac3
-#define		_pin_SEND_D			_pa7
-#define		_pin_SEND_C			_pac7
+#define _pin_SEG_L _pd
+#define _pin_SEG_H _pc
+#define _pin_COM _pa
 
-#define		_pin_SEG_L		_pd
-#define		_pin_SEG_H		_pc
-#define		_pin_COM			_pa
+#define _pin_COM3 _pa1
+#define _pin_COM4 _pa4
+#define _pin_COM2 _pa0
+#define _pin_COM1 _pa2
+#define _pin_COM3_CT _pac1
+#define _pin_COM4_CT _pac4
+#define _pin_COM2_CT _pac0
+#define _pin_COM1_CT _pac2
 
-//#define		_pin_COM1			_pa1
-//#define		_pin_COM2			_pa4
-//#define		_pin_COM3			_pa3
-//#define		_pin_COM4			_pa7	
-//#define		_pin_COM1_CT			_pac1
-//#define		_pin_COM2_CT			_pac4
-//#define		_pin_COM3_CT			_pac3
-//#define		_pin_COM4_CT			_pac7
+#define _pin_SEG1 _pd2
+#define _pin_SEG2 _pd3
+#define _pin_SEG3 _pc4
+#define _pin_SEG4 _pc5
+#define _pin_SEG5 _pc6
+#define _pin_SEG6 _pc7
+#define _pin_SEG7 _pd0
+#define _pin_SEG8 _pd1
 
-#define		_pin_COM3			_pa1
-#define		_pin_COM4			_pa4
-#define		_pin_COM2			_pa0
-#define		_pin_COM1			_pa2
-#define		_pin_COM3_CT			_pac1
-#define		_pin_COM4_CT			_pac4
-#define		_pin_COM2_CT			_pac0
-#define		_pin_COM1_CT			_pac2
+#define _pin_SEG1_CT _pdc2
+#define _pin_SEG2_CT _pdc3
+#define _pin_SEG3_CT _pcc4
+#define _pin_SEG4_CT _pcc5
+#define _pin_SEG5_CT _pcc6
+#define _pin_SEG6_CT _pcc7
+#define _pin_SEG7_CT _pdc0
+#define _pin_SEG8_CT _pdc1
 
+#define _pin_SEG_L_CT _pdc
+#define _pin_SEG_H_CT _pcc
+#define _pin_COM_CT _pac
 
-#define		_pin_SEG1			_pd2
-#define		_pin_SEG2			_pd3
-#define		_pin_SEG3			_pc4
-#define		_pin_SEG4			_pc5
-#define		_pin_SEG5			_pc6
-#define		_pin_SEG6			_pc7
-#define		_pin_SEG7			_pd0
-#define		_pin_SEG8			_pd1
+#define c_2ms 8  //  8 * 250uS
+#define c_100ms 30
+#define C_KEY_DEBOUNCE_TIME 0
+#define c_KEY_DELAY_TIME 7  //  40* 250uS
 
-#define		_pin_SEG1_CT			_pdc2
-#define		_pin_SEG2_CT			_pdc3
-#define		_pin_SEG3_CT			_pcc4
-#define		_pin_SEG4_CT			_pcc5
-#define		_pin_SEG5_CT			_pcc6
-#define		_pin_SEG6_CT			_pcc7
-#define		_pin_SEG7_CT			_pdc0
-#define		_pin_SEG8_CT			_pdc1
+#define C_0_L 2  /// 0:   >=C_0_L,   < C_0_H   // æ—¶åŸº 125uS
+#define C_0_H 5
 
-#define		_pin_SEG_L_CT		_pdc
-#define		_pin_SEG_H_CT		_pcc
-#define		_pin_COM_CT			_pac
+#define C_1_L 6  /// 1:   >C_1_L,   <=C_1_H   // æ—¶åŸº 125uS
+#define C_1_H 10
 
-#define		c_2ms		8						          //  8 * 250uS
-#define		c_100ms  30			
-#define		C_KEY_DEBOUNCE_TIME  0
-#define		c_KEY_DELAY_TIME     7       //  40* 250uS
+//#define		C_pin_COM_OFF					0x8f					//test
+#define C_pin_COM_OFF 0x17
+#define C_pin_SEG_L_OFF 0x0f
+#define C_pin_SEG_H_OFF 0xf0
 
-#define		C_0_L			2										/// 0:   >=C_0_L,   < C_0_H   // Ê±»ù 125uS
-#define		C_0_H     5
-
-#define		C_1_L			6									  /// 1:   >C_1_L,   <=C_1_H   // Ê±»ù 125uS
-#define		C_1_H     10
-
-//#define		C_pin_COM_OFF					0x8f					//test 
-#define		C_pin_COM_OFF					0x17
-#define		C_pin_SEG_L_OFF				0x0f
-#define		C_pin_SEG_H_OFF				0xf0
-
-
-_TKS_FLAGA_type	bitvar0;
-_TKS_FLAGA_type	bitvar1;
+_TKS_FLAGA_type bitvar0;
+_TKS_FLAGA_type bitvar1;
 
 //#pragma rambank0
 //		bit		b_2ms,b_receive_ok,b_KEY_ACTION,b_KEY_SEND,b_pin_RECEIVE_D,b_PIN_ST;
-		
-		uchar	r_show_buf[4],r_show_led_buf[6],r_receive_buf[8],r_send_buf,r_send_buf1,r_Adjustment_num;
-		uchar	i,r_SEND_BIT_TIME,r_100ms,r_KEY_DELAY_TIME;
+
+uchar r_show_buf[4], r_show_led_buf[6], r_receive_buf[8], r_send_buf, r_send_buf1, r_Adjustment_num;
+uchar i, r_SEND_BIT_TIME, r_100ms, r_KEY_DELAY_TIME;
 //#pragma norambank
 
-uchar 		r_2ms,r_scan_num,r_temp,r_temp1,r_temp2;
-uchar 		r_PIN_RECEIVE_LOW_TIME,r_PIN_RECEIVE_HIGH_TIME,r_RECEIVE_NUM_COUNT;
-uchar		r_KEY_STATUS1,r_KEY_STATUS2,r_KEY_BUF[2],r_KEY_DEBOUNCE_TIME,r_SEND_KEY_COUNT;
+uchar r_2ms, r_scan_num, r_temp, r_temp1, r_temp2;
+uchar r_PIN_RECEIVE_LOW_TIME, r_PIN_RECEIVE_HIGH_TIME, r_RECEIVE_NUM_COUNT;
+uchar r_KEY_STATUS1, r_KEY_STATUS2, r_KEY_BUF[2], r_KEY_DEBOUNCE_TIME, r_SEND_KEY_COUNT;
 
-
-#define  	b_2ms										bitvar0.bits.b0
-#define  	b_receive_ok								bitvar0.bits.b1
-#define  	b_KEY_ACTION								bitvar0.bits.b2
-#define  	b_KEY_SEND									bitvar0.bits.b3
-#define  	b_pin_RECEIVE_D							bitvar0.bits.b4
-#define  	b_PIN_ST										bitvar0.bits.b5
+#define b_2ms bitvar0.bits.b0
+#define b_receive_ok bitvar0.bits.b1
+#define b_KEY_ACTION bitvar0.bits.b2
+#define b_KEY_SEND bitvar0.bits.b3
+#define b_pin_RECEIVE_D bitvar0.bits.b4
+#define b_PIN_ST bitvar0.bits.b5
 /*
 #define  							bitvar0.bits.b6
 #define  							bitvar0.bits.b7
@@ -104,40 +90,46 @@ uchar		r_KEY_STATUS1,r_KEY_STATUS2,r_KEY_BUF[2],r_KEY_DEBOUNCE_TIME,r_SEND_KEY_C
 /*
   PD0->C; PD1->B; PD2->E; PD3->D; PC4->G; PC5->DP; PC6->A; PC7->F;
 */
-#define		SEG_A		0x40
-#define		SEG_B		0x02
-#define		SEG_C		0x01
-#define		SEG_D		0x08
-#define		SEG_E		0x04
-#define		SEG_F		0x80
-#define		SEG_G		0x10
-#define		SEG_DP	0x20
+#define SEG_A 0x40
+#define SEG_B 0x02
+#define SEG_C 0x01
+#define SEG_D 0x08
+#define SEG_E 0x04
+#define SEG_F 0x80
+#define SEG_G 0x10
+#define SEG_DP 0x20
 
+#define C_SEG_OFF 16
 
-#define		C_SEG_OFF 	16
+const uchar C_NUM_7SEG[17] = {
+    SEG_A | SEG_B | SEG_C | SEG_D | SEG_E | SEG_F,
+    SEG_B | SEG_C,  // 0,1
+    SEG_A | SEG_B | SEG_D | SEG_E | SEG_G,
+    SEG_A | SEG_B | SEG_C | SEG_D | SEG_G,  // 2,3
+    SEG_G | SEG_B | SEG_C | SEG_F,
+    SEG_A | SEG_G | SEG_C | SEG_D | SEG_F,  // 4,5
+    SEG_A | SEG_G | SEG_C | SEG_D | SEG_E | SEG_F,
+    SEG_A | SEG_B | SEG_C,  // 6,7
+    SEG_A | SEG_B | SEG_C | SEG_D | SEG_E | SEG_F | SEG_G,
+    SEG_A | SEG_B | SEG_C | SEG_D | SEG_G | SEG_F,  // 8,9
+    SEG_A | SEG_G | SEG_B | SEG_C | SEG_E | SEG_F,
+    SEG_G | SEG_C | SEG_D | SEG_E | SEG_F,  // A,B
+    SEG_D | SEG_E | SEG_G,
+    SEG_G | SEG_B | SEG_C | SEG_D | SEG_E,  // C,D
+    SEG_G | SEG_A | SEG_D | SEG_E | SEG_F,
+    SEG_A | SEG_G | SEG_E | SEG_F,
+    0x00  // E,F,OFF
+};
 
-const	uchar	C_NUM_7SEG[17]={
-														SEG_A|SEG_B|SEG_C|SEG_D|SEG_E|SEG_F , SEG_B|SEG_C,   												 				// 0,1
-														SEG_A|SEG_B|SEG_D|SEG_E|SEG_G , SEG_A|SEG_B|SEG_C|SEG_D|SEG_G,   													// 2,3
-														SEG_G|SEG_B|SEG_C|SEG_F , SEG_A|SEG_G|SEG_C|SEG_D|SEG_F,  	 												// 4,5
-														SEG_A|SEG_G|SEG_C|SEG_D|SEG_E|SEG_F , SEG_A|SEG_B|SEG_C,   													// 6,7
-														SEG_A|SEG_B|SEG_C|SEG_D|SEG_E|SEG_F|SEG_G , SEG_A|SEG_B|SEG_C|SEG_D|SEG_G|SEG_F,    // 8,9
-														SEG_A|SEG_G|SEG_B|SEG_C|SEG_E|SEG_F , SEG_G|SEG_C|SEG_D|SEG_E|SEG_F,   							// A,B
-														SEG_D|SEG_E|SEG_G , SEG_G|SEG_B|SEG_C|SEG_D|SEG_E,   																// C,D
-														SEG_G|SEG_A|SEG_D|SEG_E|SEG_F , SEG_A|SEG_G|SEG_E|SEG_F,0x00											  // E,F,OFF
-														};
-
-
-               
 //==============================================
 //**********************************************
 //==============================================
 //#pragma vector  Interrupt_Extemal        @ 0x04
-//void Interrupt_Extemal()
+// void Interrupt_Extemal()
 
-void __attribute((interrupt(0x04)))	Interrupt_Extemal(void)
+void __attribute((interrupt(0x04))) Interrupt_Extemal(void)
 {
-	GCC_NOP();	
+    GCC_NOP();
 }
 
 //==============================================
@@ -145,199 +137,187 @@ void __attribute((interrupt(0x04)))	Interrupt_Extemal(void)
 // CTM0 CCRP INTERRUPT
 //==============================================
 //#pragma vector  Interrupt_CTM0_CCRP        @ 0x10
-//void Interrupt_CTM0_CCRP()
+// void Interrupt_CTM0_CCRP()
 
-void __attribute((interrupt(0x10)))	Interrupt_CTM0_CCRP(void)
+void __attribute((interrupt(0x10))) Interrupt_CTM0_CCRP(void)
 {
-	GCC_NOP();	
+    GCC_NOP();
 }
-               
+
 //==============================================
 //**********************************************
 // CTM0 CCRA INTERRUPT
-// 250uS---¶¨Ê±Æ÷
+// 250uS---å®šæ—¶å™¨
 //==============================================
 //#pragma vector  Interrupt_CTM0_CCRA       @ 0x14
-//void Interrupt_CTM0_CCRA()
-void __attribute((interrupt(0x14)))	Interrupt_CTM0_CCRA(void)
+// void Interrupt_CTM0_CCRA()
+void __attribute((interrupt(0x14))) Interrupt_CTM0_CCRA(void)
 {
- //_nop();	
- GCC_CLRWDT();						//_clrwdt();
+    //_nop();
+    GCC_CLRWDT();  //_clrwdt();
 
-		
- r_2ms++;
- if(r_2ms>=c_2ms)
- 	{
- 		r_2ms=0;
- 		b_2ms=1;		
- 		 
-		if(r_KEY_DELAY_TIME)									// 40*0.25==10ms
-			{
-				r_KEY_DELAY_TIME--;
-			}
-			else
-				{
-					if(!b_KEY_SEND)
-						{
-							b_KEY_SEND=1;
-							b_PIN_ST=1;
-							r_SEND_KEY_COUNT=0;
-							r_SEND_BIT_TIME=0;
-							//b_KEY_ACTION=0;
-						}
-				}	
-// 		r_100ms++;
-// 		if(r_100ms>=c_100ms) 
-// 			{
-// 				b_KEY_SEND=1;
-// 				b_PIN_ST=1;
-// 				r_SEND_KEY_COUNT=0;
-// 				r_SEND_BIT_TIME=0;
-// 				r_100ms=0;
-// 			}
- 	}
- 
-	r_scan_num++;
-	r_temp=0;
-	if(r_scan_num>13) r_scan_num=0;
-	_pin_COM_CT|=C_pin_COM_OFF;
-	_pin_SEG_L_CT|=C_pin_SEG_L_OFF;
-	_pin_SEG_H_CT|=C_pin_SEG_H_OFF;
-  _pin_SEG_L&=~C_pin_SEG_L_OFF;
-	_pin_SEG_H&=~C_pin_SEG_H_OFF;
-	_pin_COM&=~C_pin_COM_OFF;
-	
-	switch(r_scan_num)
-	{
-		case 0:
-			  r_temp|=r_show_buf[0];
-			  //r_temp|=C_NUM_7SEG[r_show_buf[0]];
-			  _pin_SEG_L|=r_temp;
-			  _pin_SEG_L_CT&=~r_temp;
-			  _pin_COM1=0;
-			  _pin_COM1_CT=0;
-			break;
-		
-		case 1:
-			  r_temp|=r_show_buf[0];
-			  //r_temp|=C_NUM_7SEG[r_show_buf[0]];
-			  _pin_SEG_H|=r_temp;
-			  _pin_SEG_H_CT&=~r_temp;
-			  _pin_COM1=0;
-			  _pin_COM1_CT=0;
-			break;
-		
-		case 2:
-			  r_temp|=r_show_buf[1];
-			  //r_temp|=C_NUM_7SEG[r_show_buf[1]];
-			  _pin_SEG_H|=r_temp;
-			  _pin_SEG_H_CT&=~r_temp;
-			  _pin_COM2=0;
-			  _pin_COM2_CT=0;
-			break;
-			
-		case 3:
-			  r_temp|=r_show_buf[1];
-			  //r_temp|=C_NUM_7SEG[r_show_buf[1]];
-			  _pin_SEG_L|=r_temp;
-			  _pin_SEG_L_CT&=~r_temp;
-			  _pin_COM2=0;
-			  _pin_COM2_CT=0;
-			break;
-			
-		case 4:
-			  r_temp|=r_show_buf[2];
-			  //r_temp|=C_NUM_7SEG[r_show_buf[2]];
-			  _pin_SEG_H|=r_temp;
-			  _pin_SEG_H_CT&=~r_temp;
-			  _pin_COM3=0;
-			  _pin_COM3_CT=0;
-			break;
-			
-		case 5:
-			  r_temp|=r_show_buf[2];
-			  //r_temp|=C_NUM_7SEG[r_show_buf[2]];
-			  _pin_SEG_L|=r_temp;
-			  _pin_SEG_L_CT&=~r_temp;
-			  _pin_COM3=0;
-			  _pin_COM3_CT=0;
-			break;
-			
-		case 6:
-			  r_temp|=r_show_buf[3];
-			  //r_temp|=C_NUM_7SEG[r_show_buf[3]];
-			  _pin_SEG_L|=r_temp;
-			  _pin_SEG_L_CT&=~r_temp;
-			  _pin_COM4=0;
-			  _pin_COM4_CT=0;
-			break;
-			
-		case 7:
-			  r_temp|=r_show_buf[3];
-			  //r_temp|=C_NUM_7SEG[r_show_buf[3]];
-			  _pin_SEG_H|=r_temp;
-			  _pin_SEG_H_CT&=~r_temp;
-			  _pin_COM4=0;
-			  _pin_COM4_CT=0;
-			break;
-			
-		case 8:
-			  r_temp|=r_show_led_buf[0];
-			  _pin_COM|=r_temp;
-			  _pin_COM_CT&=~r_temp;
-			  _pin_SEG1=0;
-			  _pin_SEG1_CT=0;
-			break;
-			
-		case 9:
-			
-			  r_temp|=r_show_led_buf[1];
-			  _pin_COM|=r_temp;
-			  _pin_COM_CT&=~r_temp;
-			  
-			  _pin_SEG2=0;
-			  _pin_SEG2_CT=0;
-			break;
-			
-		case 10:
-			  r_temp|=r_show_led_buf[2];
-			  _pin_COM|=r_temp;
-			  _pin_COM_CT&=~r_temp;
-			  _pin_SEG3=0;
-			  _pin_SEG3_CT=0;
-			break;
-			
-		case 11:
-			  r_temp|=r_show_led_buf[3];
-			  _pin_COM|=r_temp;
-			  _pin_COM_CT&=~r_temp;
-			  _pin_SEG4=0;
-			  _pin_SEG4_CT=0;
-			break;
-			
-		case 12:
-			  r_temp|=r_show_led_buf[4];
-			  _pin_COM|=r_temp;
-			  _pin_COM_CT&=~r_temp;
-			  _pin_SEG5=0;
-			  _pin_SEG5_CT=0;
-			break;
-			
-		case 13:
-			  r_temp|=r_show_led_buf[5];
-			  _pin_COM|=r_temp;
-			  _pin_COM_CT&=~r_temp;
-			  _pin_SEG6=0;
-			  _pin_SEG6_CT=0;
-			break;
-			
-		default:
-			r_scan_num=0;
-			break;
-			
-	}
-	
+    r_2ms++;
+    if (r_2ms >= c_2ms)
+    {
+        r_2ms = 0;
+        b_2ms = 1;
 
+        if (r_KEY_DELAY_TIME)  // 40*0.25==10ms
+        {
+            r_KEY_DELAY_TIME--;
+        }
+        else
+        {
+            if (!b_KEY_SEND)
+            {
+                b_KEY_SEND       = 1;
+                b_PIN_ST         = 1;
+                r_SEND_KEY_COUNT = 0;
+                r_SEND_BIT_TIME  = 0;
+                // b_KEY_ACTION=0;
+            }
+        }
+    }
+
+    r_scan_num++;
+    r_temp = 0;
+    if (r_scan_num > 13)
+        r_scan_num = 0;
+    _pin_COM_CT |= C_pin_COM_OFF;
+    _pin_SEG_L_CT |= C_pin_SEG_L_OFF;
+    _pin_SEG_H_CT |= C_pin_SEG_H_OFF;
+    _pin_SEG_L &= ~C_pin_SEG_L_OFF;
+    _pin_SEG_H &= ~C_pin_SEG_H_OFF;
+    _pin_COM &= ~C_pin_COM_OFF;
+
+    switch (r_scan_num)
+    {
+        case 0:
+            r_temp |= r_show_buf[0];
+            // r_temp|=C_NUM_7SEG[r_show_buf[0]];
+            _pin_SEG_L |= r_temp;
+            _pin_SEG_L_CT &= ~r_temp;
+            _pin_COM1    = 0;
+            _pin_COM1_CT = 0;
+            break;
+
+        case 1:
+            r_temp |= r_show_buf[0];
+            // r_temp|=C_NUM_7SEG[r_show_buf[0]];
+            _pin_SEG_H |= r_temp;
+            _pin_SEG_H_CT &= ~r_temp;
+            _pin_COM1    = 0;
+            _pin_COM1_CT = 0;
+            break;
+
+        case 2:
+            r_temp |= r_show_buf[1];
+            // r_temp|=C_NUM_7SEG[r_show_buf[1]];
+            _pin_SEG_H |= r_temp;
+            _pin_SEG_H_CT &= ~r_temp;
+            _pin_COM2    = 0;
+            _pin_COM2_CT = 0;
+            break;
+
+        case 3:
+            r_temp |= r_show_buf[1];
+            // r_temp|=C_NUM_7SEG[r_show_buf[1]];
+            _pin_SEG_L |= r_temp;
+            _pin_SEG_L_CT &= ~r_temp;
+            _pin_COM2    = 0;
+            _pin_COM2_CT = 0;
+            break;
+
+        case 4:
+            r_temp |= r_show_buf[2];
+            // r_temp|=C_NUM_7SEG[r_show_buf[2]];
+            _pin_SEG_H |= r_temp;
+            _pin_SEG_H_CT &= ~r_temp;
+            _pin_COM3    = 0;
+            _pin_COM3_CT = 0;
+            break;
+
+        case 5:
+            r_temp |= r_show_buf[2];
+            // r_temp|=C_NUM_7SEG[r_show_buf[2]];
+            _pin_SEG_L |= r_temp;
+            _pin_SEG_L_CT &= ~r_temp;
+            _pin_COM3    = 0;
+            _pin_COM3_CT = 0;
+            break;
+
+        case 6:
+            r_temp |= r_show_buf[3];
+            // r_temp|=C_NUM_7SEG[r_show_buf[3]];
+            _pin_SEG_L |= r_temp;
+            _pin_SEG_L_CT &= ~r_temp;
+            _pin_COM4    = 0;
+            _pin_COM4_CT = 0;
+            break;
+
+        case 7:
+            r_temp |= r_show_buf[3];
+            // r_temp|=C_NUM_7SEG[r_show_buf[3]];
+            _pin_SEG_H |= r_temp;
+            _pin_SEG_H_CT &= ~r_temp;
+            _pin_COM4    = 0;
+            _pin_COM4_CT = 0;
+            break;
+
+        case 8:
+            r_temp |= r_show_led_buf[0];
+            _pin_COM |= r_temp;
+            _pin_COM_CT &= ~r_temp;
+            _pin_SEG1    = 0;
+            _pin_SEG1_CT = 0;
+            break;
+
+        case 9:
+
+            r_temp |= r_show_led_buf[1];
+            _pin_COM |= r_temp;
+            _pin_COM_CT &= ~r_temp;
+
+            _pin_SEG2    = 0;
+            _pin_SEG2_CT = 0;
+            break;
+
+        case 10:
+            r_temp |= r_show_led_buf[2];
+            _pin_COM |= r_temp;
+            _pin_COM_CT &= ~r_temp;
+            _pin_SEG3    = 0;
+            _pin_SEG3_CT = 0;
+            break;
+
+        case 11:
+            r_temp |= r_show_led_buf[3];
+            _pin_COM |= r_temp;
+            _pin_COM_CT &= ~r_temp;
+            _pin_SEG4    = 0;
+            _pin_SEG4_CT = 0;
+            break;
+
+        case 12:
+            r_temp |= r_show_led_buf[4];
+            _pin_COM |= r_temp;
+            _pin_COM_CT &= ~r_temp;
+            _pin_SEG5    = 0;
+            _pin_SEG5_CT = 0;
+            break;
+
+        case 13:
+            r_temp |= r_show_led_buf[5];
+            _pin_COM |= r_temp;
+            _pin_COM_CT &= ~r_temp;
+            _pin_SEG6    = 0;
+            _pin_SEG6_CT = 0;
+            break;
+
+        default:
+            r_scan_num = 0;
+            break;
+    }
 }
 
 //==============================================
@@ -345,12 +325,11 @@ void __attribute((interrupt(0x14)))	Interrupt_CTM0_CCRA(void)
 // PTM1 CCRP INTERRUPT
 //==============================================
 //#pragma vector  Interrupt_PTM1_CCRP       @ 0x18
-//void Interrupt_PTM1_CCRP()
+// void Interrupt_PTM1_CCRP()
 
-void __attribute((interrupt(0x18)))	Interrupt_PTM1_CCRP(void)
+void __attribute((interrupt(0x18))) Interrupt_PTM1_CCRP(void)
 {
- GCC_NOP();  //_nop();	
-	
+    GCC_NOP();  //_nop();
 }
 
 //==============================================
@@ -358,301 +337,204 @@ void __attribute((interrupt(0x18)))	Interrupt_PTM1_CCRP(void)
 // PTM1 CCRA INTERRUPT
 //==============================================
 //#pragma vector  Interrupt_PTM1_CCRA        @ 0x1C
-//void Interrupt_PTM1_CCRA()
+// void Interrupt_PTM1_CCRA()
 
-void __attribute((interrupt(0x1c)))	Interrupt_PTM1_CCRA(void)
+void __attribute((interrupt(0x1c))) Interrupt_PTM1_CCRA(void)
 {
- 	// 	
- 	/*
-		if(b_KEY_SEND)																	// ¿ªÊ¼Êä³öÊı¾İ
-		{
-			if(r_SEND_BIT_TIME)
-				{				
-					r_SEND_BIT_TIME--;
-					_pin_SEND_D=0;
-					if(b_PIN_ST)
-						 _pin_SEND_C=1;
-						else
-						 _pin_SEND_C=0;
-				}
-				else
-					{
-						if(b_PIN_ST)
-							{				
-								if(r_SEND_KEY_COUNT<65)
-									{
-													if(r_SEND_KEY_COUNT%8==0&&r_SEND_KEY_COUNT!=0)							//  ´«ÊäKEY·´Âë
-														{
-															r_send_buf=r_send_buf+1;         //  KEYÖµ´«ÊäÍê³Éºó, ¸üĞÂ·´Âëµ½BUFÇø
-															if(r_send_buf>16) r_send_buf=16;
-														}
-												
-										r_SEND_KEY_COUNT++;
-									}
-									else
-										{
-											b_KEY_SEND=0;
-										}
-									
-								b_PIN_ST=0;
-								if(r_send_buf&0x80) r_SEND_BIT_TIME=7;				// 1: -> LOW 8*250uS 
-									else r_SEND_BIT_TIME=3;                     // 0: -> LOW 4*250uS
-							}
-							else
-								{
-									b_PIN_ST=1;
-									if(r_send_buf&0x80) r_SEND_BIT_TIME=3;				// 1: -> HIGH  4*250uS 
-										else r_SEND_BIT_TIME=7;                     // 0: -> HIGH  8*250uS
-								  //r_send_buf=r_send_buf<<1;											// BUFÊı¾İ×óÒÆÒ»Î», ÓÃÓÚÏÂÒ»BIT´«Êä
-								  #asm
-								   		rl		_r_send_buf
-								  #endasm
-								}
-					}
-		}
-	*/	
-			//-----------------
-	//·¢ËÍÊı¾İÊı¾İ
-	//
-	
-		if(b_KEY_SEND)																	// ¿ªÊ¼Êä³öÊı¾İ
-		{
-			if(r_SEND_BIT_TIME)
-				{				
-					r_SEND_BIT_TIME--;
-					_pin_SEND_D=0;
-					if(b_PIN_ST)
-						 _pin_SEND_C=1;
-						else
-						 _pin_SEND_C=0;
-				}
-				else
-					{
-						if(b_PIN_ST)
-							{				
-								if(r_SEND_KEY_COUNT<17)
-									{
-										if(r_SEND_KEY_COUNT==0)                  	//  ´«Êä KEY Êı¾İ,  ±£ÁôKEY·´Âë
-											{
-													r_send_buf1=~r_send_buf;						// 
-											}
-											else
-												{
-													if(r_SEND_KEY_COUNT==8)							//  ´«ÊäKEY·´Âë
-														{
-															r_send_buf=r_send_buf1;         //  KEYÖµ´«ÊäÍê³Éºó, ¸üĞÂ·´Âëµ½BUFÇø
-														}
-												}
-										r_SEND_KEY_COUNT++;
-									}
-									else
-										{
-											b_KEY_SEND=0;
-	  									r_KEY_DELAY_TIME=c_KEY_DELAY_TIME;			//  ´«ÊäÍê³ÉºóÑÓÊ±10ms... ÔÙÆô¶¯´«Êä //---2014/7/19 12:34
-										}
-									
-								b_PIN_ST=0;
-								if(r_send_buf&0x80) r_SEND_BIT_TIME=15;				// 1: -> LOW 8*250uS 
-									else r_SEND_BIT_TIME=7;                     // 0: -> LOW 4*250uS
-							}
-							else
-								{
-									b_PIN_ST=1;
-									if(r_send_buf&0x80) r_SEND_BIT_TIME=7;				// 1: -> HIGH  4*250uS 
-										else r_SEND_BIT_TIME=15;                     // 0: -> HIGH  8*250uS
-								  r_send_buf=r_send_buf<<1;											// BUFÊı¾İ×óÒÆÒ»Î», ÓÃÓÚÏÂÒ»BIT´«Êä
-								}
-					}
-		}
+    //
 
-  //-----------------
-	//½ÓÊÕÊı¾İ----	
-	_pin_RECEIVE_C=1;
-	if(_pin_RECEIVE_D)
-		{
-			if(b_pin_RECEIVE_D)															// ÉÏ´Î ½ÓÊÕ½ÅµÄ×´Ì¬
-				{																							// 1->1
-					r_PIN_RECEIVE_HIGH_TIME++;
-					if(r_PIN_RECEIVE_HIGH_TIME>15)  						// ¸ßµçÆ½Ê±¼äÌ«³¤, ±íÊ¾´«ÊäÓĞÎó, ³õÊ¼»¯BIT¼ÆÊı¼Ä´æÆ÷
-						{
-							r_RECEIVE_NUM_COUNT=0;
-							r_PIN_RECEIVE_HIGH_TIME=0;
-							/*
-//							r_receive_buf[0]=0;
-//							r_receive_buf[1]=0;
-//							r_receive_buf[2]=0;
-//							r_receive_buf[3]=0;
-//							r_receive_buf[4]=0;
-//							r_receive_buf[5]=0;
-//							r_receive_buf[6]=0;
-//							r_receive_buf[7]=0;
-							*/
-						}
-				}
-				else
-					{																					  				// 0->1
-						b_pin_RECEIVE_D=1;
-						r_PIN_RECEIVE_HIGH_TIME=0;												// ¼ÇÂ¼¸ßµçÆ½¼Ä´æÆ÷³õÊ¼»¯
-						if(r_RECEIVE_NUM_COUNT<64)
-							{	
-								 if(b_receive_ok==0)														//  ´«Êä½áÊøÇ° ÒÆ¶¯BITÎ», ±£´æ½ÓÊÕµÄÊı¾İ
-								 	{
-										_status=_status&0xfe;
-										
-										#asm                       // ½ÓÊÕÊı¾İ
-										  rlc		_r_receive_buf[0]  // CHECKSUM
-										  rlc		_r_receive_buf[4]  //---r_show_buf[3]	    //-----dspbuf3
-										  rlc		_r_receive_buf[3]  //---r_show_buf[2]	    //-----dspbuf2
-										  rlc		_r_receive_buf[2]  //---r_show_buf[1]	    //-----dspbuf1 
-										  rlc		_r_receive_buf[1]  //---r_show_buf[0]	    //-----dspbuf0
-										  rlc		_r_receive_buf[7]  //---r_show_led_buf[2] //-----ledbuf2 
-										  rlc		_r_receive_buf[6]  //---r_show_led_buf[1] //-----ledbuf1
-										  rlc		_r_receive_buf[5]  //---r_show_led_buf[0] //-----ledbuf0 
-										#endasm
-										
-									/*
-//									        rlc		run_ram0		;Ğ£ÑéÂë		0=1+2+3+4+5+6
-//									        rlc		run_ram6		//-----dspbuf3
-//									        rlc		run_ram5		//-----dspbuf2
-//									        rlc		run_ram7 		//-----dspbuf1
-//									        rlc		run_ram4		//-----dspbuf0
-//									        rlc		run_ram3		//-----ledbuf2
-//									        rlc		run_ram2		//-----ledbuf1
-//									        rlc		run_ram1 		//-----ledbuf0
-									*/
-									
-									if(r_PIN_RECEIVE_LOW_TIME<=C_0_H&&r_PIN_RECEIVE_LOW_TIME>=C_0_L)     // µÍµçÆ½¼Ä´æÆ÷·¶Î§ÔÚ 250uS-500uSÖ®¼ä, ±íÊ¾´ËBITÎª 0
-										{
-											r_receive_buf[0]|=0x00;
-										}
-										else
-											{
-												if(r_PIN_RECEIVE_LOW_TIME>=C_1_L&&r_PIN_RECEIVE_LOW_TIME<=C_1_H)     // µÍµçÆ½¼Ä´æÆ÷·¶Î§ÔÚ 750uS-1000uSÖ®¼ä, ±íÊ¾´ËBITÎª 1
-													{
-														r_receive_buf[0]|=0x01;
-													}
-													else
-														{
-															  r_RECEIVE_NUM_COUNT=0;
-															/*
-	//														r_receive_buf[0]=0;
-	//														r_receive_buf[1]=0;
-	//														r_receive_buf[2]=0;
-	//														r_receive_buf[3]=0;
-	//														r_receive_buf[4]=0;
-	//														r_receive_buf[5]=0;
-	//														r_receive_buf[6]=0;
-	//														r_receive_buf[7]=0;
-															*/
-														}
-											}
-											
-									  r_RECEIVE_NUM_COUNT++;
-								  }
-								 else									//  Èç¹û b_receive_ok ²»Îª 0, ËµÃ÷ÉÏÒ»´ÎÊı¾İµ÷ÕûÎ´Íê³É, ²»½ÓÊÕĞÂµÄÊı¾İÊı¾İ
-								 	{
-								 		r_RECEIVE_NUM_COUNT=0;
-								 		r_PIN_RECEIVE_LOW_TIME=0;
-								 	}
-								
-								
-							}
-							else
-								{																							// 64BIT ½ÓÊÕÍê³É
-									if(r_receive_buf[0]==(r_receive_buf[7]+r_receive_buf[6]+r_receive_buf[5]+r_receive_buf[4]+r_receive_buf[3]+r_receive_buf[2]+r_receive_buf[1]))
-										{
-											b_receive_ok=1;												  //  Êı¾İ½ÓÊÕÍê³É ÇÒÕıÈ·... ´Ë±êÖ¾ÓÃÓÚ¶ÔÏÔÊ¾»º´æµÄ¸üĞÂ
-											r_Adjustment_num=6;
-											r_RECEIVE_NUM_COUNT=0;
-										}
-								}
-					}
-		}
-		else
-			{
-				if(b_pin_RECEIVE_D)															// ÉÏ´Î ½ÓÊÕ½ÅµÄ×´Ì¬
-					{																			  			// 1->0
-						b_pin_RECEIVE_D=0;
-						r_PIN_RECEIVE_LOW_TIME=0;
-					}
-					else
-						{																			  // 0->0							
-							 if(r_PIN_RECEIVE_LOW_TIME<15) r_PIN_RECEIVE_LOW_TIME++;
-						}
-			}
-			
-				
-	if(b_receive_ok)								// ½ÓÊÕÕıÈ·ºó£¬½«½ÓÊÕµÄÊı¾İµ÷Õûµ½ÏÔÊ¾BUFÇø
-		{
-			if(r_Adjustment_num>0) 
-				{
-					r_Adjustment_num--;	
-					if(r_Adjustment_num<4)          //Êı¾İÅÅÁĞ---Õë¶ÔÊıÂë¹Ü
-						{
-							//r_show_buf[r_Adjustment_num]=(r_receive_buf[r_Adjustment_num+1]&0x1f);
-							//if(r_show_buf[r_Adjustment_num]>0x0f) r_show_buf[r_Adjustment_num]=16;
-								
-							r_show_buf[r_Adjustment_num]=0;
-							if(r_receive_buf[r_Adjustment_num+1]&0x02)		r_show_buf[r_Adjustment_num]|=SEG_A;
-							if(r_receive_buf[r_Adjustment_num+1]&0x080)		r_show_buf[r_Adjustment_num]|=SEG_B;
-							if(r_receive_buf[r_Adjustment_num+1]&0x020)		r_show_buf[r_Adjustment_num]|=SEG_C;
-							if(r_receive_buf[r_Adjustment_num+1]&0x08)		r_show_buf[r_Adjustment_num]|=SEG_D;
-							if(r_receive_buf[r_Adjustment_num+1]&0x04)		r_show_buf[r_Adjustment_num]|=SEG_E;
-							if(r_receive_buf[r_Adjustment_num+1]&0x01)		r_show_buf[r_Adjustment_num]|=SEG_F;
-							if(r_receive_buf[r_Adjustment_num+1]&0x040)		r_show_buf[r_Adjustment_num]|=SEG_G;
-							if(r_receive_buf[r_Adjustment_num+1]&0x010)		r_show_buf[r_Adjustment_num]|=SEG_DP;   //SEG_H;
-/*
-//seg_a			equ		bit1
-//seg_b			equ		bit7
-//seg_c			equ		bit5
-//seg_d			equ		bit3
-//seg_e			equ		bit2
-//seg_f			equ		bit0
-//seg_g			equ		bit6
-//seg_h			equ		bit4
+    //-----------------
+    //å‘é€æ•°æ®æ•°æ®
+    //
 
-//sym_0		equ		(seg_a|seg_b|seg_c|seg_d|seg_e|seg_f)
-//sym_1		equ		(seg_b|seg_c)
-//sym_2		equ		(seg_a|seg_b|seg_d|seg_e|seg_g)
-//sym_3		equ		(seg_a|seg_b|seg_c|seg_d|seg_g)
-//sym_4		equ		(seg_b|seg_c|seg_f|seg_g)
-//sym_5		equ		(seg_a|seg_c|seg_d|seg_f|seg_g)
-//sym_6		equ		(seg_a|seg_c|seg_d|seg_e|seg_f|seg_g)
-//sym_7		equ		(seg_a|seg_b|seg_c)
-//sym_8		equ		(seg_a|seg_b|seg_c|seg_d|seg_e|seg_f|seg_g)
-//sym_9		equ		(seg_a|seg_b|seg_c|seg_d|seg_f|seg_g)
-//sym_a		equ		(seg_a|seg_b|seg_c|seg_e|seg_f|seg_g)
-//sym_b		equ		(seg_c|seg_d|seg_e|seg_f|seg_g)
-//sym_c		equ		(seg_a|seg_d|seg_e|seg_f)
-//sym_d		equ		(seg_b|seg_c|seg_d|seg_e|seg_g)
-//sym_e		equ		(seg_a|seg_d|seg_e|seg_f|seg_g)
-//sym_f		equ		(seg_a|seg_e|seg_f|seg_g)
-//
-//sym_off		equ		 00h							
-//sym_heng	equ		 seg_g							
-//sym_char	equ		(seg_a|seg_f|seg_g)				
-//sym_p			equ		(seg_a|seg_b|seg_e|seg_f|seg_g)	
-//sym_u			equ		(seg_b|seg_c|seg_d|seg_e|seg_f)	
-//sym_l			equ		(seg_d|seg_e|seg_f)									
-*/								
-						}
-            //--------                        //Êı¾İÅÅÁĞ---Õë¶ÔLED
-						r_temp=r_receive_buf[(r_Adjustment_num/2)+5];
-						if(r_Adjustment_num%2) r_temp=r_temp>>4;
-						r_temp1=0;
-						if(r_temp&0x01)	r_temp1|=0x02;									// bit0 -> PA1 (GR1)
-						if(r_temp&0x02)	r_temp1|=0x10;									// bit1 -> PA4 (GR2)
-						if(r_temp&0x04)	r_temp1|=0x01;									// bit2 -> PA0 (GR3)
-						if(r_temp&0x08)	r_temp1|=0x04;									// bit3 -> PA3 (GR4)
-							
-						r_show_led_buf[r_Adjustment_num]=r_temp1;
-				}				
-				else 
-					{ 
-						b_receive_ok=0;
-						r_Adjustment_num=6;
-					}
-		}	
+    if (b_KEY_SEND)  // å¼€å§‹è¾“å‡ºæ•°æ®
+    {
+        if (r_SEND_BIT_TIME)
+        {
+            r_SEND_BIT_TIME--;
+            _pin_SEND_D = 0;
+            if (b_PIN_ST)
+                _pin_SEND_C = 1;
+            else
+                _pin_SEND_C = 0;
+        }
+        else
+        {
+            if (b_PIN_ST)
+            {
+                if (r_SEND_KEY_COUNT < 17)
+                {
+                    if (r_SEND_KEY_COUNT == 0)  //  ä¼ è¾“ KEY æ•°æ®,  ä¿ç•™KEYåç 
+                    {
+                        r_send_buf1 = ~r_send_buf;  //
+                    }
+                    else
+                    {
+                        if (r_SEND_KEY_COUNT == 8)  //  ä¼ è¾“KEYåç 
+                        {
+                            r_send_buf = r_send_buf1;  //  KEYå€¼ä¼ è¾“å®Œæˆå, æ›´æ–°åç åˆ°BUFåŒº
+                        }
+                    }
+                    r_SEND_KEY_COUNT++;
+                }
+                else
+                {
+                    b_KEY_SEND = 0;
+                    r_KEY_DELAY_TIME = c_KEY_DELAY_TIME;  //  ä¼ è¾“å®Œæˆåå»¶æ—¶10ms... å†å¯åŠ¨ä¼ è¾“ //---2014/7/19 12:34
+                }
+
+                b_PIN_ST = 0;
+                if (r_send_buf & 0x80)
+                    r_SEND_BIT_TIME = 15;  // 1: -> LOW 8*250uS
+                else
+                    r_SEND_BIT_TIME = 7;  // 0: -> LOW 4*250uS
+            }
+            else
+            {
+                b_PIN_ST = 1;
+                if (r_send_buf & 0x80)
+                    r_SEND_BIT_TIME = 7;  // 1: -> HIGH  4*250uS
+                else
+                    r_SEND_BIT_TIME = 15;      // 0: -> HIGH  8*250uS
+                r_send_buf = r_send_buf << 1;  // BUFæ•°æ®å·¦ç§»ä¸€ä½, ç”¨äºä¸‹ä¸€BITä¼ è¾“
+            }
+        }
+    }
+
+    //-----------------
+    //æ¥æ”¶æ•°æ®----
+    _pin_RECEIVE_C = 1;
+    if (_pin_RECEIVE_D)
+    {
+        if (b_pin_RECEIVE_D)  // ä¸Šæ¬¡ æ¥æ”¶è„šçš„çŠ¶æ€
+        {                     // 1->1
+            r_PIN_RECEIVE_HIGH_TIME++;
+            if (r_PIN_RECEIVE_HIGH_TIME > 15)  // é«˜ç”µå¹³æ—¶é—´å¤ªé•¿, è¡¨ç¤ºä¼ è¾“æœ‰è¯¯, åˆå§‹åŒ–BITè®¡æ•°å¯„å­˜å™¨
+            {
+                r_RECEIVE_NUM_COUNT     = 0;
+                r_PIN_RECEIVE_HIGH_TIME = 0;
+            }
+        }
+        else
+        {  // 0->1
+            b_pin_RECEIVE_D         = 1;
+            r_PIN_RECEIVE_HIGH_TIME = 0;  // è®°å½•é«˜ç”µå¹³å¯„å­˜å™¨åˆå§‹åŒ–
+            if (r_RECEIVE_NUM_COUNT < 64)
+            {
+                if (b_receive_ok == 0)  //  ä¼ è¾“ç»“æŸå‰ ç§»åŠ¨BITä½, ä¿å­˜æ¥æ”¶çš„æ•°æ®
+                {
+                    _status = _status & 0xfe;
+
+#asm                                           // æ¥æ”¶æ•°æ®
+                    rlc _r_receive_buf[0]      // CHECKSUM
+                        rlc _r_receive_buf[4]  //---r_show_buf[3]	    //-----dspbuf3
+                        rlc _r_receive_buf[3]  //---r_show_buf[2]	    //-----dspbuf2
+                        rlc _r_receive_buf[2]  //---r_show_buf[1]	    //-----dspbuf1
+                        rlc _r_receive_buf[1]  //---r_show_buf[0]	    //-----dspbuf0
+                        rlc _r_receive_buf[7]  //---r_show_led_buf[2] //-----ledbuf2
+                        rlc _r_receive_buf[6]  //---r_show_led_buf[1] //-----ledbuf1
+                        rlc _r_receive_buf[5]  //---r_show_led_buf[0] //-----ledbuf0
+#endasm
+
+                        if (r_PIN_RECEIVE_LOW_TIME <= C_0_H &&
+                            r_PIN_RECEIVE_LOW_TIME >= C_0_L)  // ä½ç”µå¹³å¯„å­˜å™¨èŒƒå›´åœ¨ 250uS-500uSä¹‹é—´, è¡¨ç¤ºæ­¤BITä¸º 0
+                    {
+                        r_receive_buf[0] |= 0x00;
+                    }
+                    else
+                    {
+                        if (r_PIN_RECEIVE_LOW_TIME >= C_1_L &&
+                            r_PIN_RECEIVE_LOW_TIME <= C_1_H)  // ä½ç”µå¹³å¯„å­˜å™¨èŒƒå›´åœ¨ 750uS-1000uSä¹‹é—´, è¡¨ç¤ºæ­¤BITä¸º 1
+                        {
+                            r_receive_buf[0] |= 0x01;
+                        }
+                        else
+                        {
+                            r_RECEIVE_NUM_COUNT = 0;
+                        }
+                    }
+
+                    r_RECEIVE_NUM_COUNT++;
+                }
+                else  //  å¦‚æœ b_receive_ok ä¸ä¸º 0, è¯´æ˜ä¸Šä¸€æ¬¡æ•°æ®è°ƒæ•´æœªå®Œæˆ, ä¸æ¥æ”¶æ–°çš„æ•°æ®æ•°æ®
+                {
+                    r_RECEIVE_NUM_COUNT    = 0;
+                    r_PIN_RECEIVE_LOW_TIME = 0;
+                }
+            }
+            else
+            {  // 64BIT æ¥æ”¶å®Œæˆ
+                if (r_receive_buf[0] == (r_receive_buf[7] + r_receive_buf[6] + r_receive_buf[5] + r_receive_buf[4] +
+                                         r_receive_buf[3] + r_receive_buf[2] + r_receive_buf[1]))
+                {
+                    b_receive_ok     = 1;  //  æ•°æ®æ¥æ”¶å®Œæˆ ä¸”æ­£ç¡®... æ­¤æ ‡å¿—ç”¨äºå¯¹æ˜¾ç¤ºç¼“å­˜çš„æ›´æ–°
+                    r_Adjustment_num = 6;
+                    r_RECEIVE_NUM_COUNT = 0;
+                }
+            }
+        }
+    }
+    else
+    {
+        if (b_pin_RECEIVE_D)  // ä¸Šæ¬¡ æ¥æ”¶è„šçš„çŠ¶æ€
+        {                     // 1->0
+            b_pin_RECEIVE_D        = 0;
+            r_PIN_RECEIVE_LOW_TIME = 0;
+        }
+        else
+        {  // 0->0
+            if (r_PIN_RECEIVE_LOW_TIME < 15)
+                r_PIN_RECEIVE_LOW_TIME++;
+        }
+    }
+
+    if (b_receive_ok)  // æ¥æ”¶æ­£ç¡®åï¼Œå°†æ¥æ”¶çš„æ•°æ®è°ƒæ•´åˆ°æ˜¾ç¤ºBUFåŒº
+    {
+        if (r_Adjustment_num > 0)
+        {
+            r_Adjustment_num--;
+            if (r_Adjustment_num < 4)  //æ•°æ®æ’åˆ—---é’ˆå¯¹æ•°ç ç®¡
+            {
+                r_show_buf[r_Adjustment_num] = 0;
+                if (r_receive_buf[r_Adjustment_num + 1] & 0x02)
+                    r_show_buf[r_Adjustment_num] |= SEG_A;
+                if (r_receive_buf[r_Adjustment_num + 1] & 0x080)
+                    r_show_buf[r_Adjustment_num] |= SEG_B;
+                if (r_receive_buf[r_Adjustment_num + 1] & 0x020)
+                    r_show_buf[r_Adjustment_num] |= SEG_C;
+                if (r_receive_buf[r_Adjustment_num + 1] & 0x08)
+                    r_show_buf[r_Adjustment_num] |= SEG_D;
+                if (r_receive_buf[r_Adjustment_num + 1] & 0x04)
+                    r_show_buf[r_Adjustment_num] |= SEG_E;
+                if (r_receive_buf[r_Adjustment_num + 1] & 0x01)
+                    r_show_buf[r_Adjustment_num] |= SEG_F;
+                if (r_receive_buf[r_Adjustment_num + 1] & 0x040)
+                    r_show_buf[r_Adjustment_num] |= SEG_G;
+                if (r_receive_buf[r_Adjustment_num + 1] & 0x010)
+                    r_show_buf[r_Adjustment_num] |= SEG_DP;  // SEG_H;
+            }
+            //--------                        //æ•°æ®æ’åˆ—---é’ˆå¯¹LED
+            r_temp = r_receive_buf[(r_Adjustment_num / 2) + 5];
+            if (r_Adjustment_num % 2)
+                r_temp = r_temp >> 4;
+            r_temp1 = 0;
+            if (r_temp & 0x01)
+                r_temp1 |= 0x02;  // bit0 -> PA1 (GR1)
+            if (r_temp & 0x02)
+                r_temp1 |= 0x10;  // bit1 -> PA4 (GR2)
+            if (r_temp & 0x04)
+                r_temp1 |= 0x01;  // bit2 -> PA0 (GR3)
+            if (r_temp & 0x08)
+                r_temp1 |= 0x04;  // bit3 -> PA3 (GR4)
+
+            r_show_led_buf[r_Adjustment_num] = r_temp1;
+        }
+        else
+        {
+            b_receive_ok     = 0;
+            r_Adjustment_num = 6;
+        }
+    }
 }
 
 //==============================================
@@ -660,104 +542,106 @@ void __attribute((interrupt(0x1c)))	Interrupt_PTM1_CCRA(void)
 //==============================================
 void USER_PROGRAM_INITIAL()
 {
-  _papu=0x88;
-  _pcpu=0;
-  _pdpu=0;
-  
-  _pac=0xff;	
-  _pcc=0xff;	
-  _pdc=0xff;	
-  _pc=0xff;		
-  _pd=0xff;	
-  _pa=0xff;	
-  
-  _lvdc=0x07;
-  	 
-  _slcdc0=0x00;
-  _slcdc1=0x00;
-  _slcdc2=0x00;
-  _slcdc3=0x00;
-  _tmpc=0x00;			// PTM Êä³ö¹¦ÄÜ¿ØÖÆ¼Ä´æÆ÷
-  
-  _usr=0x00;
-  _ucr1=0x00;
-  _ucr2=0x00;
-  _txr_rxr=0x00;
-  _brg=0x00;
-  
-  _sledc0=0xff;		// IOÇı¶¯µçÁ÷Éè¶¨µ½×î´ó
-  _sledc1=0xff;		// IOÇı¶¯µçÁ÷Éè¶¨µ½×î´ó
-  
-  _pscr=0x00;			// Ê±»ù-Ê±ÖÓÔ´ÉèÖÃ¼Ä´æÆ÷
-  _ctrl=0x10;			// 0x00: 8MHz, 0x10:16MHz , 0x02: 12MHz, 0x11:8MHz 
-  
-  _iicc0=0x00;
-  _iicc1=0x00;
-  _iicd=0x00;
-  _iica=0x00;
-  
-  //;---------¶¨Ê±Æ÷TM0ÅäÖÃ
-	 /*--remark:-
-	 		//;--------TM0C0 
-       _ct0pau=0;								// TM0C0.7---TM0¼Ä´æÆ÷ÔİÍ£Î»; 1: ÔİÍ£
-       _ct0ck2=1;
-       _ct0ck1=1;
-       _ct0ck0=1;								// TM0C0[6:4](T0CK[2:0])---TM0 Ê±ÖÓÔ´; 000£ºFsys/4; 001:Fsys; 010:Fh/16; 011:Fh/64; 100&101:Ftbc; 110:TCK0ÉÏÉıÑØ; 111:TCK0ÏÂ½µÑØ
-			 _ct0on=0;									// TM0C0.3---¼ÆÊıÆ÷ÔËĞĞ¿ØÖÆÎ»
-			 
-		 //;--------TM0C1  
-			 _ct0m1=1;
-			 _ct0m0=1;									// TM0C1[7:6](T0M[1:0])---¹¦ÄÜÑ¡Ôñ; 00: ±È½ÏÆ¥ÅäÊä³ö; 01£º²¶×½ÊäÈëÄ£Ê½; 10: PWMÄ£Ê½; 11:¶¨Ê±¼ÆÊıÄ£Ê½
-			 _ct0io1=0;
-			 _ct0io0=0;								// TM0C1[5:4](T0IO[1:0])---¼û¹æ¸ñÊé; ¶¨Ê±Ä£Ê½Î´Ê¹ÓÃ. PWMÄ£Ê½---10: PWMÊä³ö
-			 _ct0oc=0;									// TM0C1.3--- Êä³ö½Å³õÊ¼×´Ì¬; 0: ³õÊ¼µÍ/µÍÓĞĞ§£» 1: ³õÊ¼¸ß/¸ßÓĞĞ§
-			 _ct0pol=0;								// TM0C1.2--- Êä³ö¼«ĞÔ; 0£º Í¬Ïà			 
-			 _ct0dpx=0;								// TM0C1.1--- Õ¼¿Õ±È/ÆµÂÊ ±È½ÏÑ¡Ôñ; 0£º CCRPÖÜÆÚ, CCRA=Õ¼¿Õ±È
-			 _ct0cclr=0;								// TM0C1.0--- ¼ÆÊıÆ÷ÖÜÆÚÆ¥Åä; 0: CCRPÆ¥Åä; 1: CCRAÆ¥Åä
-			 
-		 //;--------
-			 _tm0rp=100;							//  CCRPÖÜÆÚ£º 256*_tm0rp¸öTM0Ê±ÖÓÖÜÆÚ
-			*/ 
-			 _ctm0al=1000&0xff;  			// // µÍ×Ö½ÚµÄ²Ù×÷, ½öÔÚÆäÏàÓ¦µÄ¸ß×Ö½Ú²Ù×÷Ö´ĞĞÊ±·¢Éú //
-			 _ctm0ah=1000/256;								//  CCRAÖÜÆÚ£º (256*_tm0ah + _tm0al)¸öTM0Ê±ÖÓÖÜÆÚ
-			 
-			 _ctm0c0=0x00;							// CTM0Ê±ÖÓ£º Fsys/4   
-			 _ctm0c1=0x0c1;							//   ¶¨Ê±¼ÆÊıÄ£Ê½;  CCRAÆ¥Åä;  ¶¨Ê±Ê±¼ä 1000*4/16MHz = 250uS
-			 		 
-			 _ct0on=1;
-			 
-		 //;--------	
-			 
-			 _ptm0al=500&0xff;  			// // µÍ×Ö½ÚµÄ²Ù×÷, ½öÔÚÆäÏàÓ¦µÄ¸ß×Ö½Ú²Ù×÷Ö´ĞĞÊ±·¢Éú //
-			 _ptm0ah=500/256;								//  CCRAÖÜÆÚ£º (256*_tm0ah + _tm0al)¸öTM0Ê±ÖÓÖÜÆÚ
-			 
-			 _ptm0c0=0x00;							// CTM0Ê±ÖÓ£º Fsys/4   
-			 _ptm0c1=0x0c1;							//   ¶¨Ê±¼ÆÊıÄ£Ê½;  CCRAÆ¥Åä;  ¶¨Ê±Ê±¼ä 500*4/16MHz = 125uS
-			 		 
-			 _pt0on=1;	
-			 	 //;----------INTCG
-	    _ints1=1;
-	    _ints0=1;									// _integ[1:0]:INT0´¥·¢ÑØ, 11:Ë«±ß
-	 //;----------INTC0
-	    // INTC0[6:4]: ÖĞ¶ÏÇëÇó±êÖ¾£º _int0f, _ocpf, _ovpf
-	    _inte=0;										//INTC0.1: INT0 ÖĞ¶Ï¿ØÖÆÎ»
-	    _emi=1;											//INTC0.0: ×ÜÖĞ¶Ï
-	 //;----------MFI1
-	   //  INTC1[5:4] : ÖĞ¶ÏÇëÇó±êÖ¾: 
-	   //  INTC1[1:0] : ÖĞ¶Ï¿ØÖÆ±êÖ¾:   
-	   _ctma0e=1;
-	   _ptma0e=1;	
-		
-		 r_receive_buf[1]=0;
-		 r_receive_buf[2]=0;
-		 r_receive_buf[3]=0;
-		 r_receive_buf[4]=0;
-		 r_receive_buf[5]=0x00;
-		 r_receive_buf[6]=0x00;
-		 r_receive_buf[7]=0x00;
-		 r_receive_buf[0]=r_receive_buf[7]+r_receive_buf[6]+r_receive_buf[5]+r_receive_buf[4]+r_receive_buf[3]+r_receive_buf[2]+r_receive_buf[1];
-		 b_receive_ok=1;
-		 r_Adjustment_num=6;
+    _papu = 0x88;
+    _pcpu = 0;
+    _pdpu = 0;
+
+    _pac = 0xff;
+    _pcc = 0xff;
+    _pdc = 0xff;
+    _pc  = 0xff;
+    _pd  = 0xff;
+    _pa  = 0xff;
+
+    _lvdc = 0x07;
+
+    _slcdc0 = 0x00;
+    _slcdc1 = 0x00;
+    _slcdc2 = 0x00;
+    _slcdc3 = 0x00;
+    _tmpc   = 0x00;  // PTM è¾“å‡ºåŠŸèƒ½æ§åˆ¶å¯„å­˜å™¨
+
+    _usr     = 0x00;
+    _ucr1    = 0x00;
+    _ucr2    = 0x00;
+    _txr_rxr = 0x00;
+    _brg     = 0x00;
+
+    _sledc0 = 0xff;  // IOé©±åŠ¨ç”µæµè®¾å®šåˆ°æœ€å¤§
+    _sledc1 = 0xff;  // IOé©±åŠ¨ç”µæµè®¾å®šåˆ°æœ€å¤§
+
+    _pscr = 0x00;  // æ—¶åŸº-æ—¶é’Ÿæºè®¾ç½®å¯„å­˜å™¨
+    _ctrl = 0x10;  // 0x00: 8MHz, 0x10:16MHz , 0x02: 12MHz, 0x11:8MHz
+
+    _iicc0 = 0x00;
+    _iicc1 = 0x00;
+    _iicd  = 0x00;
+    _iica  = 0x00;
+
+    //;---------å®šæ—¶å™¨TM0é…ç½®
+    /*--remark:-
+           //;--------TM0C0
+      _ct0pau=0;								// TM0C0.7---TM0å¯„å­˜å™¨æš‚åœä½; 1: æš‚åœ
+      _ct0ck2=1;
+      _ct0ck1=1;
+      _ct0ck0=1;								// TM0C0[6:4](T0CK[2:0])---TM0 æ—¶é’Ÿæº; 000ï¼šFsys/4; 001:Fsys; 010:Fh/16; 011:Fh/64;
+      100&101:Ftbc; 110:TCK0ä¸Šå‡æ²¿; 111:TCK0ä¸‹é™æ²¿ _ct0on=0;									//
+      TM0C0.3---è®¡æ•°å™¨è¿è¡Œæ§åˆ¶ä½
+
+        //;--------TM0C1
+            _ct0m1=1;
+            _ct0m0=1;									// TM0C1[7:6](T0M[1:0])---åŠŸèƒ½é€‰æ‹©; 00: æ¯”è¾ƒåŒ¹é…è¾“å‡º;
+      01ï¼šæ•æ‰è¾“å…¥æ¨¡å¼; 10: PWMæ¨¡å¼; 11:å®šæ—¶è®¡æ•°æ¨¡å¼ _ct0io1=0; _ct0io0=0;								//
+      TM0C1[5:4](T0IO[1:0])---è§è§„æ ¼ä¹¦; å®šæ—¶æ¨¡å¼æœªä½¿ç”¨. PWMæ¨¡å¼---10: PWMè¾“å‡º
+            _ct0oc=0;									// TM0C1.3--- è¾“å‡ºè„šåˆå§‹çŠ¶æ€; 0: åˆå§‹ä½/ä½æœ‰æ•ˆï¼› 1:
+      åˆå§‹é«˜/é«˜æœ‰æ•ˆ _ct0pol=0;								// TM0C1.2--- è¾“å‡ºææ€§; 0ï¼š åŒç›¸ _ct0dpx=0;
+      // TM0C1.1--- å ç©ºæ¯”/é¢‘ç‡ æ¯”è¾ƒé€‰æ‹©; 0ï¼š CCRPå‘¨æœŸ, CCRA=å ç©ºæ¯” _ct0cclr=0;								//
+      TM0C1.0--- è®¡æ•°å™¨å‘¨æœŸåŒ¹é…; 0: CCRPåŒ¹é…; 1: CCRAåŒ¹é…
+
+        //;--------
+            _tm0rp=100;							//  CCRPå‘¨æœŸï¼š 256*_tm0rpä¸ªTM0æ—¶é’Ÿå‘¨æœŸ
+           */
+    _ctm0al = 1000 & 0xff;  // // ä½å­—èŠ‚çš„æ“ä½œ, ä»…åœ¨å…¶ç›¸åº”çš„é«˜å­—èŠ‚æ“ä½œæ‰§è¡Œæ—¶å‘ç”Ÿ //
+    _ctm0ah = 1000 / 256;   //  CCRAå‘¨æœŸï¼š (256*_tm0ah + _tm0al)ä¸ªTM0æ—¶é’Ÿå‘¨æœŸ
+
+    _ctm0c0 = 0x00;   // CTM0æ—¶é’Ÿï¼š Fsys/4
+    _ctm0c1 = 0x0c1;  //   å®šæ—¶è®¡æ•°æ¨¡å¼;  CCRAåŒ¹é…;  å®šæ—¶æ—¶é—´ 1000*4/16MHz = 250uS
+
+    _ct0on = 1;
+
+    //;--------
+
+    _ptm0al = 500 & 0xff;  // // ä½å­—èŠ‚çš„æ“ä½œ, ä»…åœ¨å…¶ç›¸åº”çš„é«˜å­—èŠ‚æ“ä½œæ‰§è¡Œæ—¶å‘ç”Ÿ //
+    _ptm0ah = 500 / 256;   //  CCRAå‘¨æœŸï¼š (256*_tm0ah + _tm0al)ä¸ªTM0æ—¶é’Ÿå‘¨æœŸ
+
+    _ptm0c0 = 0x00;   // CTM0æ—¶é’Ÿï¼š Fsys/4
+    _ptm0c1 = 0x0c1;  //   å®šæ—¶è®¡æ•°æ¨¡å¼;  CCRAåŒ¹é…;  å®šæ—¶æ—¶é—´ 500*4/16MHz = 125uS
+
+    _pt0on = 1;
+    //;----------INTCG
+    _ints1 = 1;
+    _ints0 = 1;  // _integ[1:0]:INT0è§¦å‘æ²¿, 11:åŒè¾¹
+                 //;----------INTC0
+    // INTC0[6:4]: ä¸­æ–­è¯·æ±‚æ ‡å¿—ï¼š _int0f, _ocpf, _ovpf
+    _inte = 0;  // INTC0.1: INT0 ä¸­æ–­æ§åˆ¶ä½
+    _emi  = 1;  // INTC0.0: æ€»ä¸­æ–­
+    //;----------MFI1
+    //  INTC1[5:4] : ä¸­æ–­è¯·æ±‚æ ‡å¿—:
+    //  INTC1[1:0] : ä¸­æ–­æ§åˆ¶æ ‡å¿—:
+    _ctma0e = 1;
+    _ptma0e = 1;
+
+    r_receive_buf[1] = 0;
+    r_receive_buf[2] = 0;
+    r_receive_buf[3] = 0;
+    r_receive_buf[4] = 0;
+    r_receive_buf[5] = 0x00;
+    r_receive_buf[6] = 0x00;
+    r_receive_buf[7] = 0x00;
+    r_receive_buf[0] = r_receive_buf[7] + r_receive_buf[6] + r_receive_buf[5] + r_receive_buf[4] + r_receive_buf[3] +
+                       r_receive_buf[2] + r_receive_buf[1];
+    b_receive_ok     = 1;
+    r_Adjustment_num = 6;
 }
 
 //==============================================
@@ -765,94 +649,119 @@ void USER_PROGRAM_INITIAL()
 //==============================================
 void USER_PROGRAM()
 {
-	
- if(SCAN_CYCLEF)
- {
- 	GET_KEY_BITMAP();
- 	r_KEY_STATUS1=DATA_BUF[0];
- 	//r_KEY_STATUS2=DATA_BUF[1];
- }	
-	
- if(b_2ms)
- 	{
- 		r_2ms=0;
- 		BS82C16A_LIBV413();
- 	}
- 
- if(SCAN_CYCLEF)
- 	{ 
-	  GET_KEY_BITMAP();
-	  
-	  if(r_KEY_STATUS1!=DATA_BUF[0]||r_KEY_STATUS2!=DATA_BUF[1])
-	  	{
-	  		r_KEY_STATUS1=DATA_BUF[0];
-	  		r_KEY_STATUS2=DATA_BUF[1];
-	  		r_KEY_DEBOUNCE_TIME=0;
-	  	}
-	  	else
-	  		{
-	  			if(r_KEY_DEBOUNCE_TIME<C_KEY_DEBOUNCE_TIME)
-	  				{
-	  					r_KEY_DEBOUNCE_TIME++;
-	  				}
-	  				else
-	  				{
-	  					if(r_KEY_BUF[0]!=r_KEY_STATUS1||r_KEY_BUF[1]!=r_KEY_STATUS2)
-	  						{
-			  					//b_KEY_SEND=0;														// ¸üĞÂ°´¼üÊı¾İ¹ı³ÌÖĞ, ²»·¢ËÍ
-			  					r_KEY_BUF[0]=r_KEY_STATUS1;
-			  					r_KEY_BUF[1]=r_KEY_STATUS2;
-	  							b_KEY_ACTION=1;
-			  					//b_KEY_SEND=1;														// ¸üĞÂ°´¼üÊı¾İÍê³Éºó, ·¢ËÍ
-	  						}
-	  				}
-	  		}
-  }
-  
-  
-  	
-  	if(b_KEY_ACTION)																		// ÓĞ°´¼ü±ä»¯, Á¢¿ÌÖØÆô´«Êä
-  		{
-  			b_KEY_ACTION=0;
-  			b_KEY_SEND=0;
-  			
-  			r_KEY_DELAY_TIME=c_KEY_DELAY_TIME;			//  ´«ÊäÍê³ÉºóÑÓÊ±10ms... ÔÙÆô¶¯´«Êä //---2014/7/19 12:34
-				_pin_SEND_C=1;
-				
-		  	if(r_KEY_BUF[0]==0x01&&r_KEY_BUF[1]==0)	{ r_temp2=0xA1;  }   //r_show_led_buf[1]=0x01;}
-		  	if(r_KEY_BUF[0]==0x02&&r_KEY_BUF[1]==0)	{ r_temp2=0xA2; }   //r_show_led_buf[2]=0x10;}
-		  	if(r_KEY_BUF[0]==0x04&&r_KEY_BUF[1]==0)	{ r_temp2=0xA3; }   //r_show_led_buf[3]=0x10;}
-		  	if(r_KEY_BUF[0]==0x08&&r_KEY_BUF[1]==0)	r_temp2=0xA4;
-		  	if(r_KEY_BUF[0]==0x010&&r_KEY_BUF[1]==0)	r_temp2=0xA5;
-		  	if(r_KEY_BUF[0]==0x020&&r_KEY_BUF[1]==0)	r_temp2=0xA6;
-		  	if(r_KEY_BUF[0]==0x040&&r_KEY_BUF[1]==0)	r_temp2=0xA7;
-		  	if(r_KEY_BUF[0]==0x080&&r_KEY_BUF[1]==0)	r_temp2=0xA8;
-		  	if(r_KEY_BUF[1]==0x01&&r_KEY_BUF[0]==0)	r_temp2=0xA9;
-		  	if(r_KEY_BUF[1]==0x02&&r_KEY_BUF[0]==0)	r_temp2=0xAA;
-		  	if(r_KEY_BUF[1]==0x04&&r_KEY_BUF[0]==0)	r_temp2=0xAB;
-		  	if(r_KEY_BUF[1]==0x08&&r_KEY_BUF[0]==0)	r_temp2=0xAC;
-		  	if(r_KEY_BUF[1]==0x010&&r_KEY_BUF[0]==0)	r_temp2=0xAD;
-		  	if(r_KEY_BUF[1]==0x020&&r_KEY_BUF[0]==0)	r_temp2=0xAE;
-		  	if(r_KEY_BUF[1]==0x040&&r_KEY_BUF[0]==0)	r_temp2=0xAF;
-		  	if(r_KEY_BUF[1]==0x080&&r_KEY_BUF[0]==0)	r_temp2=0xA0;
-		  	if(r_KEY_BUF[1]==0&&r_KEY_BUF[0]==0) { r_temp2=0x00; }   //r_show_led_buf[1]=0x00;r_show_led_buf[2]=0x00;r_show_led_buf[3]=0x00;}
-  		
-  			r_send_buf=r_temp2; 
-  		}
-  		else
-  			{
-  				if(b_KEY_SEND==0)   r_send_buf=r_temp2;       // ÔÚ²»´«ÊäµÄÊ±¶Î, ¸üĞÂ°´¼üÖµ
-  			}
-  	
-  	//  ÏÔÊ¾²âÊÔ °´¼üÖµ
-//	  r_show_buf[1]=r_temp2&0x0f;
-//	  r_show_buf[0]=(r_temp2>>4)&0x0f;
-//	  r_show_buf[2]=r_show_buf[0];
-//	  r_show_buf[3]=r_show_buf[1];
-//	  r_show_led_buf[0]=0x00;									// bit0(PA0): COM2;  bit1(PA1): COM3;  bit2(PA2):COM1;  bit4(PA4):COM4
-//	  //r_show_led_buf[1]=0x01;									// L7: COM2(PA0)  ,SEG2
-//	  //r_show_led_buf[2]=0x10; 								// L14: COM4(PA4) ,SEG3
-//	  //r_show_led_buf[3]=0x10; 								// L10: COM4(PA4) ,SEG4
-//	  r_show_led_buf[4]=0x00;
-//	  r_show_led_buf[5]=0x00;
+    if (SCAN_CYCLEF)
+    {
+        GET_KEY_BITMAP();
+        r_KEY_STATUS1 = DATA_BUF[0];
+        // r_KEY_STATUS2=DATA_BUF[1];
+    }
+
+    if (b_2ms)
+    {
+        r_2ms = 0;
+        BS82C16A_LIBV413();
+    }
+
+    if (SCAN_CYCLEF)
+    {
+        GET_KEY_BITMAP();
+
+        if (r_KEY_STATUS1 != DATA_BUF[0] || r_KEY_STATUS2 != DATA_BUF[1])
+        {
+            r_KEY_STATUS1       = DATA_BUF[0];
+            r_KEY_STATUS2       = DATA_BUF[1];
+            r_KEY_DEBOUNCE_TIME = 0;
+        }
+        else
+        {
+            if (r_KEY_DEBOUNCE_TIME < C_KEY_DEBOUNCE_TIME)
+            {
+                r_KEY_DEBOUNCE_TIME++;
+            }
+            else
+            {
+                if (r_KEY_BUF[0] != r_KEY_STATUS1 || r_KEY_BUF[1] != r_KEY_STATUS2)
+                {
+                    // b_KEY_SEND=0;														// æ›´æ–°æŒ‰é”®æ•°æ®è¿‡ç¨‹ä¸­,
+                    // ä¸å‘é€
+                    r_KEY_BUF[0] = r_KEY_STATUS1;
+                    r_KEY_BUF[1] = r_KEY_STATUS2;
+                    b_KEY_ACTION = 1;
+                    // b_KEY_SEND=1;														// æ›´æ–°æŒ‰é”®æ•°æ®å®Œæˆå, å‘é€
+                }
+            }
+        }
+    }
+
+    if (b_KEY_ACTION)  // æœ‰æŒ‰é”®å˜åŒ–, ç«‹åˆ»é‡å¯ä¼ è¾“
+    {
+        b_KEY_ACTION = 0;
+        b_KEY_SEND   = 0;
+
+        r_KEY_DELAY_TIME = c_KEY_DELAY_TIME;  //  ä¼ è¾“å®Œæˆåå»¶æ—¶10ms... å†å¯åŠ¨ä¼ è¾“ //---2014/7/19 12:34
+        _pin_SEND_C      = 1;
+
+        if (r_KEY_BUF[0] == 0x01 && r_KEY_BUF[1] == 0)
+        {
+            r_temp2 = 0xA1;
+        }  // r_show_led_buf[1]=0x01;}
+        if (r_KEY_BUF[0] == 0x02 && r_KEY_BUF[1] == 0)
+        {
+            r_temp2 = 0xA2;
+        }  // r_show_led_buf[2]=0x10;}
+        if (r_KEY_BUF[0] == 0x04 && r_KEY_BUF[1] == 0)
+        {
+            r_temp2 = 0xA3;
+        }  // r_show_led_buf[3]=0x10;}
+        if (r_KEY_BUF[0] == 0x08 && r_KEY_BUF[1] == 0)
+            r_temp2 = 0xA4;
+        if (r_KEY_BUF[0] == 0x010 && r_KEY_BUF[1] == 0)
+            r_temp2 = 0xA5;
+        if (r_KEY_BUF[0] == 0x020 && r_KEY_BUF[1] == 0)
+            r_temp2 = 0xA6;
+        if (r_KEY_BUF[0] == 0x040 && r_KEY_BUF[1] == 0)
+            r_temp2 = 0xA7;
+        if (r_KEY_BUF[0] == 0x080 && r_KEY_BUF[1] == 0)
+            r_temp2 = 0xA8;
+        if (r_KEY_BUF[1] == 0x01 && r_KEY_BUF[0] == 0)
+            r_temp2 = 0xA9;
+        if (r_KEY_BUF[1] == 0x02 && r_KEY_BUF[0] == 0)
+            r_temp2 = 0xAA;
+        if (r_KEY_BUF[1] == 0x04 && r_KEY_BUF[0] == 0)
+            r_temp2 = 0xAB;
+        if (r_KEY_BUF[1] == 0x08 && r_KEY_BUF[0] == 0)
+            r_temp2 = 0xAC;
+        if (r_KEY_BUF[1] == 0x010 && r_KEY_BUF[0] == 0)
+            r_temp2 = 0xAD;
+        if (r_KEY_BUF[1] == 0x020 && r_KEY_BUF[0] == 0)
+            r_temp2 = 0xAE;
+        if (r_KEY_BUF[1] == 0x040 && r_KEY_BUF[0] == 0)
+            r_temp2 = 0xAF;
+        if (r_KEY_BUF[1] == 0x080 && r_KEY_BUF[0] == 0)
+            r_temp2 = 0xA0;
+        if (r_KEY_BUF[1] == 0 && r_KEY_BUF[0] == 0)
+        {
+            r_temp2 = 0x00;
+        }  // r_show_led_buf[1]=0x00;r_show_led_buf[2]=0x00;r_show_led_buf[3]=0x00;}
+
+        r_send_buf = r_temp2;
+    }
+    else
+    {
+        if (b_KEY_SEND == 0)
+            r_send_buf = r_temp2;  // åœ¨ä¸ä¼ è¾“çš„æ—¶æ®µ, æ›´æ–°æŒ‰é”®å€¼
+    }
+
+    //  æ˜¾ç¤ºæµ‹è¯• æŒ‰é”®å€¼
+    //	  r_show_buf[1]=r_temp2&0x0f;
+    //	  r_show_buf[0]=(r_temp2>>4)&0x0f;
+    //	  r_show_buf[2]=r_show_buf[0];
+    //	  r_show_buf[3]=r_show_buf[1];
+    //	  r_show_led_buf[0]=0x00;									// bit0(PA0): COM2;  bit1(PA1): COM3;  bit2(PA2):COM1;
+    //bit4(PA4):COM4
+    //	  //r_show_led_buf[1]=0x01;									// L7: COM2(PA0)  ,SEG2
+    //	  //r_show_led_buf[2]=0x10; 								// L14: COM4(PA4) ,SEG3
+    //	  //r_show_led_buf[3]=0x10; 								// L10: COM4(PA4) ,SEG4
+    //	  r_show_led_buf[4]=0x00;
+    //	  r_show_led_buf[5]=0x00;
 }

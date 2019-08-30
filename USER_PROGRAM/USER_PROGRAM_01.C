@@ -1,37 +1,107 @@
-#define _CCV3_  // ����C�������汾.. --CCG ע��
+#define _CCV3_  // 定义C编译器版本.. --CCG 注释
 
 #include "..\TKS_GLOBE_VARIES.H"
 #include "..\MAIN_PROGRAM_V100\MAIN_PROGRAM_V100.H"
 
+#include "user_type.h"
+
 #define uchar unsigned char
 #define uint unsigned int
+/*****key**************************/
+volatile _TKS_FLAGA_type keyTrg[2];
+volatile uchar k_count[2];
 
-volatile _TKS_FLAGA_type bitvar0;
+#define KEY1 keyTrg[0].bits.b2
+#define KEY2 keyTrg[0].bits.b3
+#define KEY3 keyTrg[0].bits.b1
 
-volatile uchar r_temp_bak, r_temp;
+#define KEY1Restain keyTrg[1].bits.b2
+#define KEY2Restain keyTrg[1].bits.b3
+#define KEY3Restain keyTrg[1].bits.b1
 
-#define KEY1 bitvar0.bits.b2
-#define KEY2 bitvar0.bits.b3
-#define KEY3 bitvar0.bits.b1
-
+#define keyNUM 4
+#define RESTAIN_TIMES 200  // 200 × 10ms = 2s
+uchar keyTime[keyNUM] = {0};
+/*****beep**************************/
 #define BEEP _pc0
 
+/*****led**************************/
 #define LED1 _pc4
 #define LED2 _pc5
 #define LED3 _pc6
 #define LED4 _pc7
 #define LED5 _pb3
 #define LED6 _pb4
-#define LED7_1 _pb5
-#define LED7_2 _pb6
+#define LED7 _pb5
+#define LED8 _pb6
+
+_USR_FLAGA_type ledState1;
+_USR_FLAGA_type ledState2;
+#define led1State ledState1.sbits.s0
+#define led2State ledState1.sbits.s1
+#define led3State ledState1.sbits.s2
+#define led4State ledState1.sbits.s3
+#define led5State ledState2.sbits.s0
+#define led6State ledState2.sbits.s1
+#define led7State ledState2.sbits.s2
+#define led8State ledState2.sbits.s3
 
 #define KEY4 _pb7
 
 #define IR _pa4
 
-unsigned char rxFlag     = 0;
-unsigned char rxBuff[10] = {0};
-unsigned char beepFlag   = 0;
+volatile _TKS_FLAGA_type bitFlag;
+
+#define beepFlag bitFlag.bits.b0
+#define rxFlag bitFlag.bits.b1
+#define txFlag bitFlag.bits.b2
+#define recOK bitFlag.bits.b3
+
+uchar rxBuff;
+uchar rxCount    = 0;
+uchar rxData[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0x0a};
+uchar txCount    = 0;
+
+void receiveUart(uchar data)
+{
+    // static uchar dataNum;
+    if ((rxCount == 0) && (data == 0xa5))
+    {
+        rxData[rxCount] = data;
+        rxCount++;
+    }
+    else if ((rxCount == 1) && (data == 0x53))
+    {
+        rxData[rxCount] = data;
+        //   dataNum         = rxData[rxCount] & 0x0f;
+        rxCount++;
+    }
+    else if (rxCount == 2)
+    {
+        rxData[rxCount] = data;
+        rxCount++;
+    }
+    else if (rxCount == 3)
+    {
+        rxData[rxCount] = data;
+        rxCount++;
+    }
+    else if (rxCount == 4)
+    {
+        rxData[rxCount] = data;
+        rxCount++;
+    }
+    else
+    {
+        rxCount = 0;
+    }
+
+    if (rxCount == 5)
+    {
+        rxCount = 0;
+        recOK   = 1;
+    }
+}
 
 //==============================================
 //**********************************************
@@ -111,10 +181,11 @@ void __attribute((interrupt(0x20))) Interrupt_TB1(void)
 
 void __attribute((interrupt(0x2c))) Interrupt_UART(void)
 {
-    LED5 = !LED5;
-
-    rxBuff[9]        = _usr;
-    rxBuff[rxFlag++] = _txr_rxr;
+    if (_rxif)
+    {
+        rxBuff = _txr_rxr;
+        receiveUart(rxBuff);
+    }
 }
 //==============================================
 //**********************************************
@@ -147,26 +218,25 @@ void USER_PROGRAM_INITIAL()
     _iicd   = 0x00;
     _iica   = 0x00;
 
-    _usr     = 0x00;
-    _ucr1    = 0x80;
-    _ucr2    = 0xe4;
-    _brg     = 0x67;
-    _txr_rxr = 0x00;
-    _uarte   = 1;
-
     _tmpc = 0x00;
 
     _ctrl = 0x00;
 
     _tbc |= 0xf0;
     _intc2 |= 0x01;
+
+    /******Data****************/
+    beepFlag = 1;
 }
 
 //==============================================
 //**********************************************
 //==============================================
+
 void USER_PROGRAM()
 {
+    uchar i;
+    uchar keyRestain = 0;
     if (TKS_63MSF)
     {
         if (beepFlag)
@@ -181,53 +251,79 @@ void USER_PROGRAM()
     if (SCAN_CYCLEF)
     {
         GET_KEY_BITMAP();
-        r_temp       = DATA_BUF[1];
-        bitvar0.byte = r_temp;
-
-        if (r_temp != r_temp_bak)
+        keyTrg[0].byte = DATA_BUF[1] & (DATA_BUF[1] ^ k_count[0]);
+        k_count[0]     = DATA_BUF[1];
+        if (keyTrg[0].byte)
         {
-            if (r_temp)
+            beepFlag = 1;
+        }
+
+        for (i = 0; i < keyNUM; i++)
+        {
+            if (k_count[0] & (1 << i))
             {
-                LED1 = 1;
-                LED2 = 1;
-                LED3 = 1;
-                LED4 = 1;
-                // BEEP = 1;
+                if (keyTime[i] < RESTAIN_TIMES)
+                    keyTime[i]++;
+                else
+                    keyRestain |= (1 << i);
             }
             else
             {
-                LED1 = 0;
-                LED2 = 0;
-                LED3 = 0;
-                LED4 = 0;
-                //   BEEP = 0;
-            }
+                // if (keyTime[i] > 0)  // short press
+                //     Key_Up_Trg |= (1 << i);
+                // else
+                //     Key_Up_Trg &= (~(1 << i));
 
-            if (KEY1)
-            {
-                beepFlag = 1;
-                LED5     = !LED5;
-            }
-            if (KEY2)
-            {
-                beepFlag = 1;
-                LED6     = !LED6;
-            }
-            if (KEY3)
-            {
-                beepFlag = 1;
-                LED7_1   = !LED7_1;
-                LED7_2   = !LED7_2;
-            }
-            r_temp_bak = r_temp;
-
-            while (rxFlag)
-            {
-                while (!_txif)
-                    ;
-                _txr_rxr = rxBuff[--rxFlag];
-                /* code */
+                keyTime[i] = 0;
+                keyRestain &= (~(1 << i));
             }
         }
+        keyTrg[1].byte = keyRestain & (keyRestain ^ k_count[1]);
+        k_count[1]     = keyRestain;
+        if (keyTrg[1].byte)
+        {
+            beepFlag = 1;
+        }
+    }
+}
+
+void USER_UART_INITIAL()
+{
+    /********uart**************/
+    _usr     = 0x00;
+    _ucr1    = 0x80;
+    _ucr2    = 0xe4;
+    _brg     = 0x67;
+    _txr_rxr = 0x00;
+    _uarte   = 1;
+}
+
+void USER_UART()
+{
+    if (recOK)
+    {
+        txCount = 4;
+        recOK   = 0;
+    }
+    /********数据发送*********/
+    if (txCount && _txif)
+    {
+        if (txCount == 4)
+        {
+            _txr_rxr = 0xa5;
+        }
+        else if (txCount == 3)
+        {
+            _txr_rxr = 0x52;
+        }
+        else if (txCount == 2)
+        {
+            _txr_rxr = k_count[0];
+        }
+        else if (txCount == 1)
+        {
+            _txr_rxr = k_count[1];
+        }
+        txCount--;
     }
 }
