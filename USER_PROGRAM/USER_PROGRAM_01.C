@@ -59,6 +59,7 @@ volatile _TKS_FLAGA_type bitFlag;
 uchar rxBuff;
 uchar rxCount    = 0;
 uchar rxData[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0x0a};
+uchar txBuff[10] = {0};
 uchar txCount    = 0;
 
 void receiveUart(uchar data)
@@ -284,39 +285,67 @@ void USER_UART_INITIAL()
     _usr   = 0x00;
     _ucr1  = 0x80;
     _ucr2  = 0xe4;
-    _brg   = 0x67;
+    _brg   = 0x19;
     _uarte = 1;
 }
 
 void USER_UART()
 {
+    uchar i;
     if (recOK)
     {
-        txCount        = 4;
         ledState1.byte = rxData[2];
         ledState2.byte = rxData[3];
         recOK          = 0;
     }
     /********数据发送*********/
-    if (txCount && _txif)
+    if (TKS_63MSF)
+    {
+        txCount = 4;
+    }
+    if (txCount /*&& _txif*/)
     {
         if (txCount == 4)
         {
-            _txr_rxr = 0xa5;
+            txBuff[3] = 0xa5;
+            txBuff[2] = 0x52;
+            txBuff[1] = k_count[0];
+            txBuff[0] = k_count[1];
         }
-        else if (txCount == 3)
+        for (i = 0; i < txCount; i++)
         {
-            _txr_rxr = 0x52;
+            if (_txif)
+            {
+                _txr_rxr = txBuff[txCount - 1 - i];
+                txCount--;
+            }
+            else
+            {
+                break;
+            }
         }
-        else if (txCount == 2)
-        {
-            _txr_rxr = k_count[0];
-        }
-        else if (txCount == 1)
-        {
-            _txr_rxr = k_count[1];
-        }
-        txCount--;
+        // txCount = 0;
+        // if (txCount == 4)
+        // {
+        //     _txr_rxr = 0xa5;
+        // }
+        // else if (txCount == 3)
+        // {
+        //     _txr_rxr = 0x52;
+        // }
+        // else if (txCount == 2)
+        // {
+        //     _txr_rxr = k_count[0];
+        // }
+        // else if (txCount == 1)
+        // {
+        //     _txr_rxr = k_count[1];
+        // }
+        // else
+        // {
+        //     txCount = 0;
+        // }
+        // txCount--;
     }
 }
 void USER_LED_INITIAL()
