@@ -65,12 +65,12 @@ uchar txCount    = 0;
 void receiveUart(uchar data)
 {
     // static uchar dataNum;
-    if ((rxCount == 0) && (data == 0xa5))
+    if ((rxCount == 0) && (data == 0xa7))
     {
         rxData[rxCount] = data;
         rxCount++;
     }
-    else if ((rxCount == 1) && (data == 0x53))
+    else if ((rxCount == 1) && (data == 0xf3))
     {
         rxData[rxCount] = data;
         //   dataNum         = rxData[rxCount] & 0x0f;
@@ -307,8 +307,8 @@ void USER_UART()
     {
         if (txCount == 4)
         {
-            txBuff[3] = 0xa5;
-            txBuff[2] = 0x52;
+            txBuff[3] = 0xa7;
+            txBuff[2] = 0xf2;
             txBuff[1] = k_count[0];
             txBuff[0] = k_count[1];
         }
