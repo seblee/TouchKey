@@ -64,42 +64,46 @@ uchar txCount    = 0;
 
 void receiveUart(uchar data)
 {
-    // static uchar dataNum;
+    static uchar checkSum;
     if ((rxCount == 0) && (data == 0xa7))
     {
         rxData[rxCount] = data;
+        checkSum        = data;
         rxCount++;
     }
     else if ((rxCount == 1) && (data == 0xf3))
     {
         rxData[rxCount] = data;
-        //   dataNum         = rxData[rxCount] & 0x0f;
+        checkSum += data;
         rxCount++;
     }
     else if (rxCount == 2)
     {
         rxData[rxCount] = data;
+        checkSum += data;
         rxCount++;
     }
     else if (rxCount == 3)
     {
         rxData[rxCount] = data;
+        checkSum += data;
         rxCount++;
     }
     else if (rxCount == 4)
     {
         rxData[rxCount] = data;
+        checkSum += data;
         rxCount++;
+    }
+    else if ((rxCount == 5) && (checkSum == data))
+    {
+        rxCount  = 0;
+        recOK    = 1;
+        checkSum = 0;
     }
     else
     {
         rxCount = 0;
-    }
-
-    if (rxCount == 5)
-    {
-        rxCount = 0;
-        recOK   = 1;
     }
 }
 
@@ -301,16 +305,21 @@ void USER_UART()
     /********数据发送*********/
     if (TKS_63MSF)
     {
-        txCount = 4;
+        txCount = 5;
     }
     if (txCount /*&& _txif*/)
     {
-        if (txCount == 4)
+        if (txCount == 5)
         {
-            txBuff[3] = 0xa7;
-            txBuff[2] = 0xf2;
-            txBuff[1] = k_count[0];
-            txBuff[0] = k_count[1];
+            txBuff[4] = 0xa7;
+            txBuff[3] = 0xf2;
+            txBuff[2] = k_count[0];
+            txBuff[1] = k_count[1];
+            txBuff[0] = 0;
+            txBuff[0] += txBuff[4];
+            txBuff[0] += txBuff[3];
+            txBuff[0] += txBuff[2];
+            txBuff[0] += txBuff[1];
         }
         for (i = 0; i < txCount; i++)
         {
