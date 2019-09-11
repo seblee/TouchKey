@@ -14,14 +14,19 @@ volatile uchar k_count[2];
 #define KEY1 keyTrg[0].bits.b2
 #define KEY2 keyTrg[0].bits.b3
 #define KEY3 keyTrg[0].bits.b1
+#define KEY4 keyTrg[0].bits.b0
 
 #define KEY1Restain keyTrg[1].bits.b2
 #define KEY2Restain keyTrg[1].bits.b3
 #define KEY3Restain keyTrg[1].bits.b1
+#define KEY4Restain keyTrg[1].bits.b0
 
 #define keyNUM 4
 #define RESTAIN_TIMES 200  // 200 × 10ms = 2s
 uchar keyTime[keyNUM] = {0};
+uchar keyData         = 0;
+#define _pin_Pb7 _pb7
+#define T_S _pb0
 /*****beep**************************/
 #define BEEP _pc0
 
@@ -37,6 +42,7 @@ uchar keyTime[keyNUM] = {0};
 
 _USR_FLAGA_type ledState1;
 _USR_FLAGA_type ledState2;
+_USR_FLAGA_type ledState3;
 #define led1State ledState1.sbits.s0
 #define led2State ledState1.sbits.s1
 #define led3State ledState1.sbits.s2
@@ -45,8 +51,7 @@ _USR_FLAGA_type ledState2;
 #define led6State ledState2.sbits.s1
 #define led7State ledState2.sbits.s2
 #define led8State ledState2.sbits.s3
-
-#define KEY4 _pb7
+#define led9State ledState3.sbits.s0
 
 volatile _TKS_FLAGA_type bitFlag;
 
@@ -55,6 +60,7 @@ volatile _TKS_FLAGA_type bitFlag;
 #define txFlag bitFlag.bits.b2
 #define recOK bitFlag.bits.b3
 #define flashFlag bitFlag.bits.b4
+#define b_pin_Pb7 bitFlag.bits.b5
 
 uchar rxBuff;
 uchar rxCount    = 0;
@@ -196,10 +202,6 @@ void __attribute((interrupt(0x2c))) Interrupt_UART(void)
 //==============================================
 void USER_PROGRAM_INITIAL()
 {
-    // _pac  = 0b11111111;
-    // _papu = 0b11111111;
-    // _pa   = 0b11111111;
-
     _lvdc = 0x00;
 
     _sledc0 = 0xff;
@@ -247,8 +249,36 @@ void USER_PROGRAM()
     if (SCAN_CYCLEF)
     {
         GET_KEY_BITMAP();
-        keyTrg[0].byte = DATA_BUF[1] & (DATA_BUF[1] ^ k_count[0]);
-        k_count[0]     = DATA_BUF[1];
+        // keyData = DATA_BUF[1];
+
+        if (T_S)
+        {
+            keyData &= 0xf8;
+            keyData |= DATA_BUF[1] & 0xf2;
+            keyData |= ((DATA_BUF[1] >> 2) & 0x01);
+
+            if (_pin_Pb7 == b_pin_Pb7)
+            {
+                if (b_pin_Pb7)
+                    keyData &= 0xf7;
+                else
+                {
+                    keyData |= 0x08;
+                }
+            }
+            else
+            {
+                b_pin_Pb7 = _pin_Pb7;
+            }
+        }
+        else
+        {
+            keyData = DATA_BUF[1];
+        }
+
+        keyTrg[0].byte = keyData & (keyData ^ k_count[0]);
+        k_count[0]     = keyData;
+
         if (keyTrg[0].byte)
         {
             beepFlag = 1;
@@ -295,11 +325,12 @@ void USER_UART_INITIAL()
 
 void USER_UART()
 {
-    uchar i;
+    // uchar i;
     if (recOK)
     {
         ledState1.byte = rxData[2];
         ledState2.byte = rxData[3];
+        ledState3.byte = rxData[4];
         recOK          = 0;
     }
     /********数据发送*********/
@@ -307,62 +338,31 @@ void USER_UART()
     {
         txCount = 5;
     }
-    if (txCount /*&& _txif*/)
+    if (txCount && _txif)
     {
         if (txCount == 5)
         {
-            txBuff[4] = 0xa7;
-            txBuff[3] = 0xf2;
+            txBuff[0] = 0xa7;
+            txBuff[1] = 0xf2;
             txBuff[2] = k_count[0];
-            txBuff[1] = k_count[1];
-            txBuff[0] = 0;
-            txBuff[0] += txBuff[4];
-            txBuff[0] += txBuff[3];
-            txBuff[0] += txBuff[2];
-            txBuff[0] += txBuff[1];
+            txBuff[3] = k_count[1];
+            txBuff[4] = 0;
+            txBuff[4] += txBuff[0];
+            txBuff[4] += txBuff[1];
+            txBuff[4] += txBuff[2];
+            txBuff[4] += txBuff[3];
         }
-        for (i = 0; i < txCount; i++)
-        {
-            if (_txif)
-            {
-                _txr_rxr = txBuff[txCount - 1 - i];
-                txCount--;
-            }
-            else
-            {
-                break;
-            }
-        }
-        // txCount = 0;
-        // if (txCount == 4)
-        // {
-        //     _txr_rxr = 0xa5;
-        // }
-        // else if (txCount == 3)
-        // {
-        //     _txr_rxr = 0x52;
-        // }
-        // else if (txCount == 2)
-        // {
-        //     _txr_rxr = k_count[0];
-        // }
-        // else if (txCount == 1)
-        // {
-        //     _txr_rxr = k_count[1];
-        // }
-        // else
-        // {
-        //     txCount = 0;
-        // }
-        // txCount--;
+
+        _txr_rxr = txBuff[5 - txCount];
+        txCount--;
     }
 }
 void USER_LED_INITIAL()
 {
-    /********LED**************/
-    _pbc  = 0b10000000;
-    _pbpu = 0b10000000;
-    _pb   = 0b00000000;
+    /******KEY**LED**************/
+    _pbc  = 0b10000001;
+    _pbpu = 0b10000001;
+    _pb   = 0b10000001;
 
     _pcc  = 0b00001110;
     _pcpu = 0b00000000;
@@ -386,97 +386,114 @@ void USER_LED()
         {
             LED1 = 1;
         }
+        else if (led1State == 1)
+        {
+            LED1 = 0;
+        }
+        else if (led1State == 2)
+        {
+            LED1 = flashFlag;
+        }
         if (led2State == 0)
         {
             LED2 = 1;
+        }
+        else if (led2State == 1)
+        {
+            LED2 = 0;
+        }
+        else if (led2State == 2)
+        {
+            LED2 = flashFlag;
         }
         if (led3State == 0)
         {
             LED3 = 1;
         }
+        else if (led3State == 1)
+        {
+            LED3 = 0;
+        }
+        else if (led3State == 2)
+        {
+            LED3 = flashFlag;
+        }
         if (led4State == 0)
         {
             LED4 = 1;
         }
-        if (led5State == 0)
+        else if (led4State == 1)
         {
-            LED5 = 1;
+            LED4 = 0;
         }
+        else if (led4State == 2)
+        {
+            LED4 = flashFlag;
+        }
+        if (T_S)
+        {
+            if (led9State == 0)
+            {
+                LED5 = 1;
+            }
+            else if (led9State == 1)
+            {
+                LED5 = 0;
+            }
+            else if (led9State == 2)
+            {
+                LED5 = flashFlag;
+            }
+        }
+        else
+        {
+            if (led5State == 0)
+            {
+                LED5 = 1;
+            }
+            else if (led5State == 1)
+            {
+                LED5 = 0;
+            }
+            else if (led5State == 2)
+            {
+                LED5 = flashFlag;
+            }
+        }
+
         if (led6State == 0)
         {
             LED6 = 1;
+        }
+        else if (led6State == 1)
+        {
+            LED6 = 0;
+        }
+        else if (led6State == 2)
+        {
+            LED6 = flashFlag;
         }
         if (led7State == 0)
         {
             LED7 = 1;
         }
+        else if (led7State == 1)
+        {
+            LED7 = 0;
+        }
+        else if (led7State == 2)
+        {
+            LED7 = flashFlag;
+        }
         if (led8State == 0)
         {
             LED8 = 1;
         }
-
-        if (led1State == 1)
-        {
-            LED1 = 0;
-        }
-        if (led2State == 1)
-        {
-            LED2 = 0;
-        }
-        if (led3State == 1)
-        {
-            LED3 = 0;
-        }
-        if (led4State == 1)
-        {
-            LED4 = 0;
-        }
-        if (led5State == 1)
-        {
-            LED5 = 0;
-        }
-        if (led6State == 1)
-        {
-            LED6 = 0;
-        }
-        if (led7State == 1)
-        {
-            LED7 = 0;
-        }
-        if (led8State == 1)
+        else if (led8State == 1)
         {
             LED8 = 0;
         }
-
-        if (led1State == 2)
-        {
-            LED1 = flashFlag;
-        }
-        if (led2State == 2)
-        {
-            LED2 = flashFlag;
-        }
-        if (led3State == 2)
-        {
-            LED3 = flashFlag;
-        }
-        if (led4State == 2)
-        {
-            LED4 = flashFlag;
-        }
-        if (led5State == 2)
-        {
-            LED5 = flashFlag;
-        }
-        if (led6State == 2)
-        {
-            LED6 = flashFlag;
-        }
-        if (led7State == 2)
-        {
-            LED7 = flashFlag;
-        }
-        if (led8State == 2)
+        else if (led8State == 2)
         {
             LED8 = flashFlag;
         }
