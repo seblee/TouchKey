@@ -461,18 +461,6 @@ void USER_LED()
             }
         }
 
-        if (led6State == 0)
-        {
-            LED6 = 1;
-        }
-        else if (led6State == 1)
-        {
-            LED6 = 0;
-        }
-        else if (led6State == 2)
-        {
-            LED6 = flashFlag;
-        }
         if (led7State == 0)
         {
             LED7 = 1;
@@ -496,6 +484,21 @@ void USER_LED()
         else if (led8State == 2)
         {
             LED8 = flashFlag;
+        }
+    }
+    if (TKS_250MSF)
+    {
+        if (led6State == 0)
+        {
+            LED6 = 1;
+        }
+        else if (led6State == 1)
+        {
+            LED6 = 0;
+        }
+        else if (led6State == 2)
+        {
+            LED6 = ~LED6;
         }
     }
 }
