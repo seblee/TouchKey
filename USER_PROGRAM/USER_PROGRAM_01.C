@@ -29,7 +29,7 @@ uchar keyData         = 0;
 #define T_S _pb0
 /*****beep**************************/
 #define BEEP _pc0
-
+uchar beepCount = 1;
 /*****led**************************/
 #define LED1 _pc4
 #define LED2 _pc5
@@ -40,27 +40,27 @@ uchar keyData         = 0;
 #define LED7 _pb5
 #define LED8 _pb6
 
-_USR_FLAGA_type ledState1;
-_USR_FLAGA_type ledState2;
-_USR_FLAGA_type ledState3;
-#define led1State ledState1.sbits.s0
-#define led2State ledState1.sbits.s1
-#define led3State ledState1.sbits.s2
-#define led4State ledState1.sbits.s3
-#define led5State ledState2.sbits.s0
-#define led6State ledState2.sbits.s1
-#define led7State ledState2.sbits.s2
-#define led8State ledState2.sbits.s3
-#define led9State ledState3.sbits.s0
+_USR_FLAGA_type ledState[5];
+#define led1State ledState[0].s4bits.s0
+#define led2State ledState[0].s4bits.s1
+#define led3State ledState[1].s4bits.s0
+#define led4State ledState[1].s4bits.s1
+#define led5State ledState[2].s4bits.s0
+#define led6State ledState[2].s4bits.s1
+#define led7State ledState[3].s4bits.s0
+#define led8State ledState[3].s4bits.s1
+#define led9State ledState[4].s4bits.s0
 
 volatile _TKS_FLAGA_type bitFlag;
 
 #define beepFlag bitFlag.bits.b0
-#define rxFlag bitFlag.bits.b1
-#define txFlag bitFlag.bits.b2
+#define beepON bitFlag.bits.b1
+#define beepOFF bitFlag.bits.b2
 #define recOK bitFlag.bits.b3
-#define flashFlag bitFlag.bits.b4
-#define b_pin_Pb7 bitFlag.bits.b5
+#define flashFlag_0_5HZ bitFlag.bits.b4
+#define flashFlag_1HZ bitFlag.bits.b5
+#define flashFlag_2HZ bitFlag.bits.b6
+#define b_pin_Pb7 bitFlag.bits.b7
 
 uchar rxBuff;
 uchar rxCount    = 0;
@@ -70,42 +70,39 @@ uchar txCount    = 0;
 
 void receiveUart(uchar data)
 {
-    static uchar checkSum;
+    static uchar checkSum, ucount;
     if ((rxCount == 0) && (data == 0xa7))
     {
         rxData[rxCount] = data;
         checkSum        = data;
         rxCount++;
     }
-    else if ((rxCount == 1) && (data == 0xf3))
+    else if ((rxCount == 1) && ((data & 0xf0) == 0xf0))
     {
         rxData[rxCount] = data;
         checkSum += data;
         rxCount++;
+        ucount = data & 0x0f;
     }
-    else if (rxCount == 2)
+    else if (rxCount >= 2)
     {
-        rxData[rxCount] = data;
-        checkSum += data;
-        rxCount++;
-    }
-    else if (rxCount == 3)
-    {
-        rxData[rxCount] = data;
-        checkSum += data;
-        rxCount++;
-    }
-    else if (rxCount == 4)
-    {
-        rxData[rxCount] = data;
-        checkSum += data;
-        rxCount++;
-    }
-    else if ((rxCount == 5) && (checkSum == data))
-    {
-        rxCount  = 0;
-        recOK    = 1;
-        checkSum = 0;
+        if (ucount > 0)
+        {
+            rxData[rxCount] = data;
+            checkSum += data;
+            rxCount++;
+            ucount--;
+        }
+        else if ((ucount == 0) && (checkSum == data))
+        {
+            rxCount  = 0;
+            recOK    = 1;
+            checkSum = 0;
+        }
+        else
+        {
+            rxCount = 0;
+        }
     }
     else
     {
@@ -224,7 +221,8 @@ void USER_PROGRAM_INITIAL()
     _intc2 |= 0x01;
 
     /******Data****************/
-    beepFlag = 1;
+    beepCount = 1;
+    // BEEP     = 1;
 }
 
 //==============================================
@@ -237,13 +235,26 @@ void USER_PROGRAM()
     uchar keyRestain = 0;
     if (TKS_63MSF)
     {
-        if (beepFlag)
+        if (beepON)
         {
-            BEEP     = 1;
-            beepFlag = 0;
+            beepFlag  = 1;
+            BEEP      = 1;
+            beepCount = 0;
         }
         else
-            BEEP = 0;
+        {
+            if (beepFlag)
+            {
+                beepFlag = 0;
+                BEEP     = 0;
+            }
+            else if (beepCount)
+            {
+                beepCount--;
+                beepFlag = 1;
+                BEEP     = 1;
+            }
+        }
     }
 
     if (SCAN_CYCLEF)
@@ -281,7 +292,7 @@ void USER_PROGRAM()
 
         if (keyTrg[0].byte)
         {
-            beepFlag = 1;
+            beepCount++;
         }
 
         for (i = 0; i < keyNUM; i++)
@@ -308,7 +319,7 @@ void USER_PROGRAM()
         k_count[1]     = keyRestain;
         if (keyTrg[1].byte)
         {
-            beepFlag = 1;
+            beepCount++;
         }
     }
 }
@@ -328,15 +339,21 @@ void USER_UART()
     // uchar i;
     if (recOK)
     {
-        ledState1.byte = rxData[2];
-        ledState2.byte = rxData[3];
-        ledState3.byte = rxData[4];
-        recOK          = 0;
+        ledState[0].byte = rxData[2];
+        ledState[1].byte = rxData[3];
+        ledState[2].byte = rxData[4];
+        ledState[3].byte = rxData[5];
+        ledState[4].byte = rxData[6];
+        beepON           = ((rxData[7] & 0xf0) > 0);
+        beepCount += rxData[7] & 0x0f;
+        recOK = 0;
+        if (txCount == 0)
+            txCount = 5;
     }
     /********数据发送*********/
     if (TKS_63MSF)
     {
-        txCount = 5;
+        // txCount = 5;
     }
     if (txCount && _txif)
     {
@@ -367,138 +384,266 @@ void USER_LED_INITIAL()
     _pcc  = 0b00001110;
     _pcpu = 0b00000000;
     _pc   = 0b00000000;
+
+    LED1 = LED_ON;
+    LED2 = LED_ON;
+    LED3 = LED_ON;
+    LED4 = LED_ON;
+    LED5 = LED_ON;
+    LED6 = LED_ON;
+    LED7 = LED_ON;
+    LED8 = LED_ON;
 }
 
 void USER_LED()
 {
-    if (TKS_500MSF)
     {
-        if (flashFlag)
+        if (led1State == STATE_LED_OFF)
         {
-            flashFlag = 0;
+            LED1 = LED_OFF;
         }
-        else
+        if (led2State == STATE_LED_OFF)
         {
-            flashFlag = 1;
+            LED2 = LED_OFF;
         }
-
-        if (led1State == 0)
+        if (led3State == STATE_LED_OFF)
         {
-            LED1 = 1;
+            LED3 = LED_OFF;
         }
-        else if (led1State == 1)
+        if (led4State == STATE_LED_OFF)
         {
-            LED1 = 0;
-        }
-        else if (led1State == 2)
-        {
-            LED1 = flashFlag;
-        }
-        if (led2State == 0)
-        {
-            LED2 = 1;
-        }
-        else if (led2State == 1)
-        {
-            LED2 = 0;
-        }
-        else if (led2State == 2)
-        {
-            LED2 = flashFlag;
-        }
-        if (led3State == 0)
-        {
-            LED3 = 1;
-        }
-        else if (led3State == 1)
-        {
-            LED3 = 0;
-        }
-        else if (led3State == 2)
-        {
-            LED3 = flashFlag;
-        }
-        if (led4State == 0)
-        {
-            LED4 = 1;
-        }
-        else if (led4State == 1)
-        {
-            LED4 = 0;
-        }
-        else if (led4State == 2)
-        {
-            LED4 = flashFlag;
+            LED4 = LED_OFF;
         }
         if (T_S)
         {
-            if (led9State == 0)
+            if (led9State == STATE_LED_OFF)
             {
-                LED5 = 1;
-            }
-            else if (led9State == 1)
-            {
-                LED5 = 0;
-            }
-            else if (led9State == 2)
-            {
-                LED5 = flashFlag;
+                LED5 = LED_OFF;
             }
         }
         else
         {
-            if (led5State == 0)
+            if (led5State == STATE_LED_OFF)
             {
-                LED5 = 1;
+                LED5 = LED_OFF;
             }
-            else if (led5State == 1)
-            {
-                LED5 = 0;
-            }
-            else if (led5State == 2)
-            {
-                LED5 = flashFlag;
-            }
+        }
+        if (led6State == STATE_LED_OFF)
+        {
+            LED6 = LED_OFF;
+        }
+        if (led7State == STATE_LED_OFF)
+        {
+            LED7 = LED_OFF;
+        }
+        if (led8State == STATE_LED_OFF)
+        {
+            LED8 = LED_OFF;
         }
 
-        if (led7State == 0)
+        if (led1State == STATE_LED_ON)
         {
-            LED7 = 1;
+            LED1 = LED_ON;
         }
-        else if (led7State == 1)
+        if (led2State == STATE_LED_ON)
         {
-            LED7 = 0;
+            LED2 = LED_ON;
         }
-        else if (led7State == 2)
+        if (led3State == STATE_LED_ON)
         {
-            LED7 = flashFlag;
+            LED3 = LED_ON;
         }
-        if (led8State == 0)
+        if (led4State == STATE_LED_ON)
         {
-            LED8 = 1;
+            LED4 = LED_ON;
         }
-        else if (led8State == 1)
+        if (T_S)
         {
-            LED8 = 0;
+            if (led9State == STATE_LED_ON)
+            {
+                LED5 = LED_ON;
+            }
         }
-        else if (led8State == 2)
+        else
         {
-            LED8 = flashFlag;
+            if (led5State == STATE_LED_ON)
+            {
+                LED5 = LED_ON;
+            }
+        }
+        if (led6State == STATE_LED_ON)
+        {
+            LED6 = LED_ON;
+        }
+        if (led7State == STATE_LED_ON)
+        {
+            LED7 = LED_ON;
+        }
+        if (led8State == STATE_LED_ON)
+        {
+            LED8 = LED_ON;
         }
     }
+
     if (TKS_250MSF)
     {
-        if (led6State == 0)
+        if (flashFlag_2HZ)
         {
-            LED6 = 1;
+            flashFlag_2HZ = 0;
         }
-        else if (led6State == 1)
+        else
         {
-            LED6 = 0;
+            flashFlag_2HZ = 1;
         }
-        else if (led6State == 2)
+        if (led1State == STATE_LED_FLASH_2HZ)
         {
-            LED6 = ~LED6;
+            LED1 = flashFlag_2HZ;
+        }
+        if (led2State == STATE_LED_FLASH_2HZ)
+        {
+            LED2 = flashFlag_2HZ;
+        }
+        if (led3State == STATE_LED_FLASH_2HZ)
+        {
+            LED3 = flashFlag_2HZ;
+        }
+        if (led4State == STATE_LED_FLASH_2HZ)
+        {
+            LED4 = flashFlag_2HZ;
+        }
+        if (T_S)
+        {
+            if (led9State == STATE_LED_FLASH_2HZ)
+            {
+                LED5 = flashFlag_2HZ;
+            }
+        }
+        else
+        {
+            if (led5State == STATE_LED_FLASH_2HZ)
+            {
+                LED5 = flashFlag_2HZ;
+            }
+        }
+        if (led6State == STATE_LED_FLASH_2HZ)
+        {
+            LED6 = flashFlag_2HZ;
+        }
+        if (led7State == STATE_LED_FLASH_2HZ)
+        {
+            LED7 = flashFlag_2HZ;
+        }
+        if (led8State == STATE_LED_FLASH_2HZ)
+        {
+            LED8 = flashFlag_2HZ;
+        }
+    }
+
+    if (TKS_500MSF)
+    {
+        if (flashFlag_1HZ)
+        {
+            flashFlag_1HZ = 0;
+        }
+        else
+        {
+            flashFlag_1HZ = 1;
+        }
+        if (led1State == STATE_LED_FLASH_1HZ)
+        {
+            LED1 = flashFlag_1HZ;
+        }
+        if (led2State == STATE_LED_FLASH_1HZ)
+        {
+            LED2 = flashFlag_1HZ;
+        }
+        if (led3State == STATE_LED_FLASH_1HZ)
+        {
+            LED3 = flashFlag_1HZ;
+        }
+        if (led4State == STATE_LED_FLASH_1HZ)
+        {
+            LED4 = flashFlag_1HZ;
+        }
+        if (T_S)
+        {
+            if (led9State == STATE_LED_FLASH_1HZ)
+            {
+                LED5 = flashFlag_1HZ;
+            }
+        }
+        else
+        {
+            if (led5State == STATE_LED_FLASH_1HZ)
+            {
+                LED5 = flashFlag_1HZ;
+            }
+        }
+        if (led6State == STATE_LED_FLASH_1HZ)
+        {
+            LED6 = flashFlag_1HZ;
+        }
+        if (led7State == STATE_LED_FLASH_1HZ)
+        {
+            LED7 = flashFlag_1HZ;
+        }
+        if (led8State == STATE_LED_FLASH_1HZ)
+        {
+            LED8 = flashFlag_1HZ;
+        }
+
+        if (flashFlag_1HZ)
+        {
+            if (flashFlag_0_5HZ)
+            {
+                flashFlag_0_5HZ = 0;
+            }
+            else
+            {
+                flashFlag_0_5HZ = 1;
+            }
+            if (led1State == STATE_LED_FLASH_0_5HZ)
+            {
+                LED1 = flashFlag_0_5HZ;
+            }
+            if (led2State == STATE_LED_FLASH_0_5HZ)
+            {
+                LED2 = flashFlag_0_5HZ;
+            }
+            if (led3State == STATE_LED_FLASH_0_5HZ)
+            {
+                LED3 = flashFlag_0_5HZ;
+            }
+            if (led4State == STATE_LED_FLASH_0_5HZ)
+            {
+                LED4 = flashFlag_0_5HZ;
+            }
+            if (T_S)
+            {
+                if (led9State == STATE_LED_FLASH_0_5HZ)
+                {
+                    LED5 = flashFlag_0_5HZ;
+                }
+            }
+            else
+            {
+                if (led5State == STATE_LED_FLASH_0_5HZ)
+                {
+                    LED5 = flashFlag_0_5HZ;
+                }
+            }
+            if (led6State == STATE_LED_FLASH_0_5HZ)
+            {
+                LED6 = flashFlag_0_5HZ;
+            }
+            if (led7State == STATE_LED_FLASH_0_5HZ)
+            {
+                LED7 = flashFlag_0_5HZ;
+            }
+            if (led8State == STATE_LED_FLASH_0_5HZ)
+            {
+                LED8 = flashFlag_0_5HZ;
+            }
         }
     }
 }
