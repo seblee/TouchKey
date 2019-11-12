@@ -1,6 +1,8 @@
 #ifndef _USER_TYPE_H_
 #define _USER_TYPE_H_
 
+#define Version "03.00.01"
+
 typedef struct
 {
     unsigned char s0 : 2;

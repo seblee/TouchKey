@@ -347,13 +347,12 @@ void USER_UART()
         beepON           = ((rxData[7] & 0xf0) > 0);
         beepCount += rxData[7] & 0x0f;
         recOK = 0;
-        if (txCount == 0)
-            txCount = 5;
     }
     /********数据发送*********/
     if (TKS_63MSF)
     {
-        // txCount = 5;
+        if (txCount == 0)
+            txCount = 5;
     }
     if (txCount && _txif)
     {
